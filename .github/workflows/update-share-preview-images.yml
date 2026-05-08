@@ -1,0 +1,94 @@
+name: Update share preview images
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update-share-previews:
+    if: contains(github.event.head_commit.message, '[refresh-share-preview]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Patch social preview metadata
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          const pages = [
+            {
+              path: 'insights.html',
+              ogUrl: 'https://www.ek.co.th/insights.html',
+              image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&h=630&q=80',
+              alt: 'Data analytics dashboard and technology workspace for Elite Knight insights',
+              twitterTitle: 'Insights | Elite Knight Co., Ltd.',
+              twitterDescription: 'Thought leadership for technology and strategy.'
+            },
+            {
+              path: 'articles/data-governance-ai.html',
+              ogUrl: 'https://www.ek.co.th/articles/data-governance-ai.html',
+              image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&h=630&q=80',
+              alt: 'Data dashboard visual representing data governance for trustworthy AI',
+              twitterTitle: 'Data Governance ที่ดีคือจุดเริ่มต้นของ AI ที่เชื่อถือได้',
+              twitterDescription: 'Data Governance is the foundation for trustworthy AI.'
+            },
+            {
+              path: 'articles/cyber-resilience-executive-metrics.html',
+              ogUrl: 'https://www.ek.co.th/articles/cyber-resilience-executive-metrics.html',
+              image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&h=630&q=80',
+              alt: 'Cybersecurity operations visual representing cyber resilience metrics',
+              twitterTitle: 'Cyber Resilience วัดอย่างไรให้ผู้บริหารเข้าใจ',
+              twitterDescription: 'Turn cyber resilience into business metrics executives can act on.'
+            },
+            {
+              path: 'articles/digital-strategy-to-portfolio.html',
+              ogUrl: 'https://www.ek.co.th/articles/digital-strategy-to-portfolio.html',
+              image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&h=630&q=80',
+              alt: 'Strategy and portfolio planning workspace for digital transformation',
+              twitterTitle: 'จากแผนดิจิทัลสู่ Portfolio ที่ทำได้จริง',
+              twitterDescription: 'Turn digital strategy into an executable portfolio.'
+            }
+          ];
+
+          for (const page of pages) {
+            let html = fs.readFileSync(page.path, 'utf8');
+            html = html.replace(/^\s*<meta property="og:image(?::width|:height|:alt)?"[^>]*>\n/gm, '');
+            html = html.replace(/^\s*<meta name="twitter:(?:title|description|image|image:alt)"[^>]*>\n/gm, '');
+
+            const ogBlock = [
+              `    <meta property="og:image" content="${page.image}">`,
+              '    <meta property="og:image:width" content="1200">',
+              '    <meta property="og:image:height" content="630">',
+              `    <meta property="og:image:alt" content="${page.alt}">`
+            ].join('\n') + '\n';
+
+            const twitterBlock = [
+              `    <meta name="twitter:title" content="${page.twitterTitle}">`,
+              `    <meta name="twitter:description" content="${page.twitterDescription}">`,
+              `    <meta name="twitter:image" content="${page.image}">`,
+              `    <meta name="twitter:image:alt" content="${page.alt}">`
+            ].join('\n') + '\n';
+
+            html = html.replace(`    <meta property="og:url" content="${page.ogUrl}">\n`, `    <meta property="og:url" content="${page.ogUrl}">\n${ogBlock}`);
+            html = html.replace('    <meta name="twitter:card" content="summary_large_image">\n', `    <meta name="twitter:card" content="summary_large_image">\n${twitterBlock}`);
+            fs.writeFileSync(page.path, html);
+          }
+
+          fs.rmSync('.github/workflows/update-share-preview-images.yml');
+          NODE
+      - name: Commit updated preview metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add insights.html articles/data-governance-ai.html articles/cyber-resilience-executive-metrics.html articles/digital-strategy-to-portfolio.html .github/workflows/update-share-preview-images.yml
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update article share preview images"
+            git push
+          fi
