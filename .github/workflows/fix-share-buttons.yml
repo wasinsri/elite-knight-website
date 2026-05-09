@@ -1,0 +1,75 @@
+name: Fix share buttons
+
+on:
+  push:
+    paths:
+      - .github/share-fix-trigger.txt
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-share-buttons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update share button links
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          files = [
+              Path('assets/site.js'),
+              Path('insights.html'),
+              Path('articles/data-governance-ai.html'),
+              Path('articles/cyber-resilience-executive-metrics.html'),
+              Path('articles/digital-strategy-to-portfolio.html'),
+          ]
+
+          def write(path, text):
+              path.write_text(text, encoding='utf-8')
+
+          site = Path('assets/site.js')
+          text = site.read_text(encoding='utf-8')
+          start = text.find('const shareButtons = document.querySelectorAll(".share-button");')
+          end = text.find('function ensureArticleFooter() {')
+          if start != -1 and end != -1 and start < end:
+              text = text[:start] + text[end:]
+          text = text.replace('setupShareButtons();\n', '')
+          write(site, text)
+
+          replacements = {
+              'https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fdata-governance-ai.html&text=Data%20Governance%20for%20Trustworthy%20AI': 'https://x.com/intent/post?text=Data%20Governance%20for%20Trustworthy%20AI&url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fdata-governance-ai.html',
+              'https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fcyber-resilience-executive-metrics.html&text=Cyber%20Resilience%20Metrics%20for%20Executives': 'https://x.com/intent/post?text=Cyber%20Resilience%20Metrics%20for%20Executives&url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fcyber-resilience-executive-metrics.html',
+              'https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fdigital-strategy-to-portfolio.html&text=From%20Digital%20Strategy%20to%20Executable%20Portfolio': 'https://x.com/intent/post?text=From%20Digital%20Strategy%20to%20Executable%20Portfolio&url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fdigital-strategy-to-portfolio.html',
+          }
+
+          for path in files[1:]:
+              text = path.read_text(encoding='utf-8')
+              for old, new in replacements.items():
+                  text = text.replace(old, new)
+              write(path, text)
+
+          insights = Path('insights.html')
+          text = insights.read_text(encoding='utf-8')
+          card_replacements = {
+              '<a class="mt-5 inline-flex font-bold text-teal-700 hover:text-teal-900" href="articles/data-governance-ai.html">อ่านต่อ</a></div></article>': '<a class="mt-5 inline-flex font-bold text-teal-700 hover:text-teal-900" href="articles/data-governance-ai.html">อ่านต่อ</a><div class="mt-5 flex flex-wrap gap-2" aria-label="Share Data Governance article"><a class="share-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fdata-governance-ai.html" target="_blank" rel="noopener">LinkedIn</a><a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fdata-governance-ai.html" target="_blank" rel="noopener">Facebook</a><a class="share-button" href="https://x.com/intent/post?text=Data%20Governance%20for%20Trustworthy%20AI&url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fdata-governance-ai.html" target="_blank" rel="noopener">X</a></div></div></article>',
+              '<a class="mt-5 inline-flex font-bold text-teal-700 hover:text-teal-900" href="articles/cyber-resilience-executive-metrics.html">อ่านต่อ</a></div></article>': '<a class="mt-5 inline-flex font-bold text-teal-700 hover:text-teal-900" href="articles/cyber-resilience-executive-metrics.html">อ่านต่อ</a><div class="mt-5 flex flex-wrap gap-2" aria-label="Share Cyber Resilience article"><a class="share-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fcyber-resilience-executive-metrics.html" target="_blank" rel="noopener">LinkedIn</a><a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fcyber-resilience-executive-metrics.html" target="_blank" rel="noopener">Facebook</a><a class="share-button" href="https://x.com/intent/post?text=Cyber%20Resilience%20Metrics%20for%20Executives&url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fcyber-resilience-executive-metrics.html" target="_blank" rel="noopener">X</a></div></div></article>',
+              '<a class="mt-5 inline-flex font-bold text-teal-700 hover:text-teal-900" href="articles/digital-strategy-to-portfolio.html">อ่านต่อ</a></div></article>': '<a class="mt-5 inline-flex font-bold text-teal-700 hover:text-teal-900" href="articles/digital-strategy-to-portfolio.html">อ่านต่อ</a><div class="mt-5 flex flex-wrap gap-2" aria-label="Share Digital Portfolio article"><a class="share-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fdigital-strategy-to-portfolio.html" target="_blank" rel="noopener">LinkedIn</a><a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fdigital-strategy-to-portfolio.html" target="_blank" rel="noopener">Facebook</a><a class="share-button" href="https://x.com/intent/post?text=From%20Digital%20Strategy%20to%20Executable%20Portfolio&url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fdigital-strategy-to-portfolio.html" target="_blank" rel="noopener">X</a></div></div></article>',
+          }
+          for old, new in card_replacements.items():
+              text = text.replace(old, new)
+          write(insights, text)
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/site.js insights.html articles/*.html
+          if git diff --cached --quiet; then
+            echo "No share button changes needed."
+          else
+            git commit -m "Fix article share buttons"
+            git push
+          fi
