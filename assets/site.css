@@ -131,6 +131,7 @@ textarea:focus-visible {
 }
 
 .social-link,
+social-icon,
 .social-icon {
   align-items: center;
   border: 1px solid rgba(15, 118, 110, 0.22);
@@ -234,4 +235,21 @@ textarea:focus-visible {
 .article-prose li {
   color: #334155;
   line-height: 1.85;
+}
+
+.article-prose::after {
+  background: #020617;
+  border-radius: 0.5rem;
+  color: #cbd5e1;
+  content: "บริษัท เอลีท ไนท์ จำกัด\A Engineering the Future with Data and AI\A หน้าแรก · ความเชี่ยวชาญ · บริการ · คลังความรู้ · ติดต่อเรา\A เลขที่ 1/128 หมู่บ้านอิ่มอัมพร ซอยทวีวัฒนา 20 ถนนทวีวัฒนา แขวงศาลาธรรมสพน์ เขตทวีวัฒนา กรุงเทพมหานคร 10170\A เปิดบริการ: จันทร์ - ศุกร์ 9.00 - 17.30 น. · Mobile: 063-664-1555 · Email: info@ek.co.th";
+  display: none;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-top: 3rem;
+  padding: 1.25rem;
+  white-space: pre-line;
+}
+
+body:has(.article-prose):not(:has(footer)) .article-prose::after {
+  display: block;
 }
