@@ -10,6 +10,45 @@ const cookieBanner = document.querySelector("[data-cookie-banner]");
 const cookieAccept = document.querySelector("[data-cookie-accept]");
 const accordionButtons = document.querySelectorAll("[data-accordion-button]");
 
+function ensureArticleFooter() {
+  const isArticlePage = window.location.pathname.includes("/articles/") || window.location.pathname.includes("articles/");
+  if (!isArticlePage || document.querySelector("footer")) return;
+
+  const footer = document.createElement("footer");
+  footer.className = "bg-slate-950 py-12 text-slate-300";
+  footer.innerHTML = `
+      <div class="mx-auto grid max-w-7xl gap-8 px-5 md:grid-cols-3 lg:px-8">
+        <div>
+          <div class="flex items-center gap-3">
+            <img class="footer-mark" src="../assets/logo.jpg" alt="Elite Knight Co., Ltd. logo">
+            <p class="text-lg font-black text-white">บริษัท เอลีท ไนท์ จำกัด</p>
+          </div>
+          <p class="mt-3 text-sm leading-6">Engineering the Future with Data and AI</p>
+        </div>
+        <div class="grid gap-2 text-sm">
+          <a href="../index.html">หน้าแรก</a>
+          <a href="../about.html">ความเชี่ยวชาญ</a>
+          <a href="../services.html">บริการ</a>
+          <a href="../insights.html">คลังความรู้</a>
+          <a href="../contact.html">ติดต่อเรา</a>
+          <a href="../cookie-policy.html">นโยบายการใช้งานคุกกี้</a>
+          <div class="mt-2 flex gap-3">
+            <a class="social-icon" href="https://x.com/" target="_blank" rel="noopener" aria-label="Elite Knight on X">X</a>
+            <a class="social-icon" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Elite Knight on Facebook">f</a>
+            <a class="social-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="Elite Knight on LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="text-sm leading-7">
+          <p>เลขที่ 1/128 หมู่บ้านอิ่มอัมพร ซอยทวีวัฒนา 20 ถนนทวีวัฒนา แขวงศาลาธรรมสพน์ เขตทวีวัฒนา กรุงเทพมหานคร 10170</p>
+          <p>เปิดบริการ: จันทร์ - ศุกร์ 9.00 - 17.30 น.</p>
+          <p>Mobile: 063-664-1555</p>
+          <p>Email: info@ek.co.th</p>
+        </div>
+      </div>
+  `;
+  document.body.insertBefore(footer, document.querySelector("script[src$='site.js']"));
+}
+
 function applyLanguage(lang) {
   const selected = lang === "en" ? "en" : "th";
   document.documentElement.lang = selected;
@@ -80,4 +119,5 @@ if (contactForm && contactStatus) {
   });
 }
 
+ensureArticleFooter();
 applyLanguage(localStorage.getItem("ekLanguage") || "th");
