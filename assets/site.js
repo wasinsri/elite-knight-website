@@ -46,7 +46,22 @@ function ensureArticleFooter() {
         </div>
       </div>
   `;
-  document.body.insertBefore(footer, document.querySelector("script[src$='site.js']"));
+  const siteScript = document.querySelector("script[src*='site.js']");
+  if (siteScript && siteScript.parentNode === document.body) {
+    document.body.insertBefore(footer, siteScript);
+  } else {
+    document.body.appendChild(footer);
+  }
+}
+
+function scheduleArticleFooter() {
+  ensureArticleFooter();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", ensureArticleFooter, { once: true });
+  }
+  window.addEventListener("load", ensureArticleFooter, { once: true });
+  setTimeout(ensureArticleFooter, 250);
+  setTimeout(ensureArticleFooter, 1000);
 }
 
 function applyLanguage(lang) {
@@ -119,5 +134,5 @@ if (contactForm && contactStatus) {
   });
 }
 
-ensureArticleFooter();
+scheduleArticleFooter();
 applyLanguage(localStorage.getItem("ekLanguage") || "th");
