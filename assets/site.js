@@ -9,51 +9,6 @@ const contactStatus = document.querySelector("[data-contact-status]");
 const cookieBanner = document.querySelector("[data-cookie-banner]");
 const cookieAccept = document.querySelector("[data-cookie-accept]");
 const accordionButtons = document.querySelectorAll("[data-accordion-button]");
-const shareButtons = document.querySelectorAll(".share-button");
-
-function getShareUrl(link) {
-  try {
-    const linkUrl = new URL(link.href);
-    const sharedUrl = linkUrl.searchParams.get("url") || linkUrl.searchParams.get("u");
-    return sharedUrl || link.href;
-  } catch (error) {
-    return link.href;
-  }
-}
-
-function getShareText(link) {
-  try {
-    const linkUrl = new URL(link.href);
-    return linkUrl.searchParams.get("text") || document.title;
-  } catch (error) {
-    return document.title;
-  }
-}
-
-function setupShareButtons() {
-  shareButtons.forEach((button) => {
-    button.addEventListener("click", async (event) => {
-      const isTouchViewport = window.matchMedia("(max-width: 767px)").matches;
-      if (!isTouchViewport || !navigator.share) return;
-
-      event.preventDefault();
-      const shareData = {
-        title: document.title,
-        text: getShareText(button),
-        url: getShareUrl(button),
-      };
-
-      try {
-        await navigator.share(shareData);
-      } catch (error) {
-        if (error.name !== "AbortError") {
-          window.location.href = button.href;
-        }
-      }
-    });
-  });
-}
-
 function ensureArticleFooter() {
   const isArticlePage = window.location.pathname.includes("/articles/") || window.location.pathname.includes("articles/");
   if (!isArticlePage || document.querySelector("footer")) return;
@@ -178,6 +133,5 @@ if (contactForm && contactStatus) {
   });
 }
 
-setupShareButtons();
 scheduleArticleFooter();
 applyLanguage(localStorage.getItem("ekLanguage") || "th");
