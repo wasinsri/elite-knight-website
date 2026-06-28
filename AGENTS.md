@@ -3,6 +3,7 @@
 This repository is the static website for Elite Knight Co., Ltd. It is a multi-page corporate consulting site for Data, AI, Cybersecurity, Digital Excellence, Management Consulting, and Strategic PMO services.
 
 GitHub repository: `wasinsri/elite-knight-website`
+GitHub URL: `https://github.com/wasinsri/elite-knight-website`
 
 ## Project Shape
 
