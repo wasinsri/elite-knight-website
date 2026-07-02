@@ -23,6 +23,10 @@ function ensureArticleFooter() {
             <p class="text-lg font-black text-white">บริษัท เอลีท ไนท์ จำกัด</p>
           </div>
           <p class="mt-3 text-sm leading-6">Engineering the Future with Data and AI</p>
+          <div class="mt-2 flex gap-3">
+            <a class="social-icon" href="https://www.linkedin.com/company/elite-knight/" target="_blank" rel="noopener" aria-label="Elite Knight on LinkedIn">in</a>
+            <a class="social-icon" href="https://www.facebook.com/ek.co.th" target="_blank" rel="noopener" aria-label="Elite Knight on Facebook">f</a>
+          </div>
         </div>
         <div class="grid gap-2 text-sm">
           <a href="../index.html">หน้าแรก</a>
