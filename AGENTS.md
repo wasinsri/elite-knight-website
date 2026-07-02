@@ -60,6 +60,28 @@ GitHub URL: `https://github.com/wasinsri/elite-knight-website`
 - Keep cookie notice and cookie policy behavior consistent with `ekCookieConsent` in `localStorage`.
 - When adding new pages, include suitable metadata, navigation links if needed, footer links if needed, and language pairs for visible copy.
 
+## SEO And AI SEO Strategy
+
+- Treat SEO and AI SEO as first-class requirements for every content or page change.
+- Keep each page focused on one clear search intent and entity. Page titles should combine the topic, consulting category, market where useful, and brand name without keyword stuffing.
+- Write meta descriptions that state the service or article topic, audience, business outcome, and Thailand/Bangkok context when relevant.
+- Maintain entity consistency across all pages: `Elite Knight Co., Ltd.`, `บริษัท เอลีท ไนท์ จำกัด`, Mobile `063-664-1555`, email `info@ek.co.th`, address, and the positioning around Data, AI, Governance, Cybersecurity, Digital Trust, Digital Excellence, Management Consulting, Strategic PMO, and enterprise consulting.
+- Use structured data for machine-readable clarity:
+  - Home and contact pages should include `ProfessionalService` or `Organization` style data with logo, contact details, area served, expertise, and business description.
+  - Service landing pages should include `Service`, `FAQPage`, and `BreadcrumbList`.
+  - Article pages should include `BlogPosting` or `Article`, `FAQPage` where relevant, and `BreadcrumbList`.
+  - Keep `datePublished`, `dateModified`, `author`, `publisher`, `mainEntityOfPage`, `image`, and `articleSection` accurate for articles.
+- Do not include placeholder social profile links in `sameAs` or footers. Only use real official profile URLs; otherwise omit them.
+- Keep `sitemap.xml` current whenever pages are added, removed, renamed, or materially updated. Include `<lastmod>` dates.
+- Build internal links intentionally:
+  - Service pages should link to relevant insights and contact.
+  - Articles should link back to the most relevant service page.
+  - The home page and services overview should link to dedicated service landing pages.
+- Support answer-engine and LLM discovery by adding concise, visible FAQ sections, definition-style summaries, “who this is for” sections, business outcomes, and delivery/advisory language that can be quoted or summarized cleanly.
+- Prefer concrete consulting terms that match buyer intent: `AI consulting`, `Data Governance`, `AI Governance`, `Digital Transformation Consulting`, `Cybersecurity Consulting`, `Strategic PMO`, `Portfolio Management`, `Management Consulting`, `ISO/IEC 42001`, `ISO/IEC 27001`, `NIST`, `COBIT`, and `ITIL`.
+- Avoid thin landing pages. Each service page should explain the problem, expected outcomes, fit, related frameworks or capabilities, FAQ, and next-step CTA.
+- For bilingual content, visible Thai and English copy should remain paired through `data-th` and `data-en` when the page uses the language switcher. If a separate English URL structure is introduced later, add `hreflang` and keep Thai/English canonical relationships correct.
+
 ## Verification
 
 Because there is no build system, verify changes as a static site:
