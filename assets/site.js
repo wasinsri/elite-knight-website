@@ -31,11 +31,6 @@ function ensureArticleFooter() {
           <a href="../insights.html">คลังความรู้</a>
           <a href="../contact.html">ติดต่อเรา</a>
           <a href="../cookie-policy.html">นโยบายการใช้งานคุกกี้</a>
-          <div class="mt-2 flex gap-3">
-            <a class="social-icon" href="https://x.com/" target="_blank" rel="noopener" aria-label="Elite Knight on X">X</a>
-            <a class="social-icon" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Elite Knight on Facebook">f</a>
-            <a class="social-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="Elite Knight on LinkedIn">in</a>
-          </div>
         </div>
         <div class="text-sm leading-7">
           <p>เลขที่ 1/128 หมู่บ้านอิ่มอัมพร ซอยทวีวัฒนา 20 ถนนทวีวัฒนา แขวงศาลาธรรมสพน์ เขตทวีวัฒนา กรุงเทพมหานคร 10170</p>
