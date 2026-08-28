@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ISO/IEC 27001 Gap Assessment: องค์กรควรเตรียมตัวอย่างไร | Elite Knight</title>
+    <meta name="description" content="คู่มือ ISO/IEC 27001 Gap Assessment สำหรับองค์กรไทย ตั้งแต่การกำหนดขอบเขต ประเมินความเสี่ยง ตรวจหลักฐาน จัดลำดับช่องว่าง และวาง roadmap สู่ระบบ ISMS ที่ใช้งานได้จริง">
+    <link rel="canonical" href="https://www.ek.co.th/articles/iso-27001-gap-assessment.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ISO/IEC 27001 Gap Assessment: องค์กรควรเตรียมตัวอย่างไร">
+    <meta property="og:description" content="แนวทางประเมินความพร้อมและเปลี่ยนช่องว่างด้านความมั่นคงปลอดภัยสารสนเทศให้เป็น roadmap ที่ผู้บริหารตัดสินใจได้">
+    <meta property="og:url" content="https://www.ek.co.th/articles/iso-27001-gap-assessment.html">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cybersecurity team monitoring information security controls">
+    <meta property="article:published_time" content="2026-08-28">
+    <meta property="article:modified_time" content="2026-08-28">
+    <meta property="article:section" content="Cybersecurity">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ISO/IEC 27001 Gap Assessment: องค์กรควรเตรียมตัวอย่างไร">
+    <meta name="twitter:description" content="A practical ISO/IEC 27001 gap assessment guide for Thai organizations.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
+    <meta name="twitter:image:alt" content="Cybersecurity team monitoring information security controls">
+    <link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+    <link rel="apple-touch-icon" href="../assets/logo.jpg">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N7QHVHER9F"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-N7QHVHER9F");</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/site.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.ek.co.th/#organization",
+      "name": "Elite Knight Co., Ltd.",
+      "alternateName": "บริษัท เอลีท ไนท์ จำกัด",
+      "url": "https://www.ek.co.th/",
+      "logo": "https://www.ek.co.th/assets/logo.jpg",
+      "telephone": "+66-63-664-1555",
+      "email": "info@ek.co.th",
+      "address": {"@type": "PostalAddress", "streetAddress": "1/128 Imm Amphon Village, Soi Thawi Watthana 20, Thawi Watthana Road", "addressLocality": "Thawi Watthana", "addressRegion": "Bangkok", "postalCode": "10170", "addressCountry": "TH"},
+      "areaServed": ["Thailand", "Bangkok"],
+      "knowsAbout": ["Cybersecurity Consulting", "ISO/IEC 27001", "Information Security Management System", "Cyber Risk", "Digital Trust"],
+      "slogan": "Engineering the Future with Data and AI",
+      "sameAs": ["https://www.linkedin.com/company/elite-knight/", "https://www.facebook.com/ek.co.th"]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.ek.co.th/articles/iso-27001-gap-assessment.html#article",
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.ek.co.th/articles/iso-27001-gap-assessment.html"},
+      "headline": "ISO/IEC 27001 Gap Assessment: องค์กรควรเตรียมตัวอย่างไร",
+      "description": "คู่มือ ISO/IEC 27001 Gap Assessment สำหรับองค์กรไทย ตั้งแต่การกำหนดขอบเขต ประเมินความเสี่ยง ตรวจหลักฐาน จัดลำดับช่องว่าง และวาง roadmap สู่ระบบ ISMS ที่ใช้งานได้จริง",
+      "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&h=630&q=80",
+      "datePublished": "2026-08-28",
+      "dateModified": "2026-08-28",
+      "author": {"@id": "https://www.ek.co.th/#organization"},
+      "publisher": {"@id": "https://www.ek.co.th/#organization"},
+      "articleSection": "Cybersecurity",
+      "inLanguage": ["th-TH", "en"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "ISO/IEC 27001 Gap Assessment คืออะไร", "acceptedAnswer": {"@type": "Answer", "text": "การเปรียบเทียบระบบบริหารจัดการความมั่นคงปลอดภัยสารสนเทศปัจจุบันกับข้อกำหนด ISO/IEC 27001 และมาตรการควบคุมที่เกี่ยวข้อง เพื่อระบุช่องว่าง ความเสี่ยง หลักฐานที่ขาด และลำดับการปรับปรุง"}},
+        {"@type": "Question", "name": "Gap Assessment ต่างจาก Certification Audit อย่างไร", "acceptedAnswer": {"@type": "Answer", "text": "Gap Assessment เป็นการวินิจฉัยเพื่อเตรียมความพร้อมและวางแผนแก้ไข ส่วน Certification Audit เป็นการตรวจอย่างเป็นทางการโดยหน่วยรับรองอิสระเพื่อพิจารณาการรับรอง"}},
+        {"@type": "Question", "name": "องค์กรจำเป็นต้องประเมินครบทุกระบบหรือไม่", "acceptedAnswer": {"@type": "Answer", "text": "ไม่จำเป็น ขอบเขตควรสอดคล้องกับบริการ กระบวนการ สถานที่ เทคโนโลยี และข้อมูลที่องค์กรต้องการบริหารภายใต้ ISMS แต่ต้องอธิบายขอบเขตและส่วนเชื่อมต่ออย่างสมเหตุสมผล"}},
+        {"@type": "Question", "name": "ผลลัพธ์ของ Gap Assessment ควรมีอะไร", "acceptedAnswer": {"@type": "Answer", "text": "ควรมีระดับความพร้อม รายการช่องว่างพร้อมหลักฐาน ความเสี่ยงและผลกระทบ เจ้าของงาน quick wins และ roadmap ที่ระบุลำดับ ความพยายาม และการตัดสินใจที่ต้องการจากผู้บริหาร"}}
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ek.co.th/"},
+        {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.ek.co.th/insights.html"},
+        {"@type": "ListItem", "position": 3, "name": "ISO/IEC 27001 Gap Assessment", "item": "https://www.ek.co.th/articles/iso-27001-gap-assessment.html"}
+      ]
+    }
+  ]
+}
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-800">
+    <a class="skip-link" href="#main-content" data-th="ข้ามไปยังเนื้อหาหลัก" data-en="Skip to main content">ข้ามไปยังเนื้อหาหลัก</a>
+    <header class="glass-nav sticky top-0 z-50">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
+        <a href="../index.html" class="flex items-center gap-3" aria-label="Elite Knight home"><img class="brand-mark" src="../assets/logo.jpg" alt="Elite Knight Co., Ltd. logo"><span><span class="block text-sm font-black uppercase tracking-[0.18em] text-slate-900">Elite Knight</span><span class="block text-xs text-slate-600">Data · AI · Governance</span></span></a>
+        <div class="flex items-center gap-3"><a class="nav-link hidden text-sm font-semibold sm:block" href="../insights.html" data-th="กลับไปคลังความรู้" data-en="Back to Insights">กลับไปคลังความรู้</a><div class="flex rounded border border-slate-300 bg-white p-1 text-xs font-bold" aria-label="Language selector"><button class="rounded px-3 py-1.5" type="button" data-lang-button="th" aria-label="Switch to Thai">TH</button><button class="rounded px-3 py-1.5" type="button" data-lang-button="en" aria-label="Switch to English">EN</button></div></div>
+      </nav>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <article>
+        <header class="page-hero py-24 text-white"><div class="mx-auto max-w-4xl px-5 lg:px-8"><p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-teal-100">Cybersecurity</p><h1 class="text-4xl font-black tracking-tight md:text-6xl" data-th="ISO/IEC 27001 Gap Assessment: องค์กรควรเตรียมตัวอย่างไร" data-en="ISO/IEC 27001 Gap Assessment: How Should Your Organization Prepare?">ISO/IEC 27001 Gap Assessment: องค์กรควรเตรียมตัวอย่างไร</h1><p class="mt-6 text-lg leading-8 text-slate-100" data-th="แนวทางเปลี่ยนการตรวจช่องว่างให้เป็นแผนยกระดับความมั่นคงปลอดภัยที่เชื่อมกับความเสี่ยง ธุรกิจ และการตัดสินใจของผู้บริหาร" data-en="Turn a compliance gap review into a practical security roadmap connected to risk, business priorities, and executive decisions.">แนวทางเปลี่ยนการตรวจช่องว่างให้เป็นแผนยกระดับความมั่นคงปลอดภัยที่เชื่อมกับความเสี่ยง ธุรกิจ และการตัดสินใจของผู้บริหาร</p><p class="mt-5 text-sm font-bold text-teal-100" data-th="เผยแพร่ 28 สิงหาคม 2569 · 12 นาทีในการอ่าน" data-en="Published 28 August 2026 · 12 min read">เผยแพร่ 28 สิงหาคม 2569 · 12 นาทีในการอ่าน</p></div></header>
+        <div class="mx-auto max-w-4xl px-5 py-16 lg:px-8">
+          <div class="mb-10 flex flex-wrap gap-3" aria-label="Share this article"><a class="share-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fiso-27001-gap-assessment.html" target="_blank" rel="noopener">LinkedIn</a><a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fiso-27001-gap-assessment.html" target="_blank" rel="noopener">Facebook</a><a class="share-button" href="https://x.com/intent/post?text=ISO%2FIEC%2027001%20Gap%20Assessment&amp;url=https%3A%2F%2Fwww.ek.co.th%2Farticles%2Fiso-27001-gap-assessment.html" target="_blank" rel="noopener">X</a></div>
+          <div class="article-prose space-y-6">
+            <p data-th="เมื่อคู่ค้า ลูกค้า หรือผู้กำกับดูแลถามว่าองค์กรปกป้องข้อมูลสำคัญอย่างไร คำตอบที่น่าเชื่อถือไม่ควรหยุดอยู่ที่รายชื่อเครื่องมือ Cybersecurity แต่ต้องแสดงให้เห็นว่ามีระบบบริหารความเสี่ยง เจ้าของงาน กระบวนการควบคุม หลักฐาน และการปรับปรุงอย่างต่อเนื่อง ISO/IEC 27001 ช่วยวางโครงสร้างดังกล่าวผ่านระบบบริหารจัดการความมั่นคงปลอดภัยสารสนเทศ หรือ ISMS" data-en="When customers, partners, or regulators ask how critical information is protected, a credible answer cannot stop at a list of cybersecurity tools. It must show risk management, accountable owners, operating controls, evidence, and continual improvement. ISO/IEC 27001 provides that structure through an information security management system, or ISMS.">เมื่อคู่ค้า ลูกค้า หรือผู้กำกับดูแลถามว่าองค์กรปกป้องข้อมูลสำคัญอย่างไร คำตอบที่น่าเชื่อถือไม่ควรหยุดอยู่ที่รายชื่อเครื่องมือ Cybersecurity แต่ต้องแสดงให้เห็นว่ามีระบบบริหารความเสี่ยง เจ้าของงาน กระบวนการควบคุม หลักฐาน และการปรับปรุงอย่างต่อเนื่อง ISO/IEC 27001 ช่วยวางโครงสร้างดังกล่าวผ่านระบบบริหารจัดการความมั่นคงปลอดภัยสารสนเทศ หรือ ISMS</p>
+            <p data-th="Gap Assessment เป็นขั้นตอนที่ช่วยให้องค์กรเห็นระยะห่างระหว่างสิ่งที่ทำอยู่กับสิ่งที่มาตรฐานคาดหวัง ก่อนลงทุนแก้ไขหรือเข้าสู่การตรวจรับรอง จุดสำคัญคือไม่ประเมินเพื่อให้ได้คะแนนสวย แต่เพื่อรู้ว่าช่องว่างใดสร้างความเสี่ยงจริงและควรจัดการก่อน" data-en="A gap assessment shows the distance between current practices and the standard's expectations before the organization invests in remediation or seeks certification. The purpose is not to produce an attractive score; it is to identify which gaps create real risk and deserve priority.">Gap Assessment เป็นขั้นตอนที่ช่วยให้องค์กรเห็นระยะห่างระหว่างสิ่งที่ทำอยู่กับสิ่งที่มาตรฐานคาดหวัง ก่อนลงทุนแก้ไขหรือเข้าสู่การตรวจรับรอง จุดสำคัญคือไม่ประเมินเพื่อให้ได้คะแนนสวย แต่เพื่อรู้ว่าช่องว่างใดสร้างความเสี่ยงจริงและควรจัดการก่อน</p>
+
+            <h2 data-th="ISO/IEC 27001 Gap Assessment คืออะไร" data-en="What is an ISO/IEC 27001 gap assessment?">ISO/IEC 27001 Gap Assessment คืออะไร</h2>
+            <p data-th="Gap Assessment คือการเปรียบเทียบบริบท ขอบเขต นโยบาย กระบวนการ การประเมินความเสี่ยง มาตรการควบคุม การติดตามผล และหลักฐานขององค์กร กับข้อกำหนดของ ISO/IEC 27001:2022 รวมถึงการเลือกมาตรการควบคุมใน Annex A ให้เหมาะกับความเสี่ยง ผลลัพธ์ควรบอกได้ทั้งสิ่งที่มีอยู่ สิ่งที่ทำแต่ยังไม่มีหลักฐาน สิ่งที่ยังขาด และผลกระทบหากไม่แก้ไข" data-en="A gap assessment compares the organization's context, scope, policies, processes, risk assessment, controls, monitoring, and evidence against ISO/IEC 27001:2022 requirements, including the risk-based selection of Annex A controls. The result should distinguish what exists, what operates without sufficient evidence, what is missing, and the impact of leaving each gap unresolved.">Gap Assessment คือการเปรียบเทียบบริบท ขอบเขต นโยบาย กระบวนการ การประเมินความเสี่ยง มาตรการควบคุม การติดตามผล และหลักฐานขององค์กร กับข้อกำหนดของ ISO/IEC 27001:2022 รวมถึงการเลือกมาตรการควบคุมใน Annex A ให้เหมาะกับความเสี่ยง ผลลัพธ์ควรบอกได้ทั้งสิ่งที่มีอยู่ สิ่งที่ทำแต่ยังไม่มีหลักฐาน สิ่งที่ยังขาด และผลกระทบหากไม่แก้ไข</p>
+
+            <h2 data-th="ใครควรทำ Gap Assessment" data-en="Who should conduct a gap assessment?">ใครควรทำ Gap Assessment</h2>
+            <p data-th="การประเมินเหมาะกับองค์กรที่เตรียมขอการรับรอง ต้องตอบข้อกำหนดลูกค้าหรือคู่ค้า กำลังขยายบริการดิจิทัล ต้องการรวมการควบคุมที่กระจัดกระจาย หรืออยากยกระดับ Cybersecurity Governance โดยยังไม่ตัดสินใจเรื่องการรับรอง ทีมที่เกี่ยวข้องควรมีผู้บริหาร เจ้าของกระบวนการ IT และ Security, Risk, Legal, HR, Procurement, Facilities และ Internal Audit ตามขอบเขต" data-en="The assessment is useful for organizations preparing for certification, responding to customer requirements, scaling digital services, consolidating fragmented controls, or strengthening cybersecurity governance before deciding on certification. Participants typically include executives, process owners, IT and security, risk, legal, HR, procurement, facilities, and internal audit as relevant to scope.">การประเมินเหมาะกับองค์กรที่เตรียมขอการรับรอง ต้องตอบข้อกำหนดลูกค้าหรือคู่ค้า กำลังขยายบริการดิจิทัล ต้องการรวมการควบคุมที่กระจัดกระจาย หรืออยากยกระดับ Cybersecurity Governance โดยยังไม่ตัดสินใจเรื่องการรับรอง ทีมที่เกี่ยวข้องควรมีผู้บริหาร เจ้าของกระบวนการ IT และ Security, Risk, Legal, HR, Procurement, Facilities และ Internal Audit ตามขอบเขต</p>
+
+            <h2 data-th="6 ขั้นตอนของการประเมินที่ใช้งานได้จริง" data-en="Six practical assessment steps">6 ขั้นตอนของการประเมินที่ใช้งานได้จริง</h2>
+            <ol class="list-decimal space-y-3 pl-6">
+              <li data-th="กำหนดวัตถุประสงค์และขอบเขต: ระบุบริการ กระบวนการ ข้อมูล สถานที่ ระบบ Cloud คู่ค้า และส่วนเชื่อมต่อที่อยู่ใน ISMS" data-en="Define objectives and scope: identify services, processes, information, locations, cloud systems, suppliers, and interfaces within the ISMS.">กำหนดวัตถุประสงค์และขอบเขต: ระบุบริการ กระบวนการ ข้อมูล สถานที่ ระบบ Cloud คู่ค้า และส่วนเชื่อมต่อที่อยู่ใน ISMS</li>
+              <li data-th="รวบรวมเอกสารและหลักฐาน: นโยบาย risk register, asset inventory, access review, incident record, backup test, vendor review, training record และรายงาน monitoring" data-en="Collect documents and evidence: policies, risk registers, asset inventories, access reviews, incident records, backup tests, supplier reviews, training records, and monitoring reports.">รวบรวมเอกสารและหลักฐาน: นโยบาย risk register, asset inventory, access review, incident record, backup test, vendor review, training record และรายงาน monitoring</li>
+              <li data-th="สัมภาษณ์และสังเกตการทำงาน: ตรวจว่าสิ่งที่เขียนไว้เกิดขึ้นจริง ใครตัดสินใจ ทำบ่อยแค่ไหน และเก็บหลักฐานไว้ที่ใด" data-en="Interview and observe: verify whether documented practices happen, who decides, how often activities occur, and where evidence is retained.">สัมภาษณ์และสังเกตการทำงาน: ตรวจว่าสิ่งที่เขียนไว้เกิดขึ้นจริง ใครตัดสินใจ ทำบ่อยแค่ไหน และเก็บหลักฐานไว้ที่ใด</li>
+              <li data-th="ประเมินข้อกำหนดและมาตรการควบคุม: แยกเป็นพร้อมแล้ว ทำบางส่วน ยังไม่มี และไม่เกี่ยวข้องพร้อมเหตุผล" data-en="Assess requirements and controls: distinguish implemented, partially implemented, missing, and not applicable with justification.">ประเมินข้อกำหนดและมาตรการควบคุม: แยกเป็นพร้อมแล้ว ทำบางส่วน ยังไม่มี และไม่เกี่ยวข้องพร้อมเหตุผล</li>
+              <li data-th="จัดลำดับตามความเสี่ยงและ dependency: ให้ความสำคัญกับช่องว่างที่กระทบข้อมูลสำคัญ ข้อผูกพันทางกฎหมาย ลูกค้า และความต่อเนื่องทางธุรกิจ" data-en="Prioritize by risk and dependency: focus on gaps affecting critical information, legal obligations, customers, and business continuity.">จัดลำดับตามความเสี่ยงและ dependency: ให้ความสำคัญกับช่องว่างที่กระทบข้อมูลสำคัญ ข้อผูกพันทางกฎหมาย ลูกค้า และความต่อเนื่องทางธุรกิจ</li>
+              <li data-th="สร้าง remediation roadmap: ระบุเจ้าของ เป้าหมาย หลักฐาน งบประมาณ ระยะเวลา quick wins และการตัดสินใจที่ต้องยกระดับ" data-en="Build a remediation roadmap: assign owners, outcomes, evidence, budget, timing, quick wins, and decisions requiring escalation.">สร้าง remediation roadmap: ระบุเจ้าของ เป้าหมาย หลักฐาน งบประมาณ ระยะเวลา quick wins และการตัดสินใจที่ต้องยกระดับ</li>
+            </ol>
+
+            <h2 data-th="ประเด็นที่มักเป็นช่องว่าง" data-en="Gaps commonly found">ประเด็นที่มักเป็นช่องว่าง</h2>
+            <ul class="list-disc space-y-2 pl-6"><li data-th="ขอบเขต ISMS ไม่ชัด หรือไม่ครอบคลุม dependency สำคัญ" data-en="An unclear ISMS scope or missing critical dependencies.">ขอบเขต ISMS ไม่ชัด หรือไม่ครอบคลุม dependency สำคัญ</li><li data-th="Risk assessment แยกจากความเสี่ยงธุรกิจและไม่มีเกณฑ์ยอมรับความเสี่ยง" data-en="A risk assessment disconnected from business risk and without acceptance criteria.">Risk assessment แยกจากความเสี่ยงธุรกิจและไม่มีเกณฑ์ยอมรับความเสี่ยง</li><li data-th="Asset inventory ไม่สะท้อนเจ้าของข้อมูล Cloud service และ supplier" data-en="Asset inventories that omit information owners, cloud services, or suppliers.">Asset inventory ไม่สะท้อนเจ้าของข้อมูล Cloud service และ supplier</li><li data-th="มีเครื่องมือป้องกันแต่ขาดรอบทบทวน การทดสอบ และหลักฐานประสิทธิผล" data-en="Security tools exist, but reviews, testing, and evidence of effectiveness are missing.">มีเครื่องมือป้องกันแต่ขาดรอบทบทวน การทดสอบ และหลักฐานประสิทธิผล</li><li data-th="Incident response, backup และ business continuity มีเอกสารแต่ไม่เคยซ้อมร่วมกัน" data-en="Incident response, backup, and continuity plans exist but have never been exercised together.">Incident response, backup และ business continuity มีเอกสารแต่ไม่เคยซ้อมร่วมกัน</li><li data-th="Supplier security ถูกตรวจเฉพาะก่อนเซ็นสัญญาแต่ไม่ติดตามตลอดอายุบริการ" data-en="Supplier security is checked before contracting but not monitored through the service lifecycle.">Supplier security ถูกตรวจเฉพาะก่อนเซ็นสัญญาแต่ไม่ติดตามตลอดอายุบริการ</li></ul>
+
+            <h2 data-th="ผลลัพธ์ที่ผู้บริหารควรได้รับ" data-en="What executives should receive">ผลลัพธ์ที่ผู้บริหารควรได้รับ</h2>
+            <p data-th="รายงานที่ดีไม่ควรเป็น checklist หลายร้อยบรรทัดเพียงอย่างเดียว ผู้บริหารควรเห็น executive summary, heatmap ตามความเสี่ยง, ประเด็นตัดสินใจ, quick wins, โครงการระยะกลาง, dependency, งบประมาณโดยประมาณ และความพร้อมสู่การตรวจรับรอง ส่วนทีมปฏิบัติการควรได้รับรายการข้อค้นพบที่อ้างอิงข้อกำหนด หลักฐานที่ตรวจ เจ้าของงาน และเกณฑ์ปิดประเด็นอย่างชัดเจน" data-en="A useful report should be more than a checklist with hundreds of rows. Executives need an executive summary, risk heatmap, decision points, quick wins, medium-term initiatives, dependencies, indicative investment, and certification readiness. Operating teams need findings linked to requirements, reviewed evidence, accountable owners, and clear closure criteria.">รายงานที่ดีไม่ควรเป็น checklist หลายร้อยบรรทัดเพียงอย่างเดียว ผู้บริหารควรเห็น executive summary, heatmap ตามความเสี่ยง, ประเด็นตัดสินใจ, quick wins, โครงการระยะกลาง, dependency, งบประมาณโดยประมาณ และความพร้อมสู่การตรวจรับรอง ส่วนทีมปฏิบัติการควรได้รับรายการข้อค้นพบที่อ้างอิงข้อกำหนด หลักฐานที่ตรวจ เจ้าของงาน และเกณฑ์ปิดประเด็นอย่างชัดเจน</p>
+
+            <h2 data-th="ข้อผิดพลาดที่ควรหลีกเลี่ยง" data-en="Mistakes to avoid">ข้อผิดพลาดที่ควรหลีกเลี่ยง</h2>
+            <ul class="list-disc space-y-2 pl-6"><li data-th="คัดลอกนโยบายหรือ Statement of Applicability จากองค์กรอื่นโดยไม่เชื่อมกับความเสี่ยงจริง" data-en="Copying policies or a Statement of Applicability from another organization without linking controls to actual risks.">คัดลอกนโยบายหรือ Statement of Applicability จากองค์กรอื่นโดยไม่เชื่อมกับความเสี่ยงจริง</li><li data-th="มอบหมายให้ฝ่าย IT ทำฝ่ายเดียวจนขาดเจ้าของข้อมูลและเจ้าของกระบวนการธุรกิจ" data-en="Leaving the work entirely to IT without information and business process owners.">มอบหมายให้ฝ่าย IT ทำฝ่ายเดียวจนขาดเจ้าของข้อมูลและเจ้าของกระบวนการธุรกิจ</li><li data-th="วัดจากการมีเอกสารแทนการตรวจว่ามาตรการควบคุมทำงานและให้ผลตามที่ตั้งใจ" data-en="Measuring document existence instead of whether controls operate and achieve intended outcomes.">วัดจากการมีเอกสารแทนการตรวจว่ามาตรการควบคุมทำงานและให้ผลตามที่ตั้งใจ</li><li data-th="แก้ทุกช่องว่างพร้อมกันโดยไม่คำนึงถึงความเสี่ยง ทรัพยากร และลำดับ dependency" data-en="Trying to close every gap at once without considering risk, resources, or dependencies.">แก้ทุกช่องว่างพร้อมกันโดยไม่คำนึงถึงความเสี่ยง ทรัพยากร และลำดับ dependency</li></ul>
+
+            <h2 data-th="บทสรุป" data-en="Conclusion">บทสรุป</h2>
+            <p data-th="ISO/IEC 27001 Gap Assessment ที่มีคุณค่าไม่ใช่การไล่ตอบว่าผ่านหรือไม่ผ่าน แต่คือการทำให้ผู้บริหารเห็นว่าข้อมูลและบริการใดสำคัญ ความเสี่ยงอยู่ตรงไหน มาตรการใดทำงานจริง และต้องลงทุนอะไรต่อ การกำหนดขอบเขตที่ชัด ตรวจจากหลักฐาน และจัดลำดับตามความเสี่ยง จะเปลี่ยนมาตรฐานจากโครงการเอกสารให้เป็นระบบบริหาร Digital Trust ที่ยั่งยืน" data-en="A valuable ISO/IEC 27001 gap assessment is not a pass-or-fail exercise. It helps leaders see which information and services matter, where risks sit, which controls work, and what investment comes next. Clear scope, evidence-based review, and risk-based prioritization turn the standard from a documentation project into a sustainable digital trust management system.">ISO/IEC 27001 Gap Assessment ที่มีคุณค่าไม่ใช่การไล่ตอบว่าผ่านหรือไม่ผ่าน แต่คือการทำให้ผู้บริหารเห็นว่าข้อมูลและบริการใดสำคัญ ความเสี่ยงอยู่ตรงไหน มาตรการใดทำงานจริง และต้องลงทุนอะไรต่อ การกำหนดขอบเขตที่ชัด ตรวจจากหลักฐาน และจัดลำดับตามความเสี่ยง จะเปลี่ยนมาตรฐานจากโครงการเอกสารให้เป็นระบบบริหาร Digital Trust ที่ยั่งยืน</p>
+
+            <section class="mt-12 border-t border-slate-200 pt-10" aria-labelledby="article-faq-heading"><h2 id="article-faq-heading" data-th="คำถามที่พบบ่อย" data-en="Frequently asked questions">คำถามที่พบบ่อย</h2><div class="mt-6 grid gap-4"><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="ISO/IEC 27001 Gap Assessment คืออะไร" data-en="What is an ISO/IEC 27001 gap assessment?">ISO/IEC 27001 Gap Assessment คืออะไร</summary><p class="mt-3 leading-7 text-slate-700" data-th="การเปรียบเทียบ ISMS ปัจจุบันกับข้อกำหนดของมาตรฐาน เพื่อระบุช่องว่าง ความเสี่ยง หลักฐานที่ขาด และลำดับการปรับปรุง" data-en="It compares the current ISMS with the standard to identify gaps, risks, missing evidence, and remediation priorities.">การเปรียบเทียบ ISMS ปัจจุบันกับข้อกำหนดของมาตรฐาน เพื่อระบุช่องว่าง ความเสี่ยง หลักฐานที่ขาด และลำดับการปรับปรุง</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="ต่างจาก Certification Audit อย่างไร" data-en="How is it different from a certification audit?">ต่างจาก Certification Audit อย่างไร</summary><p class="mt-3 leading-7 text-slate-700" data-th="Gap Assessment เป็นการเตรียมความพร้อมและวางแผนแก้ไข ส่วน Certification Audit เป็นการตรวจอย่างเป็นทางการโดยหน่วยรับรองอิสระ" data-en="A gap assessment prepares and guides remediation; a certification audit is a formal assessment by an independent certification body.">Gap Assessment เป็นการเตรียมความพร้อมและวางแผนแก้ไข ส่วน Certification Audit เป็นการตรวจอย่างเป็นทางการโดยหน่วยรับรองอิสระ</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="ต้องประเมินครบทุกระบบหรือไม่" data-en="Must every system be assessed?">ต้องประเมินครบทุกระบบหรือไม่</summary><p class="mt-3 leading-7 text-slate-700" data-th="ไม่จำเป็น แต่ขอบเขตต้องสอดคล้องกับบริการ กระบวนการ ข้อมูล และความเสี่ยงที่องค์กรต้องการบริหาร พร้อมอธิบายส่วนเชื่อมต่ออย่างสมเหตุสมผล" data-en="Not necessarily, but the scope must align with the services, processes, information, and risks being managed, with interfaces clearly justified.">ไม่จำเป็น แต่ขอบเขตต้องสอดคล้องกับบริการ กระบวนการ ข้อมูล และความเสี่ยงที่องค์กรต้องการบริหาร พร้อมอธิบายส่วนเชื่อมต่ออย่างสมเหตุสมผล</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="ผลลัพธ์ควรมีอะไร" data-en="What should the deliverables include?">ผลลัพธ์ควรมีอะไร</summary><p class="mt-3 leading-7 text-slate-700" data-th="ระดับความพร้อม รายการช่องว่างพร้อมหลักฐาน ความเสี่ยง เจ้าของงาน quick wins และ roadmap ที่ผู้บริหารใช้ตัดสินใจได้" data-en="Readiness levels, evidence-based findings, risks, owners, quick wins, and a decision-ready remediation roadmap.">ระดับความพร้อม รายการช่องว่างพร้อมหลักฐาน ความเสี่ยง เจ้าของงาน quick wins และ roadmap ที่ผู้บริหารใช้ตัดสินใจได้</p></details></div><p class="mt-8"><a class="rounded bg-teal-700 px-5 py-3 text-sm font-bold text-white hover:bg-teal-800" href="../cybersecurity-consulting.html" data-th="ดูบริการ Cybersecurity Consulting จาก Elite Knight" data-en="Explore Elite Knight Cybersecurity Consulting">ดูบริการ Cybersecurity Consulting จาก Elite Knight</a></p></section>
+
+            <section class="mt-12 border-t border-slate-200 pt-8" aria-labelledby="article-sources"><h2 id="article-sources" data-th="แหล่งอ้างอิง" data-en="References">แหล่งอ้างอิง</h2><ul class="list-disc space-y-2 pl-6"><li><a class="font-bold text-teal-700 hover:text-teal-900" href="https://www.iso.org/standard/27001" target="_blank" rel="noopener">ISO/IEC 27001 — Information security management systems</a></li><li><a class="font-bold text-teal-700 hover:text-teal-900" href="https://www.iso.org/standard/75652.html" target="_blank" rel="noopener">ISO/IEC 27002:2022 — Information security controls</a></li></ul></section>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer class="bg-slate-950 py-12 text-slate-300"><div class="mx-auto grid max-w-7xl gap-8 px-5 md:grid-cols-3 lg:px-8"><div><div class="flex items-center gap-3"><img class="footer-mark" src="../assets/logo.jpg" alt="Elite Knight Co., Ltd. logo"><p class="text-lg font-black text-white" data-th="บริษัท เอลีท ไนท์ จำกัด" data-en="Elite Knight Co., Ltd.">บริษัท เอลีท ไนท์ จำกัด</p></div><p class="mt-3 text-sm leading-6">Engineering the Future with Data and AI</p><div class="mt-2 flex gap-3"><a class="social-icon" href="https://www.linkedin.com/company/elite-knight/" target="_blank" rel="noopener" aria-label="Elite Knight on LinkedIn">in</a><a class="social-icon" href="https://www.facebook.com/ek.co.th" target="_blank" rel="noopener" aria-label="Elite Knight on Facebook">f</a></div></div><div class="grid gap-2 text-sm"><a href="../index.html" data-th="หน้าแรก" data-en="Home">หน้าแรก</a><a href="../about.html" data-th="ความเชี่ยวชาญ" data-en="Expertise">ความเชี่ยวชาญ</a><a href="../services.html" data-th="บริการ" data-en="Services">บริการ</a><a href="../insights.html" data-th="คลังความรู้" data-en="Insights">คลังความรู้</a><a href="../contact.html" data-th="ติดต่อเรา" data-en="Contact">ติดต่อเรา</a><a href="../cookie-policy.html" data-th="นโยบายการใช้งานคุกกี้" data-en="Cookie Policy">นโยบายการใช้งานคุกกี้</a></div><div class="text-sm leading-7"><p data-th="เลขที่ 1/128 หมู่บ้านอิ่มอัมพร ซอยทวีวัฒนา 20 ถนนทวีวัฒนา แขวงศาลาธรรมสพน์ เขตทวีวัฒนา กรุงเทพมหานคร 10170" data-en="1/128 Imm Amphon Village, Soi Thawi Watthana 20, Thawi Watthana Road, Sala Thammasop, Thawi Watthana, Bangkok 10170">เลขที่ 1/128 หมู่บ้านอิ่มอัมพร ซอยทวีวัฒนา 20 ถนนทวีวัฒนา แขวงศาลาธรรมสพน์ เขตทวีวัฒนา กรุงเทพมหานคร 10170</p><p data-th="เปิดบริการ: จันทร์ - ศุกร์ 9.00 - 17.30 น." data-en="Office hours: Monday - Friday, 9:00 AM - 5:30 PM">เปิดบริการ: จันทร์ - ศุกร์ 9.00 - 17.30 น.</p><p>Mobile: 063-664-1555</p><p>Email: info@ek.co.th</p></div></div></footer>
+    <script src="../assets/site.js"></script>
+  </body>
+</html>
