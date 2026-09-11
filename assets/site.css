@@ -446,9 +446,10 @@ body:has(.article-prose):not(:has(footer)) .article-prose::after {
 :is(.ek-preview, .ek-site) .ek-contact-band .ek-wrap { display: flex; justify-content: space-between; align-items: center; gap: 32px; }
 :is(.ek-preview, .ek-site) .ek-contact-band p:last-child { color: #536e66; margin: 12px 0 0; line-height: 1.9; }
 :is(.ek-preview, .ek-site) footer { background: #0c2428; }
-:is(.ek-preview, .ek-site) .cookie-banner { max-width: 670px; left: auto; right: 20px; bottom: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 6px 30px #0002; }
-:is(.ek-preview, .ek-site) .cookie-banner > div { flex-direction: column; align-items: flex-start; }
-:is(.ek-preview, .ek-site) .cookie-banner p { font-size: .875rem; }
+:is(.ek-preview, .ek-site) .cookie-banner { width: min(1200px, calc(100% - 40px)); max-width: none; left: 0; right: 0; margin-inline: auto; bottom: max(20px, env(safe-area-inset-bottom)); padding: 20px 24px; border-radius: 8px; box-shadow: 0 6px 30px #0002; max-height: calc(100dvh - 100px); overflow-y: auto; }
+:is(.ek-preview, .ek-site) .cookie-banner > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; }
+:is(.ek-preview, .ek-site) .cookie-banner p { font-size: .875rem; line-height: 1.8; margin: 0; }
+:is(.ek-preview, .ek-site) .cookie-banner > div > div { justify-content: flex-end; gap: 12px; }
 @media (min-width: 768px) { :is(.ek-preview, .ek-site) .preview-nav .md\:flex { display: flex; } }
 @media (max-width: 1050px) { :is(.ek-preview, .ek-site) .ek-hero-grid { gap: 30px; } :is(.ek-preview, .ek-site) .ek-hero-image { height: 490px; } :is(.ek-preview, .ek-site) .preview-nav nav > div { gap: 16px; } :is(.ek-preview, .ek-site) .ek-services-grid { grid-template-columns: repeat(2,1fr); } :is(.ek-preview, .ek-site) .ek-frameworks { flex-direction: column; align-items: flex-start; } }
 @media (max-width: 767px) {
@@ -478,7 +479,8 @@ body:has(.article-prose):not(:has(footer)) .article-prose::after {
  :is(.ek-preview, .ek-site) .ek-step > span { margin-bottom: 10px; }
  :is(.ek-preview, .ek-site) .ek-frameworks > div { gap: 14px 22px; }
  :is(.ek-preview, .ek-site) .ek-contact-band .ek-wrap { flex-direction: column; align-items: flex-start; }
- :is(.ek-preview, .ek-site) .cookie-banner { left: 12px; right: 12px; bottom: 12px; max-width: none; padding: 16px; }
+ :is(.ek-preview, .ek-site) .cookie-banner { width: calc(100% - 24px); bottom: max(12px, env(safe-area-inset-bottom)); padding: 16px; }
+ :is(.ek-preview, .ek-site) .cookie-banner > div { grid-template-columns: minmax(0, 1fr); gap: 14px; }
 }
 
 /* Site-wide application of the approved design. */
@@ -632,3 +634,16 @@ body.ek-site {
 /* Use available font weights consistently; avoid synthesized 800/900 faces. */
 :is(.ek-site, .ek-preview) :is(.font-black, .font-extrabold) { font-weight: 700; }
 .ek-site .accordion-trigger .text-slate-700 { font-size: 1rem; font-weight: 400; line-height: 1.85; }
+
+/* Keep the expertise introduction together in reading order. */
+:is(.ek-preview, .ek-site) #preview-services .ek-section-heading {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+:is(.ek-preview, .ek-site) #preview-services .ek-section-heading > p {
+  max-width: 760px;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.9;
+}
