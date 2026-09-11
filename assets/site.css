@@ -625,11 +625,51 @@ body.ek-site {
 .ek-site .ek-breadcrumb a::before { content: "←"; margin-right: 12px; }
 /* Keep primary actions legible against the shared teal surface. */
 .ek-site.ek-inner main :is(a.bg-teal-500, a.bg-teal-700, button.bg-teal-700) { color: #fff; }
-.ek-site main details { border: 0; border-bottom: 1px solid var(--ek-line); border-radius: 0; padding: 20px 0; }
-.ek-site main details summary { cursor: pointer; min-height: 44px; font-weight: 500; line-height: 1.8; }
-.ek-site main details summary::marker { color: var(--ek-accent); }
-.ek-site main details[open] summary { color: var(--ek-accent); margin-bottom: 12px; }
-.ek-site main details summary:focus-visible { outline: 3px solid var(--ek-accent); outline-offset: 4px; }
+/* Native FAQ disclosures: compact rows with inset text and a right chevron. */
+.ek-site main details {
+  border: 1px solid var(--ek-line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 0;
+}
+.ek-site main details > summary[class] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  padding: 18px 56px 18px 24px;
+  margin: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.75;
+}
+.ek-site main details > summary::marker { content: ""; }
+.ek-site main details > summary::-webkit-details-marker { display: none; }
+.ek-site main details > summary::after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--ek-accent);
+  border-bottom: 2px solid var(--ek-accent);
+  transform: translateY(-65%) rotate(45deg);
+  transition: transform 180ms ease;
+}
+.ek-site main details > summary:hover { background: #f6f9f7; }
+.ek-site main details[open] > summary { color: var(--ek-accent); }
+.ek-site main details[open] > summary::after { transform: translateY(-25%) rotate(225deg); }
+.ek-site main details > p { margin: 0; padding: 0 24px 22px; }
+.ek-site main details > summary:focus-visible { outline: 3px solid var(--ek-accent); outline-offset: 3px; }
+@media (max-width: 767px) {
+  .ek-site main details > summary[class] { padding: 16px 48px 16px 18px; }
+  .ek-site main details > summary::after { right: 20px; }
+  .ek-site main details > p { padding: 0 18px 20px; }
+}
 
 /* Use available font weights consistently; avoid synthesized 800/900 faces. */
 :is(.ek-site, .ek-preview) :is(.font-black, .font-extrabold) { font-weight: 700; }
