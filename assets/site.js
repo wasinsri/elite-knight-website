@@ -2,6 +2,7 @@ const translations = document.querySelectorAll("[data-th][data-en]");
 const ariaTranslations = document.querySelectorAll("[data-aria-th][data-aria-en]");
 const titleTranslations = document.querySelectorAll("[data-title-th][data-title-en]");
 const langButtons = document.querySelectorAll("[data-lang-button]");
+const usesLanguageUrls = document.documentElement.dataset.languageRouting === "true";
 const mobileMenuButton = document.querySelector("[data-mobile-menu-button]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 const contactForm = document.querySelector("[data-contact-form]");
@@ -65,26 +66,37 @@ function scheduleArticleFooter() {
 function applyLanguage(lang) {
   const selected = lang === "en" ? "en" : "th";
   document.documentElement.lang = selected;
-  translations.forEach((node) => {
-    node.innerHTML = node.dataset[selected];
-  });
-  ariaTranslations.forEach((node) => {
-    node.setAttribute("aria-label", node.dataset[`aria${selected === "th" ? "Th" : "En"}`]);
-  });
-  titleTranslations.forEach((node) => {
-    node.setAttribute("title", node.dataset[`title${selected === "th" ? "Th" : "En"}`]);
-  });
+  // Localized pages already contain their language in HTML, including local links.
+  // Keep the in-place switch only for the standalone design preview.
+  if (!usesLanguageUrls) {
+    translations.forEach((node) => {
+      node.innerHTML = node.dataset[selected];
+    });
+    ariaTranslations.forEach((node) => {
+      node.setAttribute("aria-label", node.dataset[`aria${selected === "th" ? "Th" : "En"}`]);
+    });
+    titleTranslations.forEach((node) => {
+      node.setAttribute("title", node.dataset[`title${selected === "th" ? "Th" : "En"}`]);
+    });
+  }
   langButtons.forEach((button) => {
     const isActive = button.dataset.langButton === selected;
     button.classList.toggle("lang-active", isActive);
     button.classList.toggle("lang-inactive", !isActive);
-    button.setAttribute("aria-pressed", String(isActive));
+    if (button.tagName === "A") {
+      if (isActive) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
+    } else {
+      button.setAttribute("aria-pressed", String(isActive));
+    }
   });
   localStorage.setItem("ekLanguage", selected);
 }
 
 langButtons.forEach((button) => {
-  button.addEventListener("click", () => applyLanguage(button.dataset.langButton));
+  if (!usesLanguageUrls) {
+    button.addEventListener("click", () => applyLanguage(button.dataset.langButton));
+  }
 });
 
 if (mobileMenuButton && mobileMenu) {
@@ -163,4 +175,4 @@ if (contactForm && contactStatus) {
 }
 
 scheduleArticleFooter();
-applyLanguage(localStorage.getItem("ekLanguage") || "th");
+applyLanguage(usesLanguageUrls ? document.documentElement.lang : localStorage.getItem("ekLanguage") || "th");

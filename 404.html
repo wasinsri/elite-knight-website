@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="th">
+<html lang="th" data-language-routing="true">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/site.css?v=20260911-faq-4">
+    <link rel="stylesheet" href="assets/site.css?v=20260912-language-5">
+    <link rel="alternate" hreflang="th" href="https://www.ek.co.th/404.html">
+    <link rel="alternate" hreflang="en" href="https://www.ek.co.th/en/404.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.ek.co.th/404.html">
+    <meta property="og:locale" content="th_TH">
+    <meta property="og:locale:alternate" content="en_US">
   </head>
   <body class="ek-site ek-inner">
     <a class="skip-link" href="#main-content" data-th="ข้ามไปยังเนื้อหาหลัก" data-en="Skip to main content">ข้ามไปยังเนื้อหาหลัก</a>
@@ -34,7 +39,7 @@
             <span class="block text-xs text-slate-600">Data · AI · Governance</span>
           </span>
         </a>
-        <button class="rounded border border-slate-300 px-3 py-2 text-sm font-bold text-slate-700 md:hidden" type="button" data-mobile-menu-button aria-expanded="false" aria-controls="mobile-menu" data-aria-th="เปิดเมนูหลัก" data-aria-en="Open main menu" data-th="เมนู" data-en="Menu">เมนู</button>
+        <button class="rounded border border-slate-300 px-3 py-2 text-sm font-bold text-slate-700 md:hidden" type="button" data-mobile-menu-button aria-expanded="false" aria-controls="mobile-menu" data-aria-th="เปิดเมนูหลัก" data-aria-en="Open main menu" data-th="เมนู" data-en="Menu" aria-label="เปิดเมนูหลัก">เมนู</button>
         <div class="hidden items-center gap-7 md:flex">
           <a class="nav-link text-sm font-semibold" href="index.html" data-th="หน้าแรก" data-en="Home">หน้าแรก</a>
           <a class="nav-link text-sm font-semibold" href="about.html" data-th="ความเชี่ยวชาญ" data-en="Expertise">ความเชี่ยวชาญ</a>
@@ -42,8 +47,8 @@
           <a class="nav-link text-sm font-semibold" href="insights.html" data-th="คลังความรู้" data-en="Insights">คลังความรู้</a>
           <a class="nav-link text-sm font-semibold" href="contact.html" data-th="ติดต่อเรา" data-en="Contact">ติดต่อเรา</a>
           <div class="flex rounded border border-slate-300 bg-white p-1 text-xs font-bold" aria-label="เลือกภาษา" data-aria-th="เลือกภาษา" data-aria-en="Language selector">
-            <button class="rounded px-3 py-1.5" type="button" data-lang-button="th" aria-label="Switch to Thai">TH</button>
-            <button class="rounded px-3 py-1.5" type="button" data-lang-button="en" aria-label="Switch to English">EN</button>
+            <a class="rounded px-3 py-1.5 lang-active" data-lang-button="th" aria-label="อ่านหน้านี้เป็นภาษาไทย" href="404.html" hreflang="th" lang="th" aria-current="page">TH</a>
+            <a class="rounded px-3 py-1.5 lang-inactive" data-lang-button="en" aria-label="Read this page in English" href="en/404.html" hreflang="en" lang="en">EN</a>
           </div>
         </div>
       </nav>
@@ -55,8 +60,8 @@
           <a class="nav-link font-semibold" href="insights.html" data-th="คลังความรู้" data-en="Insights">คลังความรู้</a>
           <a class="nav-link font-semibold" href="contact.html" data-th="ติดต่อเรา" data-en="Contact">ติดต่อเรา</a>
           <div class="mt-2 flex w-fit rounded border border-slate-300 bg-white p-1 text-xs font-bold" aria-label="เลือกภาษา" data-aria-th="เลือกภาษา" data-aria-en="Language selector">
-            <button class="rounded px-3 py-1.5" type="button" data-lang-button="th" aria-label="Switch to Thai">TH</button>
-            <button class="rounded px-3 py-1.5" type="button" data-lang-button="en" aria-label="Switch to English">EN</button>
+            <a class="rounded px-3 py-1.5 lang-active" data-lang-button="th" aria-label="อ่านหน้านี้เป็นภาษาไทย" href="404.html" hreflang="th" lang="th" aria-current="page">TH</a>
+            <a class="rounded px-3 py-1.5 lang-inactive" data-lang-button="en" aria-label="Read this page in English" href="en/404.html" hreflang="en" lang="en">EN</a>
           </div>
         </div>
       </div>
@@ -120,6 +125,6 @@
         </div>
       </div>
     </section>
-    <script src="assets/site.js"></script>
+    <script src="assets/site.js?v=20260912-language-5"></script>
   </body>
 </html>
