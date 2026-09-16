@@ -423,6 +423,7 @@ body:has(.article-prose):not(:has(footer)) .article-prose::after {
 :is(.ek-preview, .ek-site) .ek-text-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 25px; color: #087568; font-size: .875rem; font-weight: 600; min-height: 44px; }
 :is(.ek-preview, .ek-site) .ek-service .ek-text-link { border-top: 1px solid #e3eae7; padding-top: 15px; }
 :is(.ek-preview, .ek-site) .ek-service-contact { background: #e5f0ec; border-color: #d5e4de; }
+:is(.ek-preview, .ek-site) .ek-service-contact .ek-card-copy { color: #40534e; }
 :is(.ek-preview, .ek-site) .ek-service-contact .ek-eyebrow { font-size: .7rem; margin-bottom: 18px; letter-spacing: .065em; }
 :is(.ek-preview, .ek-site) .ek-service-contact h3 { font-size: 1.65rem; font-weight: 500; line-height: 1.5; }
 :is(.ek-preview, .ek-site) .ek-service-contact .ek-text-link { margin-top: auto; }

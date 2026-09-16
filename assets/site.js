@@ -129,6 +129,7 @@ if (cookieBanner && cookieAccept) {
   cookieAccept.addEventListener("click", () => {
     localStorage.setItem("ekCookieConsent", "accepted");
     cookieBanner.hidden = true;
+    window.dispatchEvent(new Event("ek:cookie-consent"));
   });
 }
 
