@@ -114,15 +114,16 @@ textarea:focus-visible {
 .brand-mark {
   height: 2.75rem;
   width: 2.75rem;
-  border-radius: 0.45rem;
+  border-radius: 0;
   object-fit: cover;
 }
 
 .footer-mark {
-  height: 3.25rem;
-  width: 3.25rem;
-  border-radius: 0.55rem;
+  height: 2.34rem;
+  width: 2.75rem;
+  border-radius: 0;
   object-fit: cover;
+  object-position: center;
 }
 
 .map-frame {
