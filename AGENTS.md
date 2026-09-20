@@ -24,6 +24,13 @@ GitHub URL: `https://github.com/wasinsri/elite-knight-website`
 - Do not add npm dependencies, bundlers, or generated files without a clear user request.
 - Keep changes scoped to the requested page or component. Avoid broad rewrites of duplicated headers, footers, or navigation unless the task is specifically to centralize or refactor them.
 
+## GitHub Publishing
+
+- When the user asks to upload, publish, or push changes to GitHub, use the GitHub connector as the default publishing method.
+- Do not rely on local `git push` for publication unless the user explicitly asks for it or the GitHub connector is unavailable.
+- Before publishing, confirm the target branch and review the exact files being sent. Keep unrelated local changes out of the upload.
+- After publishing through the connector, verify the target files on GitHub and report the branch or commit to the user.
+
 ## Language And Content
 
 - The default document language is Thai (`lang="th"`).
@@ -88,7 +95,8 @@ Because there is no build system, verify changes as a static site:
 
 - Open the changed HTML file directly in a browser or serve the repository with a simple static server.
 - Check at least one desktop width and one mobile width.
-- Test the Thai/English language toggle on changed pages.
+- Test the Thai/English language /Users/wasin/.zprofile:1: no such file or directory: /opt/homebrew/bin/brew
+toggle on changed pages.
 - Test the mobile menu if navigation changed.
 - Test accordions, contact form status, cookie banner, and article/footer behavior if touched.
 - Check browser console for JavaScript errors.
