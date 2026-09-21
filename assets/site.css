@@ -759,3 +759,21 @@ body.ek-site {
 @media (min-width: 1024px) {
   .ek-home .lg\:px-8 { padding-inline: 2rem; }
 }
+
+/* Keep insight cards aligned even when their copy and optional share controls differ. */
+.article-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.article-card > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.article-card > div > a.inline-flex {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
