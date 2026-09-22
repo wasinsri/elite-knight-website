@@ -564,11 +564,6 @@ body.ek-site *::after { box-sizing: border-box; }
 .ek-site [aria-labelledby="faq-heading"] .mint-card { border-width: 0 0 1px; border-radius: 0; padding-inline: 0; }
 .ek-site [aria-labelledby="contact-details"] { background: var(--ek-soft); }
 .ek-site [aria-labelledby="contact-details"] aside .mint-card { background: transparent; border: 0; padding-left: 0; }
-.ek-site [data-contact-form] { padding: 36px; }
-.ek-site [data-contact-form] :is(input:not([type="hidden"]), textarea) { border-radius: 5px; border-color: #baccc5; font-size: 1rem; min-width: 0; width: 100%; }
-.ek-site [data-contact-form] label { font-size: .875rem; font-weight: 500; }
-.ek-site [data-contact-form] textarea { min-height: 160px; }
-.ek-site [data-contact-form] button:disabled { opacity: .65; cursor: wait; }
 .ek-site .map-frame { min-height: 360px; }
 .ek-site.ek-article .page-hero { background: var(--ek-soft); padding-block: 54px; }
 .ek-site.ek-article .page-hero > div { max-width: 1010px; }
@@ -615,7 +610,6 @@ body.ek-site *::after { box-sizing: border-box; }
   .ek-site section[aria-labelledby="services-heading"] .space-y-5 .accordion-trigger::before { display: none; }
   .ek-site .accordion-trigger .text-2xl { font-size: 1.1rem; }
   .ek-site .accordion-panel { padding-inline: 20px; }
-  .ek-site [data-contact-form] { padding: 24px 20px; }
   .ek-site [aria-labelledby="contact-details"] aside .mint-card { padding: 0; }
   .ek-site.ek-article .page-hero { padding-block: 34px; }
   .ek-site.ek-article .page-hero h1 { font-size: 1.95rem; }
@@ -941,6 +935,51 @@ body.ek-site *::after { box-sizing: border-box; }
   color: #0f766e;
   font-weight: 600;
   text-underline-offset: 4px;
+}
+
+/* Give the service CTA its own visual destination after related reading. */
+.ek-related + p {
+  align-items: center;
+  background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%);
+  border: 1px solid #b7d8d1;
+  border-radius: 10px;
+  display: flex;
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.ek-related + p > a {
+  align-items: center;
+  background: #0f766e;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px #0f766e24;
+  display: inline-flex;
+  gap: 0.8rem;
+  line-height: 1.35;
+  padding: 0.9rem 1.1rem;
+}
+
+.ek-related + p > a::after {
+  content: "→";
+  font-size: 1.2em;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.ek-related + p > a:hover::after,
+.ek-related + p > a:focus-visible::after {
+  transform: translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .ek-related + p {
+    padding: 1rem;
+  }
+
+  .ek-related + p > a {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 .article-prose :is(h2, h3) {

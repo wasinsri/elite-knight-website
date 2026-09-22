@@ -5,8 +5,6 @@ const langButtons = document.querySelectorAll("[data-lang-button]");
 const usesLanguageUrls = document.documentElement.dataset.languageRouting === "true";
 const mobileMenuButton = document.querySelector("[data-mobile-menu-button]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
-const contactForm = document.querySelector("[data-contact-form]");
-const contactStatus = document.querySelector("[data-contact-status]");
 const cookieBanner = document.querySelector("[data-cookie-banner]");
 const cookieAccept = document.querySelector("[data-cookie-accept]");
 const accordionButtons = document.querySelectorAll("[data-accordion-button]");
@@ -130,49 +128,6 @@ if (cookieBanner && cookieAccept) {
     localStorage.setItem("ekCookieConsent", "accepted");
     cookieBanner.hidden = true;
     window.dispatchEvent(new Event("ek:cookie-consent"));
-  });
-}
-
-if (contactForm && contactStatus) {
-  contactForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const lang = document.documentElement.lang === "en" ? "en" : "th";
-    const endpoint = contactForm.dataset.contactEndpoint;
-    if (!endpoint) {
-      contactStatus.textContent = lang === "en"
-        ? "The contact form is not connected yet. Please email info@ek.co.th or call 063-664-1555."
-        : "แบบฟอร์มยังไม่ได้เชื่อมต่อ กรุณาอีเมล info@ek.co.th หรือโทร 063-664-1555";
-      contactStatus.focus();
-      return;
-    }
-
-    const submitButton = contactForm.querySelector("button[type='submit']");
-    if (submitButton) submitButton.disabled = true;
-    contactStatus.textContent = lang === "en" ? "Sending..." : "กำลังส่งข้อความ...";
-    contactStatus.focus();
-
-    try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
-      });
-      if (!response.ok) throw new Error("Contact form submission failed");
-      contactStatus.textContent = lang === "en"
-        ? "Thank you. Your message has been sent to Elite Knight."
-        : "ขอบคุณครับ ส่งข้อความถึงทีม Elite Knight เรียบร้อยแล้ว";
-      contactForm.reset();
-    } catch (error) {
-      contactStatus.textContent = lang === "en"
-        ? "Sorry, the message could not be sent. Please email info@ek.co.th or call 063-664-1555."
-        : "ขออภัยครับ ส่งข้อความไม่สำเร็จ กรุณาอีเมล info@ek.co.th หรือโทร 063-664-1555";
-    } finally {
-      if (window.turnstile) window.turnstile.reset();
-      if (submitButton) submitButton.disabled = false;
-    }
   });
 }
 
