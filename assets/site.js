@@ -1,6 +1,7 @@
 const translations = document.querySelectorAll("[data-th][data-en]");
 const ariaTranslations = document.querySelectorAll("[data-aria-th][data-aria-en]");
 const titleTranslations = document.querySelectorAll("[data-title-th][data-title-en]");
+const placeholderTranslations = document.querySelectorAll("[data-placeholder-th][data-placeholder-en]");
 const langButtons = document.querySelectorAll("[data-lang-button]");
 const usesLanguageUrls = document.documentElement.dataset.languageRouting === "true";
 const mobileMenuButton = document.querySelector("[data-mobile-menu-button]");
@@ -8,6 +9,74 @@ const mobileMenu = document.querySelector("[data-mobile-menu]");
 const cookieBanner = document.querySelector("[data-cookie-banner]");
 const cookieAccept = document.querySelector("[data-cookie-accept]");
 const accordionButtons = document.querySelectorAll("[data-accordion-button]");
+const insightSearch = document.querySelector("[data-insight-search]");
+const insightFilterButtons = document.querySelectorAll("[data-insight-filter]");
+const insightGrid = document.querySelector("[data-insights-grid]");
+const insightResults = document.querySelector("[data-insight-results]");
+
+const articleCategories = {
+  "ai-transformation-use-case": ["data-ai"], "data-governance-ai": ["data-ai", "governance"],
+  "generative-ai-enterprise-safety-checklist": ["data-ai", "governance"], "pdpa-generative-ai-enterprise": ["data-ai", "governance"],
+  "ai-risk-assessment-use-case": ["data-ai", "governance"], "ai-governance-thailand-getting-started": ["data-ai", "governance"], "iso-iec-42001-ai-management-system": ["data-ai", "governance"],
+  "third-party-cyber-risk-90-day-plan": ["cybersecurity"], "iso-27001-gap-assessment": ["cybersecurity", "governance"], "cyber-resilience-executive-metrics": ["cybersecurity"],
+  "digital-trust-enterprise-services": ["cybersecurity", "digital-excellence"], "digital-strategy-to-portfolio": ["digital-excellence", "management-pmo"],
+  "operating-model-strategy-execution": ["management-pmo"], "strategic-pmo-vs-traditional-pmo": ["management-pmo"]
+  , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"]
+};
+
+function setInsightCategoryFromLink(card) {
+  const link = card.querySelector(".article-title-link");
+  const slug = link?.getAttribute("href")?.split("/").pop()?.replace(".html", "");
+  return articleCategories[slug] || [];
+}
+
+function initializeInsights() {
+  if (!insightGrid || !insightSearch || !insightResults) return;
+  const cards = [...insightGrid.querySelectorAll(".article-card")].reverse();
+  cards.forEach((card) => insightGrid.appendChild(card));
+  const categoryPages = {
+    "data-ai": "data-ai-insights.html",
+    governance: "governance-insights.html",
+    cybersecurity: "cybersecurity-insights.html",
+    "digital-excellence": "digital-excellence-insights.html",
+    "management-pmo": "management-pmo-insights.html"
+  };
+  const overviewLink = document.createElement("a");
+  overviewLink.className = "mt-4 inline-flex font-bold text-teal-700 hover:text-teal-900";
+  overviewLink.hidden = true;
+  insightResults.insertAdjacentElement("afterend", overviewLink);
+  let selectedCategory = new URLSearchParams(window.location.search).get("category") || "all";
+  if (!articleCategories || !["all", ...Object.values(articleCategories).flat()].includes(selectedCategory)) selectedCategory = "all";
+  const language = document.documentElement.lang === "en" ? "en" : "th";
+  const update = () => {
+    const term = insightSearch.value.trim().toLocaleLowerCase();
+    let count = 0;
+    cards.forEach((card, index) => {
+      const matchesCategory = selectedCategory === "all" || setInsightCategoryFromLink(card).includes(selectedCategory);
+      const matchesSearch = !term || card.textContent.toLocaleLowerCase().includes(term);
+      const isLatestView = selectedCategory === "all" && !term;
+      const visible = matchesCategory && matchesSearch && (!isLatestView || index < 15);
+      card.hidden = !visible;
+      if (visible) count += 1;
+    });
+    insightResults.textContent = language === "en" ? `${count} article${count === 1 ? "" : "s"} found` : `พบบทความ ${count} รายการ`;
+    insightFilterButtons.forEach((button) => {
+      const active = button.dataset.insightFilter === selectedCategory;
+      button.setAttribute("aria-pressed", String(active));
+      button.classList.toggle("bg-teal-700", active); button.classList.toggle("text-white", active);
+      button.classList.toggle("border", !active); button.classList.toggle("border-slate-300", !active); button.classList.toggle("bg-white", !active); button.classList.toggle("text-slate-700", !active);
+    });
+    const categoryPage = categoryPages[selectedCategory];
+    overviewLink.hidden = !categoryPage;
+    if (categoryPage) {
+      overviewLink.href = categoryPage;
+      overviewLink.textContent = language === "en" ? "View category overview →" : "ดูภาพรวมหมวด →";
+    }
+  };
+  insightSearch.addEventListener("input", update);
+  insightFilterButtons.forEach((button) => button.addEventListener("click", () => { selectedCategory = button.dataset.insightFilter; const url = new URL(window.location); selectedCategory === "all" ? url.searchParams.delete("category") : url.searchParams.set("category", selectedCategory); window.history.replaceState({}, "", url); update(); }));
+  update();
+}
 function ensureArticleFooter() {
   const isArticlePage = window.location.pathname.includes("/articles/") || window.location.pathname.includes("articles/");
   if (!isArticlePage || document.querySelector("footer")) return;
@@ -76,6 +145,9 @@ function applyLanguage(lang) {
     titleTranslations.forEach((node) => {
       node.setAttribute("title", node.dataset[`title${selected === "th" ? "Th" : "En"}`]);
     });
+    placeholderTranslations.forEach((node) => {
+      node.setAttribute("placeholder", node.dataset[`placeholder${selected === "th" ? "Th" : "En"}`]);
+    });
   }
   langButtons.forEach((button) => {
     const isActive = button.dataset.langButton === selected;
@@ -133,3 +205,4 @@ if (cookieBanner && cookieAccept) {
 
 scheduleArticleFooter();
 applyLanguage(usesLanguageUrls ? document.documentElement.lang : localStorage.getItem("ekLanguage") || "th");
+initializeInsights();
