@@ -18,7 +18,7 @@ GitHub URL: `https://github.com/wasinsri/elite-knight-website`
 
 - Preserve the static-site architecture unless the user explicitly asks for a framework or build system.
 - Prefer editing existing HTML, `assets/site.css`, and `assets/site.js` directly.
-- Use the existing Tailwind utility vocabulary consistently. Most pages load Tailwind from the CDN, while the optimized home page also has matching fallback utilities in `assets/site.css`; do not introduce another page-specific utility or reset strategy.
+- Use the existing Tailwind utility vocabulary consistently. The Tailwind CDN compiler has been removed from every page: the utilities and the preflight reset now live at the top of `assets/site.css`, scoped with `:where(.ek-site)` so their specificity matches what the CDN produced. When you use a utility class that is not defined there yet, add its rule in that block; do not re-add `cdn.tailwindcss.com` and do not introduce another page-specific utility or reset strategy.
 - Keep custom CSS in `assets/site.css` for reusable styles, site-wide components, and behavior that is awkward as inline utility classes.
 - Keep custom JavaScript in `assets/site.js`; avoid inline scripts unless they are page metadata snippets already present, such as analytics or JSON-LD.
 - Do not add npm dependencies, bundlers, or generated files without a clear user request.
@@ -37,10 +37,10 @@ GitHub URL: `https://github.com/wasinsri/elite-knight-website`
 - Reuse the standard TH/EN selector in both desktop and mobile navigation. Root Thai pages link to `en/<page>.html`; English pages link back with `../<page>.html`; article pages must use their correct `articles/` and `en/articles/` relative paths.
 - Every public page must include the standard footer with the company name, official LinkedIn and Facebook links, five site links, Cookie Policy, Bangkok address, office hours, telephone, and email.
 - Every public page must include the standard cookie banner using `data-cookie-banner`, `data-cookie-accept`, and the correct relative link to `cookie-policy.html`.
-- Every public page must include all three favicon declarations: master PNG, 32x32 PNG, and Apple touch icon, with paths adjusted for the page directory.
+- Every public page must include all three favicon declarations: `favicon-192.png`, `favicon-32.png`, and the Apple touch icon, with paths adjusted for the page directory. `favicon-master.png` is the 1254px source art only and must never be referenced from a page.
 - Every article page must include LinkedIn, Facebook, and X share buttons above the article body. Every article card on both `insights.html` and `en/insights.html` must also include all three share buttons.
 - Article cards must use the shared `article-card` and `share-button` classes. Do not add card-specific spacing that causes actions or share controls to shift vertically between cards.
-- When adding an article, create or update the Thai and English article pair in the same task, add one card to both Insights pages, and add both canonical URLs to `sitemap.xml` with accurate `<lastmod>` values.
+- When adding an article, create or update the Thai and English article pair in the same task, add one card to both Insights pages, and add both canonical URLs to `sitemap.xml` with accurate `<lastmod>` values. Give every article pair one unique, semantically relevant 16:9 thumbnail from `images.unsplash.com`, reuse that same thumbnail in both language cards, and keep its descriptive `alt` text paired in Thai and English.
 - Preserve paired `data-th` and `data-en` content, translated ARIA labels, `hreflang`, canonical URLs, and language-specific visible text when copying a template.
 
 ## GitHub Publishing
@@ -82,7 +82,7 @@ GitHub URL: `https://github.com/wasinsri/elite-knight-website`
 
 - Keep page-specific `<title>`, meta description, canonical URL, Open Graph, Twitter card, and favicon metadata aligned with the page content.
 - Preserve JSON-LD structured data where present and update it when business contact or organization details change.
-- Keep analytics snippets intact unless the user asks to remove or change them.
+- Keep analytics snippets intact unless the user asks to remove or change them. Analytics must stay behind the cookie-consent gate: copy the `let analyticsLoaded` block from `index.html` and never add a direct `<script src="https://www.googletagmanager.com/...">` tag.
 - Keep cookie notice and cookie policy behavior consistent with `ekCookieConsent` in `localStorage`.
 - When adding new pages, include suitable metadata, navigation links if needed, footer links if needed, and language pairs for visible copy.
 
@@ -96,7 +96,7 @@ GitHub URL: `https://github.com/wasinsri/elite-knight-website`
   - Home and contact pages should include `ProfessionalService` or `Organization` style data with logo, contact details, area served, expertise, and business description.
   - Service landing pages should include `Service`, `FAQPage`, and `BreadcrumbList`.
   - Article pages should include `BlogPosting` or `Article`, `FAQPage` where relevant, and `BreadcrumbList`.
-  - Keep `datePublished`, `dateModified`, `author`, `publisher`, `mainEntityOfPage`, `image`, and `articleSection` accurate for articles.
+  - Keep `datePublished`, `dateModified`, `author`, `publisher`, `mainEntityOfPage`, `image`, and `articleSection` accurate for articles. Article `author` is the Person node `https://www.ek.co.th/about.html#wasin-srisawat` (Wasin Srisawat, Consultant); `publisher` stays the organization.
 - Do not include placeholder social profile links in `sameAs` or footers. Only use real official profile URLs; otherwise omit them.
 - Keep `sitemap.xml` current whenever pages are added, removed, renamed, or materially updated. Include `<lastmod>` dates.
 - Build internal links intentionally:
@@ -110,7 +110,14 @@ GitHub URL: `https://github.com/wasinsri/elite-knight-website`
 
 ## Verification
 
-Because there is no build system, verify changes as a static site:
+Run `python3 tools/check-consistency.py` before every publish. It fails on a
+mixed asset cache version, a missing cookie banner / favicon / skip link /
+hreflang / canonical, analytics outside the consent gate, a re-added Tailwind
+CDN tag, a utility class with no rule in `assets/site.css`, invalid JSON-LD, a
+broken relative path, a missing `alt`, and unbalanced `data-th` / `data-en`.
+The same script runs in CI via `.github/workflows/site-checks.yml`.
+
+Then verify the change as a static site:
 
 - Open the changed HTML file directly in a browser or serve the repository with a simple static server.
 - Check at least one desktop width and one mobile width.

@@ -206,3 +206,42 @@ if (cookieBanner && cookieAccept) {
 scheduleArticleFooter();
 applyLanguage(usesLanguageUrls ? document.documentElement.lang : localStorage.getItem("ekLanguage") || "th");
 initializeInsights();
+
+/* Conversion tracking. Events only reach GA4 after the visitor accepts cookies,
+   because window.gtag is created by the consent-gated loader in each page head. */
+function ekTrack(name, params) {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", name, params || {});
+}
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest && event.target.closest("a[href]");
+  if (!link) return;
+  const href = link.getAttribute("href") || "";
+  if (href.startsWith("mailto:")) {
+    ekTrack("contact_email_click", { link_url: href, page_path: location.pathname });
+  } else if (href.startsWith("tel:")) {
+    ekTrack("contact_phone_click", { link_url: href, page_path: location.pathname });
+  } else if (link.classList.contains("share-button")) {
+    ekTrack("article_share", { method: link.dataset.shareNetwork || link.hostname, page_path: location.pathname });
+  }
+});
+
+if (document.body.classList.contains("ek-article")) {
+  const marks = [25, 50, 75, 100];
+  const fired = new Set();
+  const onScroll = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    const pct = Math.min(100, Math.round((window.scrollY / max) * 100));
+    marks.forEach((mark) => {
+      if (pct >= mark && !fired.has(mark)) {
+        fired.add(mark);
+        ekTrack("article_scroll", { percent_scrolled: mark, page_path: location.pathname });
+      }
+    });
+    if (fired.size === marks.length) window.removeEventListener("scroll", onScroll);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
