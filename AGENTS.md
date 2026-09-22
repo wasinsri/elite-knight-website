@@ -18,11 +18,30 @@ GitHub URL: `https://github.com/wasinsri/elite-knight-website`
 
 - Preserve the static-site architecture unless the user explicitly asks for a framework or build system.
 - Prefer editing existing HTML, `assets/site.css`, and `assets/site.js` directly.
-- Use Tailwind utility classes consistently because pages currently load Tailwind from the CDN.
+- Use the existing Tailwind utility vocabulary consistently. Most pages load Tailwind from the CDN, while the optimized home page also has matching fallback utilities in `assets/site.css`; do not introduce another page-specific utility or reset strategy.
 - Keep custom CSS in `assets/site.css` for reusable styles, site-wide components, and behavior that is awkward as inline utility classes.
 - Keep custom JavaScript in `assets/site.js`; avoid inline scripts unless they are page metadata snippets already present, such as analytics or JSON-LD.
 - Do not add npm dependencies, bundlers, or generated files without a clear user request.
 - Keep changes scoped to the requested page or component. Avoid broad rewrites of duplicated headers, footers, or navigation unless the task is specifically to centralize or refactor them.
+
+## Page Templates And Cross-Page Consistency
+
+- Treat the existing page shell as a controlled template, not as optional example markup. New pages must reuse the same document structure, shared assets, header, navigation, language controls, footer, cookie banner, and script loading pattern as the closest existing page type.
+- Use `articles/generative-ai-enterprise-safety-checklist.html` as the canonical template for every new Thai article. Use `en/articles/generative-ai-enterprise-safety-checklist.html` as the canonical English article template. Change article-specific metadata and content, but preserve the shared shell and component classes.
+- For a new service or corporate page, start from the closest current page of the same type. Do not compose a new header, footer, language selector, cookie banner, or responsive navigation from memory.
+- The desktop header must always contain the logo and these five navigation items in this order: Home, Expertise, Services, Insights, Contact. Only the current page may use the `active` class and `aria-current="page"`.
+- The mobile menu must contain the same five navigation items in the same order and must retain `data-mobile-menu-button`, `aria-expanded`, `aria-controls="mobile-menu"`, and `data-mobile-menu`.
+- Use `assets/logo.jpg` for root-page header logos and `../assets/logo.jpg` for pages one directory below the root. Keep the shared `brand-mark` class and do not add page-specific width, height, padding, or navigation-container overrides.
+- Keep navigation dimensions and positioning in `assets/site.css`. New pages must not override `.ek-nav`, `.ek-nav > nav`, `.brand-mark`, `.max-w-7xl`, `[data-mobile-menu-button]`, or the global box-sizing/reset rules inline or in page-specific styles.
+- Every page must reference the same current `assets/site.css` cache version. Never invent a different query-string version for one page. When `assets/site.css` changes, update the stylesheet cache version across every HTML file in the same change and verify there is exactly one version in use.
+- Reuse the standard TH/EN selector in both desktop and mobile navigation. Root Thai pages link to `en/<page>.html`; English pages link back with `../<page>.html`; article pages must use their correct `articles/` and `en/articles/` relative paths.
+- Every public page must include the standard footer with the company name, official LinkedIn and Facebook links, five site links, Cookie Policy, Bangkok address, office hours, telephone, and email.
+- Every public page must include the standard cookie banner using `data-cookie-banner`, `data-cookie-accept`, and the correct relative link to `cookie-policy.html`.
+- Every public page must include all three favicon declarations: master PNG, 32x32 PNG, and Apple touch icon, with paths adjusted for the page directory.
+- Every article page must include LinkedIn, Facebook, and X share buttons above the article body. Every article card on both `insights.html` and `en/insights.html` must also include all three share buttons.
+- Article cards must use the shared `article-card` and `share-button` classes. Do not add card-specific spacing that causes actions or share controls to shift vertically between cards.
+- When adding an article, create or update the Thai and English article pair in the same task, add one card to both Insights pages, and add both canonical URLs to `sitemap.xml` with accurate `<lastmod>` values.
+- Preserve paired `data-th` and `data-en` content, translated ARIA labels, `hreflang`, canonical URLs, and language-specific visible text when copying a template.
 
 ## GitHub Publishing
 
@@ -95,12 +114,19 @@ Because there is no build system, verify changes as a static site:
 
 - Open the changed HTML file directly in a browser or serve the repository with a simple static server.
 - Check at least one desktop width and one mobile width.
-- Test the Thai/English language /Users/wasin/.zprofile:1: no such file or directory: /opt/homebrew/bin/brew
-toggle on changed pages.
+- Test the Thai/English language toggle on changed pages.
 - Test the mobile menu if navigation changed.
 - Test accordions, contact form status, cookie banner, and article/footer behavior if touched.
 - Check browser console for JavaScript errors.
 - Verify links and asset paths, especially for files under `articles/` where relative paths differ from root pages.
+- Compare the new page against its canonical template before publishing. Confirm that only page-specific content, metadata, active navigation state, and relative paths differ.
+- Confirm all HTML files reference one shared `site.css` cache version. A page-specific CSS version is a release-blocking consistency error.
+- At a 1440px viewport, compare the header navigation bounding box with `index.html`, `about.html`, or the relevant language equivalent. Header height, container width, vertical position, logo position, and menu position must match.
+- At a 390px viewport, confirm a 76px header, a stable logo position, and a fixed-width mobile menu button in the same position as existing pages.
+- For every new article pair, verify exactly one cookie banner, three favicon declarations, four language buttons across desktop and mobile controls, one mobile-menu button, one mobile menu, three article share buttons, and one standard footer per file.
+- On both Insights pages, verify that every `.article-card` contains exactly three `.share-button` links and that Thai and English card counts match.
+- Parse every JSON-LD block as JSON and check all relative `href` and `src` targets before publishing.
+- Run `git diff --check` and review the exact publication file list. Do not include unrelated changes.
 
 ## Common Pitfalls
 

@@ -170,6 +170,7 @@ if (contactForm && contactStatus) {
         ? "Sorry, the message could not be sent. Please email info@ek.co.th or call 063-664-1555."
         : "ขออภัยครับ ส่งข้อความไม่สำเร็จ กรุณาอีเมล info@ek.co.th หรือโทร 063-664-1555";
     } finally {
+      if (window.turnstile) window.turnstile.reset();
       if (submitButton) submitButton.disabled = false;
     }
   });
