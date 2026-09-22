@@ -57,6 +57,7 @@
 :where(.ek-site) .z-50 { z-index: 50; }
 :where(.ek-site) .overflow-hidden { overflow: hidden; }
 :where(.ek-site) .cursor-pointer { cursor: pointer; }
+:where(.ek-site) .transition { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter, backdrop-filter; transition-timing-function: cubic-bezier(.4, 0, .2, 1); transition-duration: 150ms; }
 
 /* --- Flex / grid --------------------------------------------------------- */
 :where(.ek-site) .flex-col { flex-direction: column; }
@@ -114,6 +115,7 @@
 :where(.ek-site) .py-1\.5 { padding-block: .375rem; }
 :where(.ek-site) .py-2 { padding-block: .5rem; }
 :where(.ek-site) .py-3 { padding-block: .75rem; }
+:where(.ek-site) .py-3\.5 { padding-block: .875rem; }
 :where(.ek-site) .py-4 { padding-block: 1rem; }
 :where(.ek-site) .py-12 { padding-block: 3rem; }
 :where(.ek-site) .py-16 { padding-block: 4rem; }
