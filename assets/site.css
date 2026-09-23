@@ -735,6 +735,7 @@ body.ek-site *::after { box-sizing: border-box; }
 .ek-site .ek-nav .nav-link { font-weight: 500; min-height: 44px; display: inline-flex; align-items: center; }
 .ek-site .ek-nav .nav-link.active { color: var(--ek-accent); text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 2px; }
 .ek-site [data-lang-button] { display: inline-flex; align-items: center; justify-content: center; font-size: .75rem; line-height: 1.5; min-height: 36px; min-width: 36px; }
+.ek-site [data-lang-button].lang-active { color: #ffffff; }
 .ek-site [data-mobile-menu-button] { min-height: 44px; width: 64px; flex: none; font-size: .875rem; font-weight: 500; }
 .ek-site [data-mobile-menu] { max-height: calc(100dvh - 76px); overflow-y: auto; }
 .ek-site .section-kicker { font-weight: 600; letter-spacing: .075em; font-size: .8rem; color: var(--ek-accent); }
