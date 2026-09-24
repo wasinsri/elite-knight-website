@@ -41,6 +41,9 @@ GitHub URL: `https://github.com/wasinsri/elite-knight-website`
 - Every article page must include LinkedIn, Facebook, and X share buttons above the article body. Every article card on both `insights.html` and `en/insights.html` must also include all three share buttons.
 - Article cards must use the shared `article-card` and `share-button` classes. Do not add card-specific spacing that causes actions or share controls to shift vertically between cards.
 - When adding an article, create or update the Thai and English article pair in the same task, add one card to both Insights pages, and add both canonical URLs to `sitemap.xml` with accurate `<lastmod>` values. Give every article pair one unique, semantically relevant 16:9 thumbnail from `images.unsplash.com`, reuse that same thumbnail in both language cards, and keep its descriptive `alt` text paired in Thai and English.
+- On `insights.html` and `en/insights.html`, article cards belong only in the `data-insights-grid` inside the “All Articles” section. Never place an article card in the `insight-categories` section: that grid contains category overview links only.
+- Preserve the newest-first behavior of the main Insights list. `assets/site.js` reverses the source cards in `data-insights-grid`, so append a new article card to the end of that source grid; it will display first in the browser.
+- When a new article is added to the main Insights list, add its slug and category or categories to `articleCategories` in `assets/site.js`. Verify that the matching category filter displays the card on both Thai and English Insights pages.
 - Preserve paired `data-th` and `data-en` content, translated ARIA labels, `hreflang`, canonical URLs, and language-specific visible text when copying a template.
 
 ## GitHub Publishing
@@ -132,6 +135,7 @@ Then verify the change as a static site:
 - At a 390px viewport, confirm a 76px header, a stable logo position, and a fixed-width mobile menu button in the same position as existing pages.
 - For every new article pair, verify exactly one cookie banner, three favicon declarations, four language buttons across desktop and mobile controls, one mobile-menu button, one mobile menu, three article share buttons, and one standard footer per file.
 - On both Insights pages, verify that every `.article-card` contains exactly three `.share-button` links and that Thai and English card counts match.
+- For each new article card on both Insights pages, verify all of the following before publishing: it appears exactly once in `data-insights-grid`, never appears in `insight-categories`, is appended as the final source card in `data-insights-grid`, has three share buttons, and is returned by its configured category filter. At the default view, confirm it renders as the first visible article after `assets/site.js` initializes.
 - Parse every JSON-LD block as JSON and check all relative `href` and `src` targets before publishing.
 - Run `git diff --check` and review the exact publication file list. Do not include unrelated changes.
 
