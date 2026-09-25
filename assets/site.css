@@ -944,6 +944,57 @@ body.ek-site *::after { box-sizing: border-box; }
   padding-top: 1.25rem;
 }
 
+.article-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.article-card-actions > a {
+  align-items: center;
+  background: var(--ek-accent);
+  border-radius: 5px;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: .875rem;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 48px;
+  padding: .75rem 1rem;
+  order: 2;
+}
+
+.article-card-actions > a:hover {
+  background: #075a50;
+  color: #ffffff;
+}
+
+.article-card-actions > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  order: 1;
+}
+
+/* Keep the primary featured-article action at the end of the shared action row. */
+[aria-labelledby="featured-insight"] .mt-7 > a:first-child {
+  order: 2;
+}
+
+.article-card-actions .share-button {
+  background: #ffffff;
+  color: var(--ek-ink);
+  min-height: 48px;
+  padding: .75rem .75rem;
+}
+
+.article-card-actions .share-button:hover {
+  background: var(--ek-accent);
+  color: #ffffff;
+}
+
 /* --- AEO/AI-search structure components (2026-09-22) --- */
 
 .ek-takeaways {
