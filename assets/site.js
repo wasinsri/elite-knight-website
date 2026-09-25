@@ -15,6 +15,7 @@ const insightSearch = document.querySelector("[data-insight-search]");
 const insightFilterButtons = document.querySelectorAll("[data-insight-filter]");
 const insightGrid = document.querySelector("[data-insights-grid]");
 const insightResults = document.querySelector("[data-insight-results]");
+const insightSectionKicker = document.querySelector('section[aria-labelledby="article-list"] .section-kicker');
 
 const articleCategories = {
   "ai-transformation-use-case": ["data-ai"], "data-governance-ai": ["data-ai", "governance"],
@@ -23,7 +24,7 @@ const articleCategories = {
   "third-party-cyber-risk-90-day-plan": ["cybersecurity"], "iso-27001-gap-assessment": ["cybersecurity", "governance"], "cyber-resilience-executive-metrics": ["cybersecurity"],
   "digital-trust-enterprise-services": ["cybersecurity", "digital-excellence"], "digital-strategy-to-portfolio": ["digital-excellence", "management-pmo"],
   "operating-model-strategy-execution": ["management-pmo"], "strategic-pmo-vs-traditional-pmo": ["management-pmo"]
-  , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"], "data-quality-ai-readiness-90-day-plan": ["data-ai"], "ai-operating-model-thailand": ["data-ai"]
+  , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"]
 };
 
 function setInsightCategoryFromLink(card) {
@@ -32,10 +33,35 @@ function setInsightCategoryFromLink(card) {
   return articleCategories[slug] || [];
 }
 
+function initializeArticleCardActions() {
+  document.querySelectorAll(".article-card").forEach((card) => {
+    const cardBody = card.querySelector(".article-title-link")?.closest("h3")?.parentElement;
+    const readLink = cardBody?.querySelector(":scope > a.inline-flex");
+    const shareLinks = readLink?.nextElementSibling;
+    if (!readLink || !shareLinks?.querySelector(".share-button")) return;
+    const actions = document.createElement("div");
+    actions.className = "article-card-actions";
+    readLink.before(actions);
+    actions.append(readLink, shareLinks);
+    readLink.textContent = document.documentElement.lang === "en" ? "Read article" : "อ่านบทความ";
+  });
+}
+
 function initializeInsights() {
   if (!insightGrid || !insightSearch || !insightResults) return;
   const cards = [...insightGrid.querySelectorAll(".article-card")].reverse();
   cards.forEach((card) => insightGrid.appendChild(card));
+  const latestLimit = 15;
+  let showAllLatest = false;
+  const insightCategories = document.getElementById("insight-categories");
+  let showAllButton = document.querySelector("[data-insights-show-all]");
+  if (!showAllButton) {
+    showAllButton = document.createElement("button");
+    showAllButton.type = "button";
+    showAllButton.className = "mt-10 inline-flex rounded bg-teal-700 px-5 py-3 font-bold text-white hover:bg-teal-900 focus:outline-none focus:ring-2 focus:ring-teal-200";
+    showAllButton.hidden = true;
+    insightGrid.insertAdjacentElement("afterend", showAllButton);
+  }
   const categoryPages = {
     "data-ai": "data-ai-insights.html",
     governance: "governance-insights.html",
@@ -57,11 +83,16 @@ function initializeInsights() {
       const matchesCategory = selectedCategory === "all" || setInsightCategoryFromLink(card).includes(selectedCategory);
       const matchesSearch = !term || card.textContent.toLocaleLowerCase().includes(term);
       const isLatestView = selectedCategory === "all" && !term;
-      const visible = matchesCategory && matchesSearch && (!isLatestView || index < 15);
+      const visible = matchesCategory && matchesSearch && (!isLatestView || showAllLatest || index < latestLimit);
       card.hidden = !visible;
       if (visible) count += 1;
     });
+    if (insightSectionKicker) {
+      insightSectionKicker.textContent = language === "en" ? "Latest 15 Articles" : "บทความล่าสุด 15 เรื่อง";
+    }
     insightResults.textContent = language === "en" ? `${count} article${count === 1 ? "" : "s"} found` : `พบบทความ ${count} รายการ`;
+    showAllButton.hidden = !isLatestView || showAllLatest || cards.length <= latestLimit;
+    showAllButton.textContent = language === "en" ? "View all articles" : "ดูบทความทั้งหมด";
     insightFilterButtons.forEach((button) => {
       const active = button.dataset.insightFilter === selectedCategory;
       button.setAttribute("aria-pressed", String(active));
@@ -76,7 +107,15 @@ function initializeInsights() {
     }
   };
   insightSearch.addEventListener("input", update);
-  insightFilterButtons.forEach((button) => button.addEventListener("click", () => { selectedCategory = button.dataset.insightFilter; const url = new URL(window.location); selectedCategory === "all" ? url.searchParams.delete("category") : url.searchParams.set("category", selectedCategory); window.history.replaceState({}, "", url); update(); }));
+  showAllButton.addEventListener("click", () => {
+    showAllLatest = true;
+    update();
+    insightCategories?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      block: "start"
+    });
+  });
+  insightFilterButtons.forEach((button) => button.addEventListener("click", () => { selectedCategory = button.dataset.insightFilter; showAllLatest = false; const url = new URL(window.location); selectedCategory === "all" ? url.searchParams.delete("category") : url.searchParams.set("category", selectedCategory); window.history.replaceState({}, "", url); update(); }));
   update();
 }
 function applyLanguage(lang) {
@@ -184,6 +223,7 @@ if (cookieBanner && cookieAccept) {
 }
 
 applyLanguage(usesLanguageUrls ? document.documentElement.lang : localStorage.getItem("ekLanguage") || "th");
+initializeArticleCardActions();
 initializeInsights();
 
 /* Conversion tracking. Events only reach GA4 after the visitor accepts cookies,
