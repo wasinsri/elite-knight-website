@@ -13,6 +13,7 @@ import json
 import os
 import re
 import sys
+from argparse import ArgumentParser
 from collections import Counter, defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,6 +21,16 @@ SKIP_DIRS = {".git", "node_modules", "tools", ".github"}
 
 errors: list[str] = []
 warnings: list[str] = []
+
+
+parser = ArgumentParser(description="Check the Elite Knight static site.")
+parser.add_argument(
+    "--article",
+    nargs=2,
+    metavar=("THAI_ARTICLE", "ENGLISH_ARTICLE"),
+    help="Validate one new Thai/English article pair for editorial length and FAQ parity.",
+)
+ARGS = parser.parse_args()
 
 
 def err(page: str, msg: str) -> None:
@@ -177,11 +188,99 @@ def check_language_pairs() -> None:
             err(page, f"data-th / data-en are unbalanced by {th_only}")
 
 
+# 11. new article editorial length and FAQ parity ---------------------------
+def article_source(page: str) -> str | None:
+    if page not in SOURCES:
+        err("article validation", f"article file does not exist: {page}")
+        return None
+    return SOURCES[page]
+
+
+def strip_tags(value: str) -> str:
+    return re.sub(r"\s+", "", html.unescape(re.sub(r"<[^>]+>", " ", value)))
+
+
+def attribute_value(attrs: str, name: str) -> str | None:
+    match = re.search(rf'\b{name}="([^"]*)"', attrs, re.S)
+    return html.unescape(match.group(1)) if match else None
+
+
+def visible_tag_values(source: str, tag: str, language: str) -> list[str]:
+    values: list[str] = []
+    for match in re.finditer(rf"<{tag}\b([^>]*)>(.*?)</{tag}>", source, re.S | re.I):
+        attrs, inner = match.groups()
+        value = attribute_value(attrs, f"data-{language}")
+        values.append(value if value is not None else html.unescape(re.sub(r"<[^>]+>", " ", inner)))
+    return values
+
+
+def editorial_characters(source: str, language: str) -> int:
+    """Count rendered editorial copy, excluding navigation, actions, and footer UI."""
+    article = re.search(r"<article\b[^>]*>(.*?)</article>", source, re.S | re.I)
+    if not article:
+        return 0
+    editorial = article.group(1)
+    editorial = re.sub(r'<section\b[^>]*class="[^"]*article-cta[^"]*"[^>]*>.*?</section>', "", editorial, flags=re.S | re.I)
+    editorial = re.sub(r'<nav\b[^>]*class="[^"]*ek-related[^"]*"[^>]*>.*?</nav>', "", editorial, flags=re.S | re.I)
+    editorial = re.sub(r'<(?:nav|script|style)\b[^>]*>.*?</(?:nav|script|style)>', "", editorial, flags=re.S | re.I)
+    text = []
+    for tag in ("h1", "h2", "h3", "h4", "h5", "h6", "p", "summary"):
+        text.extend(visible_tag_values(editorial, tag, language))
+    return len(re.sub(r"\s+", "", " ".join(text)))
+
+
+def faq_page_questions(source: str) -> list[str] | None:
+    for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', source, re.S):
+        try:
+            data = json.loads(block)
+        except json.JSONDecodeError:
+            continue
+        nodes = data.get("@graph", []) if isinstance(data, dict) else data
+        if isinstance(nodes, dict):
+            nodes = [nodes]
+        for node in nodes:
+            if node.get("@type") == "FAQPage":
+                entities = node.get("mainEntity", [])
+                return [item.get("name", "") for item in entities]
+    return None
+
+
+def check_article_page(page: str, language: str) -> None:
+    source = article_source(page)
+    if source is None:
+        return
+
+    visible_questions = [strip_tags(value) for value in visible_tag_values(source, "summary", language)]
+    schema_questions = faq_page_questions(source)
+    if len(visible_questions) != 5:
+        err(page, f"expected exactly 5 visible FAQ items, found {len(visible_questions)}")
+    if schema_questions is None:
+        err(page, "missing FAQPage JSON-LD")
+    elif len(schema_questions) != 5:
+        err(page, f"FAQPage JSON-LD must have exactly 5 questions, found {len(schema_questions)}")
+    elif visible_questions != [re.sub(r"\s+", "", question) for question in schema_questions]:
+        err(page, "visible FAQ questions do not match FAQPage JSON-LD")
+
+    character_count = editorial_characters(source, language)
+    if not 4000 <= character_count <= 6500:
+        err(page, f"visible editorial content is {character_count} characters; expected 4,000-6,500")
+    else:
+        print(f"  article  {page}: {character_count} visible editorial characters, 5 FAQs")
+
+
+def check_article_pair() -> None:
+    if not ARGS.article:
+        return
+    thai_page, english_page = [os.path.normpath(page) for page in ARGS.article]
+    check_article_page(thai_page, "th")
+    check_article_page(english_page, "en")
+
+
 def main() -> int:
     for check in (
         check_cache_version, check_shell, check_consent_gate, check_no_cdn,
         check_classes, check_jsonld, check_paths, check_images,
-        check_metadata, check_language_pairs,
+        check_metadata, check_language_pairs, check_article_pair,
     ):
         check()
 
