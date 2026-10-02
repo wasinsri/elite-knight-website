@@ -24,7 +24,7 @@ const articleCategories = {
   "third-party-cyber-risk-90-day-plan": ["cybersecurity"], "iso-27001-gap-assessment": ["cybersecurity", "governance"], "cyber-resilience-executive-metrics": ["cybersecurity"],
   "digital-trust-enterprise-services": ["cybersecurity", "digital-excellence"], "digital-strategy-to-portfolio": ["digital-excellence", "management-pmo"],
   "operating-model-strategy-execution": ["management-pmo"], "strategic-pmo-vs-traditional-pmo": ["management-pmo"]
-  , "digital-transformation-consultant": ["digital-excellence", "management-pmo"], "ai-consultant-business-outcomes": ["data-ai", "governance"]
+  , "digital-transformation-consultant": ["digital-excellence", "management-pmo"], "ai-consultant-business-outcomes": ["data-ai", "governance"], "cybersecurity-consulting-executive-priorities": ["cybersecurity", "governance"]
   , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"]
 };
 
