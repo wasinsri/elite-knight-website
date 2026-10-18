@@ -24,6 +24,7 @@ const articleCategories = {
   "third-party-cyber-risk-90-day-plan": ["cybersecurity"], "iso-27001-gap-assessment": ["cybersecurity", "governance"], "cyber-resilience-executive-metrics": ["cybersecurity"],
   "digital-trust-enterprise-services": ["cybersecurity", "digital-excellence"], "digital-strategy-to-portfolio": ["digital-excellence", "management-pmo"],
   "operating-model-strategy-execution": ["management-pmo"], "strategic-pmo-vs-traditional-pmo": ["management-pmo"]
+  , "ai-operating-model-thailand": ["data-ai", "governance"], "cybersecurity-tabletop-exercise": ["cybersecurity"], "data-quality-ai-readiness-90-day-plan": ["data-ai", "governance"]
   , "digital-transformation-consultant": ["digital-excellence", "management-pmo"], "ai-consultant-business-outcomes": ["data-ai", "governance"], "cybersecurity-consulting-executive-priorities": ["cybersecurity", "governance"]
   , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"]
 };
@@ -54,7 +55,6 @@ function initializeInsights() {
   cards.forEach((card) => insightGrid.appendChild(card));
   const latestLimit = 15;
   let showAllLatest = false;
-  const insightCategories = document.getElementById("insight-categories");
   let showAllButton = document.querySelector("[data-insights-show-all]");
   if (!showAllButton) {
     showAllButton = document.createElement("button");
@@ -79,17 +79,19 @@ function initializeInsights() {
   const language = document.documentElement.lang === "en" ? "en" : "th";
   const update = () => {
     const term = insightSearch.value.trim().toLocaleLowerCase();
+    const isLatestView = selectedCategory === "all" && !term;
     let count = 0;
     cards.forEach((card, index) => {
       const matchesCategory = selectedCategory === "all" || setInsightCategoryFromLink(card).includes(selectedCategory);
       const matchesSearch = !term || card.textContent.toLocaleLowerCase().includes(term);
-      const isLatestView = selectedCategory === "all" && !term;
       const visible = matchesCategory && matchesSearch && (!isLatestView || showAllLatest || index < latestLimit);
       card.hidden = !visible;
       if (visible) count += 1;
     });
     if (insightSectionKicker) {
-      insightSectionKicker.textContent = language === "en" ? "Latest 15 Articles" : "บทความล่าสุด 15 เรื่อง";
+      insightSectionKicker.textContent = isLatestView && !showAllLatest
+        ? (language === "en" ? "Latest 15 Articles" : "บทความล่าสุด 15 เรื่อง")
+        : (language === "en" ? "All Articles" : "บทความทั้งหมด");
     }
     insightResults.textContent = language === "en" ? `${count} article${count === 1 ? "" : "s"} found` : `พบบทความ ${count} รายการ`;
     showAllButton.hidden = !isLatestView || showAllLatest || cards.length <= latestLimit;
@@ -111,10 +113,8 @@ function initializeInsights() {
   showAllButton.addEventListener("click", () => {
     showAllLatest = true;
     update();
-    insightCategories?.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-      block: "start"
-    });
+    const navHeight = document.querySelector(".ek-nav")?.getBoundingClientRect().height || 0;
+    window.scrollTo({ top: insightGrid.getBoundingClientRect().top + window.scrollY - navHeight - 16, behavior: "instant" });
   });
   insightFilterButtons.forEach((button) => button.addEventListener("click", () => { selectedCategory = button.dataset.insightFilter; showAllLatest = false; const url = new URL(window.location); selectedCategory === "all" ? url.searchParams.delete("category") : url.searchParams.set("category", selectedCategory); window.history.replaceState({}, "", url); update(); }));
   update();
