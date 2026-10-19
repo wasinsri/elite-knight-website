@@ -26,7 +26,8 @@ const articleCategories = {
   "operating-model-strategy-execution": ["management-pmo"], "strategic-pmo-vs-traditional-pmo": ["management-pmo"]
   , "ai-operating-model-thailand": ["data-ai", "governance"], "cybersecurity-tabletop-exercise": ["cybersecurity"], "data-quality-ai-readiness-90-day-plan": ["data-ai", "governance"]
   , "digital-transformation-consultant": ["digital-excellence", "management-pmo"], "ai-consultant-business-outcomes": ["data-ai", "governance"], "cybersecurity-consulting-executive-priorities": ["cybersecurity", "governance"]
-  , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"]
+  , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"],
+  "data-stewardship-operating-model": ["data-ai", "governance"]
 };
 
 function setInsightCategoryFromLink(card) {
