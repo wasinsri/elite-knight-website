@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="en" data-language-routing="true"><head>
+    <meta charset="utf-8" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Enterprise IAM Roadmap | Elite Knight</title>
+    <meta name="description" content="A practical Identity and Access Management roadmap for Thai enterprises, from account lifecycle and least privilege to MFA, privileged access, and a 90-day plan.">
+    <link rel="canonical" href="https://www.ek.co.th/en/articles/identity-access-management-enterprise.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Identity and Access Management: A Practical Roadmap for Thai Enterprises | Elite Knight">
+    <meta property="og:description" content="A practical Identity and Access Management roadmap for Thai enterprises, from account lifecycle and least privilege to MFA, privileged access, and a 90-day plan.">
+    <meta property="og:url" content="https://www.ek.co.th/en/articles/identity-access-management-enterprise.html">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Business team reviewing access and security controls">
+    <meta property="article:published_time" content="2026-10-22">
+    <meta property="article:modified_time" content="2026-10-22">
+    <meta property="article:section" content="Cybersecurity Consulting">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Identity and Access Management: A Practical Roadmap for Thai Enterprises | Elite Knight">
+    <meta name="twitter:description" content="A practical Identity and Access Management roadmap for Thai enterprises, from account lifecycle and least privilege to MFA, privileged access, and a 90-day plan.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon-192.png?v=20260922-ux-3">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=20260922-ux-3">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=20260922-ux-3">
+    <script>
+      let analyticsLoaded = false;
+      function loadAnalytics() {
+        if (analyticsLoaded) return;
+        analyticsLoaded = true;
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        const analytics = document.createElement("script");
+        analytics.async = true;
+        analytics.src = "https://www.googletagmanager.com/gtag/js?id=G-N7QHVHER9F";
+        analytics.addEventListener("load", function () {
+          gtag("js", new Date());
+          gtag("config", "G-N7QHVHER9F");
+        });
+        document.head.appendChild(analytics);
+      }
+      if (localStorage.getItem("ekCookieConsent") === "accepted") {
+        window.addEventListener("load", loadAnalytics, { once: true });
+      }
+      window.addEventListener("ek:cookie-consent", loadAnalytics, { once: true });
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../../assets/site.css?v=20260925-insight-actions-1">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.ek.co.th/#organization",
+      "name": "Elite Knight Co., Ltd.",
+      "alternateName": "บริษัท เอลีท ไนท์ จำกัด",
+      "url": "https://www.ek.co.th/",
+      "logo": "https://www.ek.co.th/assets/logo.jpg",
+      "telephone": "+66-63-664-1555",
+      "email": "info@ek.co.th",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1/128 Imm Amphon Village, Soi Thawi Watthana 20, Thawi Watthana Road",
+        "addressLocality": "Thawi Watthana",
+        "addressRegion": "Bangkok",
+        "postalCode": "10170",
+        "addressCountry": "TH"
+      },
+      "areaServed": [
+        "Thailand",
+        "Bangkok"
+      ],
+      "knowsAbout": [
+        "Generative AI",
+        "AI Governance",
+        "Cybersecurity",
+        "Data Governance",
+        "ISO/IEC 42001"
+      ],
+      "slogan": "Engineering the Future with Data and AI",
+      "sameAs": [
+        "https://www.linkedin.com/company/elite-knight/",
+        "https://www.facebook.com/ek.co.th"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.ek.co.th/en/articles/identity-access-management-enterprise.html#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.ek.co.th/en/articles/identity-access-management-enterprise.html"
+      },
+      "headline": "Identity and Access Management: A Practical Roadmap for Thai Enterprises",
+      "description": "A practical Identity and Access Management roadmap for Thai enterprises, from account lifecycle and least privilege to MFA, privileged access, and a 90-day plan.",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&h=630&q=80",
+      "datePublished": "2026-10-22",
+      "dateModified": "2026-10-22",
+      "author": {
+        "@type": "Person",
+        "@id": "https://www.ek.co.th/about.html#wasin-srisawat",
+        "name": "Wasin Srisawat",
+        "jobTitle": "Consultant",
+        "worksFor": {
+          "@id": "https://www.ek.co.th/#organization"
+        }
+      },
+      "publisher": {
+        "@id": "https://www.ek.co.th/#organization"
+      },
+      "articleSection": "Cybersecurity Consulting",
+      "inLanguage": "en-US",
+      "timeRequired": "PT12M",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Identity and Access Management"
+        },
+        {
+          "@type": "Thing",
+          "name": "Zero Trust"
+        }
+      ],
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ek.co.th/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://www.ek.co.th/en/insights.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Identity and Access Management: A Practical Roadmap for Thai Enterprises",
+          "item": "https://www.ek.co.th/en/articles/identity-access-management-enterprise.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does IAM include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IAM includes identity lifecycle, authentication, authorization, and access monitoring for employees, contractors, suppliers, administrators, and service identities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which accounts should we address first?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prioritize administrator accounts, access to critical data, ownerless identities, supplier accounts near contract end, and service identities with broad permissions, based on potential impact."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does enabling MFA complete IAM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. MFA strengthens authentication, but least privilege, timely deprovisioning, privileged access protection, and review of ongoing business need are still required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should access be reviewed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Set a risk-based cadence and trigger reviews after role changes, contract endings, application ownership changes, or suspicious activity. Temporary access should have a clear expiry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we start IAM without buying a new platform?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Start with an inventory and existing systems, pilot request and removal workflows for a high-risk use case, measure a baseline, and prioritize integrations or tools from observed gaps."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+    <link rel="alternate" hreflang="th" href="https://www.ek.co.th/articles/identity-access-management-enterprise.html">
+    <link rel="alternate" hreflang="en" href="https://www.ek.co.th/en/articles/identity-access-management-enterprise.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.ek.co.th/articles/identity-access-management-enterprise.html">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="th_TH">
+  </head>
+  <body class="ek-site ek-article">
+    <a class="skip-link" href="#main-content" data-th="ข้ามไปยังเนื้อหาหลัก" data-en="Skip to main content">Skip to main content</a>
+    <header class="glass-nav ek-nav sticky top-0 z-50">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation" data-aria-th="เมนูหลัก" data-aria-en="Main navigation">
+        <a href="../index.html" class="flex items-center gap-3" aria-label="Elite Knight home"><img class="brand-mark" src="../../assets/logo-192.jpg" alt="Elite Knight Co., Ltd. logo" width="44" height="44" decoding="async"><span><span class="block text-sm font-black uppercase tracking-[0.18em] text-slate-900">Elite Knight</span><span class="block text-xs text-slate-600">Data · AI · Governance</span></span></a>
+        <button class="rounded border border-slate-300 px-3 py-2 text-sm font-bold text-slate-700 md:hidden" type="button" data-mobile-menu-button="" aria-expanded="false" aria-controls="mobile-menu" data-aria-th="เปิดเมนูหลัก" data-aria-en="Open main menu" data-th="เมนู" data-en="Menu" aria-label="Open main menu">Menu</button>
+        <div class="hidden items-center gap-7 md:flex"><a class="nav-link text-sm font-semibold" href="../index.html" data-th="หน้าแรก" data-en="Home">Home</a><a class="nav-link text-sm font-semibold" href="../about.html" data-th="ความเชี่ยวชาญ" data-en="Expertise">Expertise</a><a class="nav-link text-sm font-semibold" href="../services.html" data-th="บริการ" data-en="Services">Services</a><a class="nav-link active text-sm font-semibold" href="../insights.html" data-th="คลังความรู้" data-en="Insights" aria-current="page">Insights</a><a class="nav-link text-sm font-semibold" href="../contact.html" data-th="ติดต่อเรา" data-en="Contact">Contact</a><div class="flex rounded border border-slate-300 bg-white p-1 text-xs font-bold" aria-label="Language selector" data-aria-th="เลือกภาษา" data-aria-en="Language selector"><a class="rounded px-3 py-1.5 lang-inactive" data-lang-button="th" aria-label="อ่านหน้านี้เป็นภาษาไทย" href="../../articles/identity-access-management-enterprise.html" hreflang="th" lang="th">TH</a><a class="rounded px-3 py-1.5 lang-active" data-lang-button="en" aria-label="Read this page in English" href="identity-access-management-enterprise.html" hreflang="en" lang="en" aria-current="page">EN</a></div></div>
+      </nav>
+      <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-5 py-4 md:hidden" data-mobile-menu=""><div class="grid gap-3"><a class="nav-link font-semibold" href="../index.html" data-th="หน้าแรก" data-en="Home">Home</a><a class="nav-link font-semibold" href="../about.html" data-th="ความเชี่ยวชาญ" data-en="Expertise">Expertise</a><a class="nav-link font-semibold" href="../services.html" data-th="บริการ" data-en="Services">Services</a><a class="nav-link active font-semibold" href="../insights.html" data-th="คลังความรู้" data-en="Insights" aria-current="page">Insights</a><a class="nav-link font-semibold" href="../contact.html" data-th="ติดต่อเรา" data-en="Contact">Contact</a><a class="mobile-menu-cta" data-mobile-cta href="../contact.html" data-th="ปรึกษาโจทย์ธุรกิจ" data-en="Discuss your challenge">Discuss your challenge</a><a class="mobile-menu-tel" href="tel:+66636641555" data-th="โทร 063-664-1555" data-en="Call 063-664-1555">Call 063-664-1555</a><div class="mt-2 flex w-fit rounded border border-slate-300 bg-white p-1 text-xs font-bold" aria-label="Language selector" data-aria-th="เลือกภาษา" data-aria-en="Language selector"><a class="rounded px-3 py-1.5 lang-inactive" data-lang-button="th" aria-label="อ่านหน้านี้เป็นภาษาไทย" href="../../articles/identity-access-management-enterprise.html" hreflang="th" lang="th">TH</a><a class="rounded px-3 py-1.5 lang-active" data-lang-button="en" aria-label="Read this page in English" href="identity-access-management-enterprise.html" hreflang="en" lang="en" aria-current="page">EN</a></div></div></div>
+    </header>
+    <main id="main-content" tabindex="-1"><article>
+<header class="page-hero py-24 text-white"><div class="mx-auto max-w-4xl px-5 lg:px-8"><nav class="ek-breadcrumb" aria-label="Breadcrumb" data-aria-th="เส้นทางนำทาง" data-aria-en="Breadcrumb"><ol><li><a href="../index.html" data-th="หน้าแรก" data-en="Home">Home</a></li><li><a href="../insights.html" data-th="คลังความรู้" data-en="Insights">Insights</a></li><li><a href="../cybersecurity-insights.html" data-th="Cybersecurity" data-en="Cybersecurity">Cybersecurity</a></li><li><span aria-current="page" data-th="Identity and Access Management (IAM): วางระบบตัวตนและสิทธิ์ให้ปลอดภัยสำหรับองค์กรไทย" data-en="Identity and Access Management: A Practical Roadmap for Thai Enterprises">Identity and Access Management: A Practical Roadmap for Thai Enterprises</span></li></ol></nav><p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-teal-100">Cybersecurity Consulting</p><h1 class="text-4xl font-black tracking-tight md:text-6xl" data-th="Identity and Access Management (IAM): วางระบบตัวตนและสิทธิ์ให้ปลอดภัยสำหรับองค์กรไทย" data-en="Identity and Access Management: A Practical Roadmap for Thai Enterprises">Identity and Access Management: A Practical Roadmap for Thai Enterprises</h1><p class="mt-6 text-lg leading-8 text-slate-100" data-th="ลดบัญชีค้างและสิทธิ์เกินจำเป็น โดยเชื่อมการยืนยันตัวตน การอนุมัติสิทธิ์ และความรับผิดชอบทางธุรกิจเข้าด้วยกัน" data-en="Reduce dormant accounts and excessive access by connecting authentication, authorization, and business accountability.">Reduce dormant accounts and excessive access by connecting authentication, authorization, and business accountability.</p><p class="mt-5 text-sm font-bold text-teal-100" data-th="เผยแพร่ 22 ตุลาคม 2569 · 12 นาทีในการอ่าน" data-en="Published 22 October 2026 · 12 min read">Published 22 October 2026 · 12 min read</p></div></header>
+<div class="mx-auto max-w-4xl px-5 pt-10 lg:px-8"><div class="flex flex-wrap gap-3" aria-label="Share article" data-aria-th="แชร์บทความ" data-aria-en="Share article"><a class="share-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.ek.co.th/en/articles/identity-access-management-enterprise.html" target="_blank" rel="noopener">LinkedIn</a><a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=https://www.ek.co.th/en/articles/identity-access-management-enterprise.html" target="_blank" rel="noopener">Facebook</a><a class="share-button" href="https://x.com/intent/post?url=https://www.ek.co.th/en/articles/identity-access-management-enterprise.html" target="_blank" rel="noopener">X</a></div></div>
+<div class="article-content mx-auto max-w-4xl px-5 py-12 lg:px-8"><section class="mt-10"><h2 data-th="ปัญหา IAM ที่มองไม่เห็นในวันปกติ" data-en="The IAM gaps that stay hidden on an ordinary day">The IAM gaps that stay hidden on an ordinary day</h2><p class="mt-5 leading-8 text-slate-700" data-th="เมื่อพนักงานย้ายทีม ผู้รับเหมาจบงาน หรือระบบใหม่เปิดใช้ บัญชีและสิทธิ์มักไม่เปลี่ยนตามทันที บางคนเก็บสิทธิ์จากบทบาทเดิม บัญชีคู่ค้าคงอยู่เกินสัญญา และบัญชีผู้ดูแลถูกใช้ทำงานประจำ เมื่อเกิดเหตุการณ์ ความยากไม่ได้อยู่แค่การหาว่าใครล็อกอิน แต่ต้องรู้ว่าใครมีสิทธิ์เข้าถึงอะไร ใครอนุมัติ และยังจำเป็นต่อหน้าที่หรือไม่" data-en="When an employee changes teams, a contractor finishes an engagement, or a new system goes live, accounts and entitlements do not always change with them. People retain permissions from former roles, supplier accounts outlive contracts, and administrator accounts are used for routine work. During an incident, the question is not only who signed in, but who can access what, who approved it, and whether that access is still needed.">When an employee changes teams, a contractor finishes an engagement, or a new system goes live, accounts and entitlements do not always change with them. People retain permissions from former roles, supplier accounts outlive contracts, and administrator accounts are used for routine work. During an incident, the question is not only who signed in, but who can access what, who approved it, and whether that access is still needed.</p><p class="mt-5 leading-8 text-slate-700" data-th="Identity and Access Management (IAM) คือความสามารถในการจัดการตัวตน การพิสูจน์ว่าเป็นใคร และการกำหนดว่าตัวตนนั้นทำอะไรได้บ้าง ครอบคลุมพนักงาน ผู้รับเหมา คู่ค้า ผู้ดูแลระบบ แอปพลิเคชัน และ service identity ไม่ใช่แค่การติดตั้ง single sign-on หรือซื้อระบบยืนยันตัวตน แต่เป็นการทำให้สิทธิ์สอดคล้องกับงานและความเสี่ยงตลอดวงจรชีวิต" data-en="Identity and Access Management (IAM) is the capability to manage identities, establish who or what is requesting access, and determine what that identity may do. Its scope includes employees, contractors, suppliers, administrators, applications, and service identities. It is more than deploying single sign-on or buying an authentication product: access must fit work and risk throughout an identity’s lifecycle.">Identity and Access Management (IAM) is the capability to manage identities, establish who or what is requesting access, and determine what that identity may do. Its scope includes employees, contractors, suppliers, administrators, applications, and service identities. It is more than deploying single sign-on or buying an authentication product: access must fit work and risk throughout an identity’s lifecycle.</p></section><section class="mt-10"><h2 data-th="เริ่มจากทำบัญชีตัวตนและระบบที่เข้าถึง" data-en="Start with an inventory of identities and resources">Start with an inventory of identities and resources</h2><p class="mt-5 leading-8 text-slate-700" data-th="รวบรวมแหล่งตัวตนและระบบสำคัญก่อนเลือกเครื่องมือใหม่ ระบุระบบ HR หรือทะเบียนคู่ค้าที่เป็นแหล่งข้อมูลตั้งต้น ระบบ identity provider แอป SaaS ระบบภายใน โครงสร้าง cloud ฐานข้อมูล และบัญชี local ที่ไม่เชื่อมศูนย์กลาง จากนั้นจับคู่บัญชีกับบุคคลหรือเจ้าของที่รับผิดชอบ สถานะการจ้าง ทีม วัตถุประสงค์ และระดับสิทธิ์ที่มี" data-en="Map identity sources and critical resources before choosing another tool. Identify HR or supplier registries, identity providers, SaaS applications, internal systems, cloud environments, databases, and local accounts outside central control. Then connect each account to a person or accountable owner, employment or supplier status, team, purpose, and current privilege level.">Map identity sources and critical resources before choosing another tool. Identify HR or supplier registries, identity providers, SaaS applications, internal systems, cloud environments, databases, and local accounts outside central control. Then connect each account to a person or accountable owner, employment or supplier status, team, purpose, and current privilege level.</p><p class="mt-5 leading-8 text-slate-700" data-th="อย่าจำกัดการสำรวจไว้ที่บัญชีพนักงาน บัญชี service, API keys, automation, shared accounts และบัญชีฉุกเฉินมีผลต่อระบบมากและมักไม่มีผู้รับผิดชอบชัดเจน สำหรับแต่ละรายการให้บันทึกเจ้าของทางธุรกิจ เจ้าของทางเทคนิค เหตุผลที่ต้องมี วิธีเก็บ credential วันทบทวน และขั้นตอนยกเลิก หากไม่ทราบเจ้าของ ให้จัดเป็นความเสี่ยงที่ต้องแก้ ไม่ใช่ปล่อยไว้เป็นข้อยกเว้นถาวร" data-en="Do not limit discovery to employee accounts. Service identities, API keys, automation, shared accounts, and emergency accounts can affect critical systems and often lack clear ownership. Record a business owner, technical custodian, purpose, credential storage method, review date, and decommissioning process. An unknown owner is a risk to resolve, not a permanent exception.">Do not limit discovery to employee accounts. Service identities, API keys, automation, shared accounts, and emergency accounts can affect critical systems and often lack clear ownership. Record a business owner, technical custodian, purpose, credential storage method, review date, and decommissioning process. An unknown owner is a risk to resolve, not a permanent exception.</p></section><section class="mt-10"><h2 data-th="ออกแบบสิทธิ์ให้สัมพันธ์กับหน้าที่และความเสี่ยง" data-en="Design access around duties and risk">Design access around duties and risk</h2><p class="mt-5 leading-8 text-slate-700" data-th="เริ่มจากบทบาทงานและกิจกรรมที่ต้องทำ ไม่เริ่มจากรายชื่อคนแล้วให้สิทธิ์ทีละระบบ สร้าง access package หรือ role สำหรับงานที่เกิดซ้ำ โดยระบุระบบ ข้อมูล และสิทธิ์ขั้นต่ำที่จำเป็น แยกสิทธิ์อ่าน แก้ไข อนุมัติ และดูแลระบบออกจากกัน เพื่อหลีกเลี่ยงการรวมอำนาจไว้กับบัญชีเดียวโดยไม่จำเป็น" data-en="Begin with job responsibilities and the tasks people must perform—not a list of individuals to grant access system by system. Create access packages or roles for recurring work, specifying the systems, data, and minimum permissions needed. Separate read, edit, approval, and administration rights to avoid concentrating unnecessary authority in one account.">Begin with job responsibilities and the tasks people must perform—not a list of individuals to grant access system by system. Create access packages or roles for recurring work, specifying the systems, data, and minimum permissions needed. Separate read, edit, approval, and administration rights to avoid concentrating unnecessary authority in one account.</p><p class="mt-5 leading-8 text-slate-700" data-th="Role-Based Access Control (RBAC) ช่วยจัดกลุ่มสิทธิ์ตามหน้าที่ แต่ไม่ควรสร้าง role จำนวนมากจนบริหารไม่ไหว หรือรวมคนที่มีความเสี่ยงต่างกันไว้ในชุดเดียว บางกรณีต้องเพิ่มเงื่อนไขตามบริบท เช่น สถานที่ อุปกรณ์ ความอ่อนไหวของข้อมูล เวลา หรือสถานะคำขอ การออกแบบที่ดีทำให้ผู้อนุมัติเห็นเหตุผลและผลกระทบของสิทธิ์ได้ ไม่ใช่ต้องเดาความหมายจากชื่อกลุ่มทางเทคนิค" data-en="Role-Based Access Control (RBAC) can group permissions by duty, but too many roles become difficult to govern, while overly broad roles combine people with different risks. Some decisions also need context such as location, device, data sensitivity, time, or request status. A sound design lets approvers understand why access is needed and what it enables instead of guessing from a technical group name.">Role-Based Access Control (RBAC) can group permissions by duty, but too many roles become difficult to govern, while overly broad roles combine people with different risks. Some decisions also need context such as location, device, data sensitivity, time, or request status. A sound design lets approvers understand why access is needed and what it enables instead of guessing from a technical group name.</p></section><section class="mt-10"><h2 data-th="จัดการวงจรชีวิตพนักงานและบุคคลภายนอก" data-en="Control employee and external-user lifecycles">Control employee and external-user lifecycles</h2><p class="mt-5 leading-8 text-slate-700" data-th="ทำให้การรับเข้า เปลี่ยนบทบาท และออกจากองค์กรเป็นเหตุการณ์ที่กระตุ้นการเปลี่ยนสิทธิ์อย่างสม่ำเสมอ เชื่อมข้อมูลเริ่มงาน วันสิ้นสุดสัญญา หน่วยงาน ผู้บังคับบัญชา และตำแหน่งเข้ากับ workflow ขอสิทธิ์ เมื่อมีการย้ายทีม ให้ทบทวนทั้งการเพิ่มสิทธิ์ใหม่และการถอนสิทธิ์เดิม หากทำเพียงเพิ่ม สิทธิ์จะสะสมจนเกิด entitlement creep" data-en="Make joiner, mover, and leaver events trigger consistent access changes. Connect start dates, contract end dates, department, manager, and job role to access workflows. When someone moves teams, review both the new access to add and the old access to remove. If the process only adds permissions, entitlement creep is inevitable.">Make joiner, mover, and leaver events trigger consistent access changes. Connect start dates, contract end dates, department, manager, and job role to access workflows. When someone moves teams, review both the new access to add and the old access to remove. If the process only adds permissions, entitlement creep is inevitable.</p><p class="mt-5 leading-8 text-slate-700" data-th="ผู้รับเหมาและคู่ค้าควรมี sponsor ภายใน ขอบเขตระบบและข้อมูลที่อนุญาต วันหมดอายุ และวิธีต่ออายุที่ตรวจสอบได้ หลีกเลี่ยงบัญชีถาวรที่แชร์กันระหว่างทีม ให้ใช้ตัวตนเฉพาะบุคคลเมื่อทำได้ และจัดให้การสิ้นสุดสัญญาปิดบัญชีและ session ที่เกี่ยวข้องโดยอัตโนมัติในระบบความเสี่ยงสูง" data-en="Contractors and suppliers need an internal sponsor, a defined scope of systems and data, an expiry date, and a reviewable renewal path. Avoid permanent shared accounts across teams. Use individual identities where practical, and ensure contract termination automatically closes accounts and related sessions in high-risk systems.">Contractors and suppliers need an internal sponsor, a defined scope of systems and data, an expiry date, and a reviewable renewal path. Avoid permanent shared accounts across teams. Use individual identities where practical, and ensure contract termination automatically closes accounts and related sessions in high-risk systems.</p></section><section class="mt-10"><h2 data-th="ปกป้องบัญชีสิทธิ์สูงและตัวตนที่ไม่ใช่มนุษย์" data-en="Protect privileged and non-human identities">Protect privileged and non-human identities</h2><p class="mt-5 leading-8 text-slate-700" data-th="บัญชีผู้ดูแลระบบมีผลกระทบสูงกว่าบัญชีทั่วไป จึงควรแยกบัญชีใช้งานประจำออกจากบัญชี admin ใช้การยืนยันตัวตนที่แข็งแรงตามความเสี่ยง จัดเก็บ credential ใน vault จำกัดเวลาการยกระดับสิทธิ์เมื่อเหมาะสม และบันทึก session ที่สำคัญ แนวทาง NIST Zero Trust ย้ำว่าไม่ควรเชื่อถือบัญชีหรืออุปกรณ์เพียงเพราะอยู่ในเครือข่ายหรือเป็นขององค์กร แต่ต้องประเมินตัวตนและสิทธิ์ก่อนเข้าถึงทรัพยากร" data-en="Administrator accounts have greater impact than ordinary accounts. Separate daily-use and admin accounts, use stronger authentication proportionate to risk, store credentials in a vault, limit elevated access duration where practical, and log sensitive sessions. NIST’s Zero Trust approach rejects implicit trust based only on network location or asset ownership; identity and authorization are evaluated before access to a resource.">Administrator accounts have greater impact than ordinary accounts. Separate daily-use and admin accounts, use stronger authentication proportionate to risk, store credentials in a vault, limit elevated access duration where practical, and log sensitive sessions. NIST’s Zero Trust approach rejects implicit trust based only on network location or asset ownership; identity and authorization are evaluated before access to a resource.</p><p class="mt-5 leading-8 text-slate-700" data-th="การยืนยันตัวตนหลายปัจจัย (MFA) เป็นมาตรการสำคัญ แต่ไม่ทดแทนการกำหนดสิทธิ์ขั้นต่ำ การปิดบัญชีเมื่อหมดความจำเป็น หรือการติดตามการใช้สิทธิ์ เลือก assurance ให้เหมาะกับประเภทผู้ใช้และทรัพยากร โดยเฉพาะผู้ดูแลระบบและระบบสำคัญ ควรพิจารณาวิธีที่ทนต่อ phishing สำหรับกรณีเสี่ยงสูง พร้อมวางทางกู้คืนบัญชีที่ไม่เปิดช่องให้ผู้โจมตีเลี่ยงการควบคุม" data-en="Multifactor authentication (MFA) is important, but it does not replace least privilege, timely deprovisioning, or monitoring of access. Match assurance to the user and resource, especially for administrators and critical systems. Consider phishing-resistant methods for higher-risk cases and design account recovery so it does not become a bypass around the control.">Multifactor authentication (MFA) is important, but it does not replace least privilege, timely deprovisioning, or monitoring of access. Match assurance to the user and resource, especially for administrators and critical systems. Consider phishing-resistant methods for higher-risk cases and design account recovery so it does not become a bypass around the control.</p></section><section class="mt-10"><h2 data-th="วางการอนุมัติและการทบทวนที่ทำได้จริง" data-en="Make approval and access reviews operational">Make approval and access reviews operational</h2><p class="mt-5 leading-8 text-slate-700" data-th="คำขอสิทธิ์ควรระบุระบบ ข้อมูล บทบาท ระยะเวลา เหตุผลทางธุรกิจ และผู้รับผิดชอบการอนุมัติ เส้นทางอนุมัติแตกต่างได้ตามความเสี่ยง เช่น สิทธิ์อ่านข้อมูลทั่วไปอาจอนุมัติโดยผู้จัดการ ส่วนสิทธิ์เข้าถึงข้อมูลอ่อนไหวหรือสิทธิ์ admin ต้องผ่านเจ้าของข้อมูลหรือผู้ดูแลระบบที่กำหนด อย่าให้ทุกคำขอต้องผ่านคณะกรรมการเดียวจนงานล่าช้าและผู้ใช้หาทางเลี่ยง" data-en="An access request should specify the system, data, role, duration, business reason, and accountable approver. Approval paths can vary by risk: a manager may approve ordinary read access, while sensitive data or administrator access requires a designated data or system owner. Do not route every request through one committee until delays encourage workarounds.">An access request should specify the system, data, role, duration, business reason, and accountable approver. Approval paths can vary by risk: a manager may approve ordinary read access, while sensitive data or administrator access requires a designated data or system owner. Do not route every request through one committee until delays encourage workarounds.</p><p class="mt-5 leading-8 text-slate-700" data-th="ทบทวนสิทธิ์โดยแสดงข้อมูลที่ผู้อนุมัติเข้าใจ ได้แก่ ชื่อระบบ ความเสี่ยง วันที่ได้รับสิทธิ์ การใช้งานล่าสุด และเหตุผลที่ยังต้องใช้ แบ่งรายการเป็นชุดที่จัดการได้และให้เจ้าของรับรองหรือเพิกถอนอย่างชัดเจน หากไม่มีการตอบรับ ให้ยกระดับและตัดสินตามกติกาที่กำหนด ไม่ควรถือว่าความเงียบคือการอนุมัติ" data-en="Present access reviews in language approvers can understand: application, risk, grant date, last use, and current business reason. Break reviews into manageable batches and require owners to certify or revoke explicitly. Escalate non-responses and apply a defined decision rule; silence should not be treated as approval.">Present access reviews in language approvers can understand: application, risk, grant date, last use, and current business reason. Break reviews into manageable batches and require owners to certify or revoke explicitly. Escalate non-responses and apply a defined decision rule; silence should not be treated as approval.</p></section><section class="mt-10"><h2 data-th="แผนเริ่มต้น 90 วันและตัวชี้วัด" data-en="A 90-day launch and practical measures">A 90-day launch and practical measures</h2><p class="mt-5 leading-8 text-slate-700" data-th="วัน 1–30 เลือกขอบเขตที่มีความเสี่ยงและผลกระทบชัด เช่น ระบบการเงิน ข้อมูลลูกค้า หรือบัญชีผู้ดูแล ทำ inventory แบบพอใช้ ระบุแหล่งข้อมูลตัวตน เจ้าของระบบ และช่องว่าง joiner-mover-leaver เก็บ baseline ของบัญชีค้าง สิทธิ์ admin และเวลาที่ใช้อนุมัติ จากนั้นตกลงหลักการและผู้มีอำนาจตัดสินใจร่วมกับธุรกิจ เทคโนโลยี และ security" data-en="Days 1–30: select a clearly consequential scope such as finance, customer data, or administrator accounts. Build a usable inventory, identify identity sources and application owners, and map joiner-mover-leaver gaps. Baseline dormant accounts, admin access, and approval time. Agree principles and decision authority with business, technology, and security stakeholders.">Days 1–30: select a clearly consequential scope such as finance, customer data, or administrator accounts. Build a usable inventory, identify identity sources and application owners, and map joiner-mover-leaver gaps. Baseline dormant accounts, admin access, and approval time. Agree principles and decision authority with business, technology, and security stakeholders.</p><p class="mt-5 leading-8 text-slate-700" data-th="วัน 31–60 ออกแบบ role หรือ access package สำหรับงานที่เกิดซ้ำ ปรับคำขอและการอนุมัติ ทดลองถอนสิทธิ์จากการย้ายทีมและจบสัญญา ทบทวนบัญชีผู้ดูแลกับ service account และทดสอบการกู้คืนเมื่อ MFA หรือ identity provider ใช้งานไม่ได้ ทดลองกับกลุ่มจำกัด เก็บเหตุที่ workflow ติดขัดและผลกระทบต่อการทำงานก่อนขยาย" data-en="Days 31–60: design roles or access packages for recurring work, refine requests and approvals, and test removal after transfers and contract endings. Review admin and service accounts, and test recovery when MFA or the identity provider is unavailable. Pilot with a limited group and capture workflow friction and operational impact before expanding.">Days 31–60: design roles or access packages for recurring work, refine requests and approvals, and test removal after transfers and contract endings. Review admin and service accounts, and test recovery when MFA or the identity provider is unavailable. Pilot with a limited group and capture workflow friction and operational impact before expanding.</p><p class="mt-5 leading-8 text-slate-700" data-th="วัน 61–90 เชื่อมเหตุการณ์ต้นทางให้เป็นอัตโนมัติในระบบที่พร้อม ขยาย access review ตามความเสี่ยง และจัดทำ dashboard ให้เจ้าของเห็นรายการค้างและข้อยกเว้น ตัวชี้วัดที่มีประโยชน์ ได้แก่ เวลาปิดบัญชีหลังสิ้นสุดงาน สัดส่วนสิทธิ์สูงที่มีเจ้าของ จำนวนบัญชีไม่มีเจ้าของ บัญชี inactive ที่ยังเปิดอยู่ อัตราคำขอที่อนุมัติครบหลักฐาน และเวลาที่ใช้ทำ access review" data-en="Days 61–90: automate source events where systems are ready, expand risk-based reviews, and give owners a dashboard of pending items and exceptions. Useful measures include time to close accounts after exit, privileged access with a named owner, ownerless identities, inactive accounts still enabled, requests with complete approval evidence, and time spent on access reviews.">Days 61–90: automate source events where systems are ready, expand risk-based reviews, and give owners a dashboard of pending items and exceptions. Useful measures include time to close accounts after exit, privileged access with a named owner, ownerless identities, inactive accounts still enabled, requests with complete approval evidence, and time spent on access reviews.</p></section><p class="mt-8 leading-7 text-slate-700" data-th="อ่านแนวทางอ้างอิง: " data-en="Reference guidance: ">Reference guidance: <a href="https://csrc.nist.gov/pubs/sp/800/63/4/final" target="_blank" rel="noopener">NIST SP 800-63-4</a>, <a href="https://csrc.nist.gov/pubs/sp/800/207/final" target="_blank" rel="noopener">NIST SP 800-207</a>, <a href="https://www.cisa.gov/sites/default/files/2023-12/ESF%20IDENTITY%20AND%20ACCESS%20MANAGEMENT%20RECOMMENDED%20BEST%20PRACTICES%20FOR%20ADMINISTRATORS%20PP-23-0248_508C.pdf" target="_blank" rel="noopener">CISA IAM Best Practices</a></p></div>
+<div class="mx-auto max-w-4xl px-5 py-12 lg:px-8"><section class="article-cta rounded bg-slate-950 p-8 text-white"><h2 class="text-2xl font-black text-white" data-th="ประเมิน IAM และความเสี่ยงด้านสิทธิ์ขององค์กร" data-en="Assess enterprise IAM and access risk">Assess enterprise IAM and access risk</h2><p class="mt-4 leading-7 text-slate-100" data-th="เริ่มจากบัญชี ระบบสำคัญ และกระบวนการเปลี่ยนสิทธิ์ แล้วจัดทำแผนที่เหมาะกับทีมธุรกิจและเทคโนโลยี" data-en="Start with identities, critical systems, and access-change workflows, then shape a roadmap with business and technology teams.">Start with identities, critical systems, and access-change workflows, then shape a roadmap with business and technology teams.</p><a class="mt-6 inline-flex rounded bg-teal-400 px-5 py-3 text-sm font-bold text-slate-950 hover:bg-teal-300" href="../../en/cybersecurity-consulting.html" data-th="ดูบริการ Cybersecurity Consulting" data-en="Explore Cybersecurity Consulting">Explore Cybersecurity Consulting</a> <a class="mt-6 inline-flex rounded border border-teal-200 px-5 py-3 text-sm font-bold text-white" href="../../en/contact.html" data-th="ติดต่อทีมที่ปรึกษา" data-en="Contact our consultants">Contact our consultants</a></section>
+<section class="mt-12 border-t border-slate-200 pt-10" aria-labelledby="article-faq-heading"><h2 id="article-faq-heading" data-th="คำถามที่พบบ่อย" data-en="Frequently asked questions">Frequently asked questions</h2><div class="mt-6 grid gap-4"><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="IAM ครอบคลุมอะไรบ้าง" data-en="What does IAM include?">What does IAM include?</summary><p class="mt-3 leading-7 text-slate-700" data-th="IAM ครอบคลุมการจัดการตัวตน การยืนยันว่าเป็นใคร การอนุมัติสิทธิ์ และการติดตามสิทธิ์ตลอดวงจรชีวิตของพนักงาน ผู้รับเหมา คู่ค้า ผู้ดูแลระบบ และ service identity" data-en="IAM includes identity lifecycle, authentication, authorization, and access monitoring for employees, contractors, suppliers, administrators, and service identities.">IAM includes identity lifecycle, authentication, authorization, and access monitoring for employees, contractors, suppliers, administrators, and service identities.</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="ควรเริ่มแก้บัญชีประเภทใดก่อน" data-en="Which accounts should we address first?">Which accounts should we address first?</summary><p class="mt-3 leading-7 text-slate-700" data-th="เริ่มจากบัญชีผู้ดูแลระบบ บัญชีที่เข้าถึงข้อมูลสำคัญ บัญชีไม่มีเจ้าของ บัญชีคู่ค้าที่ใกล้หมดสัญญา และบัญชี service ที่มีสิทธิ์กว้าง โดยพิจารณาผลกระทบหากถูกใช้โดยมิชอบ" data-en="Prioritize administrator accounts, access to critical data, ownerless identities, supplier accounts near contract end, and service identities with broad permissions, based on potential impact.">Prioritize administrator accounts, access to critical data, ownerless identities, supplier accounts near contract end, and service identities with broad permissions, based on potential impact.</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="เปิดใช้ MFA แล้วถือว่าจัดการ IAM ครบหรือไม่" data-en="Does enabling MFA complete IAM?">Does enabling MFA complete IAM?</summary><p class="mt-3 leading-7 text-slate-700" data-th="ไม่ครบ MFA ช่วยพิสูจน์ตัวตน แต่ยังต้องกำหนดสิทธิ์ขั้นต่ำ ถอนสิทธิ์เมื่อหมดความจำเป็น ปกป้องบัญชี privileged และทบทวนว่าการเข้าถึงยังเหมาะกับหน้าที่หรือไม่" data-en="No. MFA strengthens authentication, but least privilege, timely deprovisioning, privileged access protection, and review of ongoing business need are still required.">No. MFA strengthens authentication, but least privilege, timely deprovisioning, privileged access protection, and review of ongoing business need are still required.</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="ควรทบทวนสิทธิ์บ่อยแค่ไหน" data-en="How often should access be reviewed?">How often should access be reviewed?</summary><p class="mt-3 leading-7 text-slate-700" data-th="กำหนดรอบตามความเสี่ยงและเพิ่มการทบทวนเมื่อมีการย้ายทีม จบสัญญา เปลี่ยนเจ้าของระบบ หรือพบเหตุการณ์ผิดปกติ สิทธิ์ชั่วคราวควรมีวันหมดอายุชัดเจน" data-en="Set a risk-based cadence and trigger reviews after role changes, contract endings, application ownership changes, or suspicious activity. Temporary access should have a clear expiry.">Set a risk-based cadence and trigger reviews after role changes, contract endings, application ownership changes, or suspicious activity. Temporary access should have a clear expiry.</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="จะเริ่ม IAM โดยยังไม่มีแพลตฟอร์มใหม่ได้หรือไม่" data-en="Can we start IAM without buying a new platform?">Can we start IAM without buying a new platform?</summary><p class="mt-3 leading-7 text-slate-700" data-th="ได้ เริ่มจาก inventory และระบบที่มีอยู่ เลือก use case เสี่ยงสูง ทดลอง workflow ขอและถอนสิทธิ์ วัด baseline แล้วค่อยจัดลำดับการเชื่อมต่อหรือซื้อเครื่องมือจากช่องว่างที่พบ" data-en="Yes. Start with an inventory and existing systems, pilot request and removal workflows for a high-risk use case, measure a baseline, and prioritize integrations or tools from observed gaps.">Yes. Start with an inventory and existing systems, pilot request and removal workflows for a high-risk use case, measure a baseline, and prioritize integrations or tools from observed gaps.</p></details></div></section>
+<nav class="mt-12 border-t border-slate-200 pt-10" aria-label="Related articles" data-aria-th="บทความที่เกี่ยวข้อง" data-aria-en="Related articles"><h2 class="text-xl font-bold" data-th="อ่านเพิ่มเติม" data-en="Related reading">Related reading</h2><ul class="mt-4 list-disc space-y-2 pl-6"><li><a class="text-teal-700" href="cybersecurity-consulting-executive-priorities.html" data-th="จัดลำดับความสำคัญ Cybersecurity สำหรับผู้บริหาร" data-en="Executive Cybersecurity priorities">Executive Cybersecurity priorities</a></li><li><a class="text-teal-700" href="third-party-cyber-risk-90-day-plan.html" data-th="แผนจัดการความเสี่ยงไซเบอร์จากคู่ค้าใน 90 วัน" data-en="A 90-day third-party cyber-risk plan">A 90-day third-party cyber-risk plan</a></li></ul></nav></div></article></main>
+    <footer class="bg-slate-950 py-12 text-slate-300"><div class="mx-auto grid max-w-7xl gap-8 px-5 md:grid-cols-3 lg:px-8"><div><div class="flex items-center gap-3"><img class="footer-mark" src="../../assets/logo-badge.png" alt="Elite Knight Co., Ltd. logo" width="44" height="37" loading="lazy" decoding="async"><p class="text-lg font-black text-white" data-th="บริษัท เอลีท ไนท์ จำกัด" data-en="Elite Knight Co., Ltd.">Elite Knight Co., Ltd.</p></div><p class="mt-3 text-sm leading-6">Engineering the Future with Data and AI</p><div class="mt-2 flex gap-3"><a class="social-icon" href="https://www.linkedin.com/company/elite-knight/" target="_blank" rel="noopener" aria-label="Elite Knight on LinkedIn">in</a><a class="social-icon" href="https://www.facebook.com/ek.co.th" target="_blank" rel="noopener" aria-label="Elite Knight on Facebook">f</a></div></div><div class="grid gap-2 text-sm"><a href="../index.html" data-th="หน้าแรก" data-en="Home">Home</a><a href="../about.html" data-th="ความเชี่ยวชาญ" data-en="Expertise">Expertise</a><a href="../services.html" data-th="บริการ" data-en="Services">Services</a><a href="../insights.html" data-th="คลังความรู้" data-en="Insights">Insights</a><a href="../contact.html" data-th="ติดต่อเรา" data-en="Contact">Contact</a><a href="../cookie-policy.html" data-th="นโยบายการใช้งานคุกกี้" data-en="Cookie Policy">Cookie Policy</a></div><div class="text-sm leading-7"><p data-th="เลขที่ 1/128 หมู่บ้านอิ่มอัมพร ซอยทวีวัฒนา 20 ถนนทวีวัฒนา แขวงศาลาธรรมสพน์ เขตทวีวัฒนา กรุงเทพมหานคร 10170" data-en="1/128 Imm Amphon Village, Soi Thawi Watthana 20, Thawi Watthana Road, Sala Thammasop, Thawi Watthana, Bangkok 10170">1/128 Imm Amphon Village, Soi Thawi Watthana 20, Thawi Watthana Road, Sala Thammasop, Thawi Watthana, Bangkok 10170</p><p data-th="เปิดบริการ: จันทร์ - ศุกร์ 9.00 - 17.30 น." data-en="Office hours: Monday - Friday, 9:00 AM - 5:30 PM">Office hours: Monday - Friday, 9:00 AM - 5:30 PM</p><p><a href="tel:+66636641555">Mobile: 063-664-1555</a></p><p><a href="mailto:info@ek.co.th">Email: info@ek.co.th</a></p></div></div></footer>
+    <section class="cookie-banner" data-cookie-banner="" role="region" aria-label="Cookie notice" hidden="" aria-labelledby="article-faq-heading"><div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between"><p class="text-sm leading-6" data-th="เว็บไซต์นี้ใช้คุกกี้ที่จำเป็นและคุกกี้เพื่อปรับปรุงประสบการณ์การใช้งาน คุณสามารถอ่านรายละเอียดเพิ่มเติมได้ในนโยบายการใช้งานคุกกี้" data-en="This website uses necessary cookies and cookies that improve your experience. You can learn more in our Cookie Policy.">This website uses necessary cookies and cookies that improve your experience. You can learn more in our Cookie Policy.</p><div class="flex shrink-0 gap-3"><a class="rounded border border-slate-500 px-4 py-2 text-sm font-bold text-white" href="../cookie-policy.html" data-th="ดูนโยบาย" data-en="View Policy">View Policy</a><button class="rounded border border-slate-500 px-4 py-2 text-sm font-bold text-white" type="button" data-cookie-decline data-th="ปฏิเสธ" data-en="Decline">Decline</button><button class="rounded bg-teal-500 px-4 py-2 text-sm font-bold text-slate-950" type="button" data-cookie-accept="" data-th="ยอมรับ" data-en="Accept">Accept</button></div></div></section>
+    <script src="../../assets/site.js?v=20260925-insight-actions-1" defer></script>
+
+
+</body></html>
