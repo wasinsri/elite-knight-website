@@ -29,7 +29,8 @@ const articleCategories = {
   , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"],
   "data-stewardship-operating-model": ["data-ai", "governance"],
   "identity-access-management-enterprise": ["cybersecurity", "governance"],
-  "ai-vendor-due-diligence-thailand": ["data-ai", "governance"]
+  "ai-vendor-due-diligence-thailand": ["data-ai", "governance"],
+  "legacy-modernization-priorities-thailand": ["digital-excellence"]
 };
 
 function setInsightCategoryFromLink(card) {
