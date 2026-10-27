@@ -1573,3 +1573,6 @@ body.ek-site *::after { box-sizing: border-box; }
   :is(.ek-preview, .ek-site) .ek-clients-btn { width: 36px; height: 36px; }
 }
 @media (prefers-reduced-motion: reduce) { :is(.ek-preview, .ek-site) .ek-clients-track { scroll-behavior: auto; } }
+
+/* Sectors + client logos reused on inner pages (About) */
+.ek-site.ek-inner main > section.ek-sectors { padding-block: 44px; border-bottom: 1px solid var(--ek-line); }
