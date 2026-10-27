@@ -28,9 +28,7 @@ const articleCategories = {
   , "digital-transformation-consultant": ["digital-excellence", "management-pmo"], "ai-consultant-business-outcomes": ["data-ai", "governance"], "cybersecurity-consulting-executive-priorities": ["cybersecurity", "governance"]
   , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"],
   "data-stewardship-operating-model": ["data-ai", "governance"],
-  "identity-access-management-enterprise": ["cybersecurity", "governance"],
-  "ai-vendor-due-diligence-thailand": ["data-ai", "governance"],
-  "legacy-modernization-priorities-thailand": ["digital-excellence"]
+  "identity-access-management-enterprise": ["cybersecurity", "governance"]
 };
 
 function setInsightCategoryFromLink(card) {
@@ -371,3 +369,19 @@ if (contactForm) {
       });
   });
 }
+
+/* Mobile call button. Shown below 768px (CSS) and hidden while the cookie
+   banner is open so the two never overlap. Clicks are tracked by the tel: handler above. */
+(() => {
+  if (document.querySelector(".ek-call-fab")) return;
+  const isEnglish = document.documentElement.lang === "en";
+  const fab = document.createElement("a");
+  fab.className = "ek-call-fab";
+  fab.href = "tel:+66636641555";
+  fab.setAttribute("aria-label", isEnglish ? "Call Elite Knight on 063-664-1555" : "โทรหา Elite Knight ที่ 063-664-1555");
+  fab.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>' + (isEnglish ? "Call us" : "โทรหาเรา") + "</span>";
+  document.body.appendChild(fab);
+  const sync = () => { fab.hidden = Boolean(cookieBanner && !cookieBanner.hidden); };
+  sync();
+  if (cookieBanner) new MutationObserver(sync).observe(cookieBanner, { attributes: true, attributeFilter: ["hidden"] });
+})();
