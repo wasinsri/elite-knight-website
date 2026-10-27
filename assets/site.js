@@ -385,3 +385,21 @@ if (contactForm) {
   sync();
   if (cookieBanner) new MutationObserver(sync).observe(cookieBanner, { attributes: true, attributeFilter: ["hidden"] });
 })();
+
+/* Client logo row: prev/next buttons scroll the track by about one view. */
+document.querySelectorAll("[data-clients-track]").forEach((track) => {
+  const root = track.closest(".ek-clients");
+  const prev = root && root.querySelector("[data-clients-prev]");
+  const next = root && root.querySelector("[data-clients-next]");
+  if (!prev || !next) return;
+  const update = () => {
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+  };
+  const step = () => Math.max(track.clientWidth * 0.8, 160);
+  prev.addEventListener("click", () => track.scrollBy({ left: -step() }));
+  next.addEventListener("click", () => track.scrollBy({ left: step() }));
+  track.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+});

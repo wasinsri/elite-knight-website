@@ -1,2 +1,5 @@
 .DS_Store
 *.zip
+
+# Original client logo files (normalized copies live in assets/img/clients/)
+_client-logo-sources/
