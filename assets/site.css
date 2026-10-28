@@ -998,6 +998,11 @@ body.ek-site *::after { box-sizing: border-box; }
   color: #ffffff;
 }
 
+.ek-site [data-insights-grid] { align-items: start; }
+.ek-site [data-insights-grid] .article-card { height: auto; }
+.ek-site [data-insights-grid] .article-card > div { flex: none; }
+.ek-site [data-insights-grid] .article-card-actions { margin-top: 0; padding-top: 1.5rem; }
+
 /* --- AEO/AI-search structure components (2026-09-22) --- */
 
 .ek-takeaways {
