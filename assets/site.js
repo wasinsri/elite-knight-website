@@ -28,7 +28,8 @@ const articleCategories = {
   , "digital-transformation-consultant": ["digital-excellence", "management-pmo"], "ai-consultant-business-outcomes": ["data-ai", "governance"], "cybersecurity-consulting-executive-priorities": ["cybersecurity", "governance"]
   , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"],
   "data-stewardship-operating-model": ["data-ai", "governance"],
-  "identity-access-management-enterprise": ["cybersecurity", "governance"]
+  "identity-access-management-enterprise": ["cybersecurity", "governance"],
+  "stage-gate-governance-strategic-pmo": ["management-pmo"]
 };
 
 function setInsightCategoryFromLink(card) {
