@@ -251,6 +251,7 @@
   :where(.ek-site) .md\:text-5xl { font-size: 3rem; line-height: 1; }
   :where(.ek-site) .md\:text-6xl { font-size: 3.75rem; line-height: 1; }
   :where(.ek-site) .md\:text-\[12rem\] { font-size: 12rem; line-height: 1; }
+  :where(.ek-site) [aria-labelledby="featured-insight"] > div > .article-card { grid-template-columns: 0.9fr 1.1fr; }
 }
 
 @media (min-width: 1024px) {
