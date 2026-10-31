@@ -29,7 +29,8 @@ const articleCategories = {
   , "benefits-realization-pmo": ["management-pmo"], "digital-service-reliability": ["digital-excellence"], "customer-journey-operating-model": ["digital-excellence"],
   "data-stewardship-operating-model": ["data-ai", "governance"],
   "identity-access-management-enterprise": ["cybersecurity", "governance"],
-  "stage-gate-governance-strategic-pmo": ["management-pmo"]
+  "stage-gate-governance-strategic-pmo": ["management-pmo"],
+  "data-governance-decision-rights": ["data-ai", "governance"]
 };
 
 function setInsightCategoryFromLink(card) {
