@@ -30,7 +30,8 @@ const articleCategories = {
   "data-stewardship-operating-model": ["data-ai", "governance"],
   "identity-access-management-enterprise": ["cybersecurity", "governance"],
   "stage-gate-governance-strategic-pmo": ["management-pmo"],
-  "data-governance-decision-rights": ["data-ai", "governance"]
+  "data-governance-decision-rights": ["data-ai", "governance"],
+  "cybersecurity-incident-retainer-executive-readiness": ["cybersecurity"]
 };
 
 function setInsightCategoryFromLink(card) {
