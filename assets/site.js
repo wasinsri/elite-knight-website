@@ -31,7 +31,8 @@ const articleCategories = {
   "identity-access-management-enterprise": ["cybersecurity", "governance"],
   "stage-gate-governance-strategic-pmo": ["management-pmo"],
   "data-governance-decision-rights": ["data-ai", "governance"],
-  "cybersecurity-incident-retainer-executive-readiness": ["cybersecurity"]
+  "cybersecurity-incident-retainer-executive-readiness": ["cybersecurity"],
+  "digital-product-operating-model": ["digital-excellence"]
 };
 
 function setInsightCategoryFromLink(card) {
