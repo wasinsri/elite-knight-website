@@ -32,8 +32,7 @@ const articleCategories = {
   "stage-gate-governance-strategic-pmo": ["management-pmo"],
   "data-governance-decision-rights": ["data-ai", "governance"],
   "cybersecurity-incident-retainer-executive-readiness": ["cybersecurity"],
-  "digital-product-operating-model": ["digital-excellence"],
-  "data-contracts-thailand": ["data-ai", "governance"]
+  "digital-product-operating-model": ["digital-excellence"]
 };
 
 function setInsightCategoryFromLink(card) {
