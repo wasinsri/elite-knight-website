@@ -278,6 +278,8 @@ def check_article_layout() -> None:
             continue
 
         article = article_match.group(1)
+        if article.count("max-w-4xl") != 2:
+            err(page, "article must use max-w-4xl only for the hero and outer content wrapper")
         hero_match = re.search(
             r'<header\b[^>]*class="[^"]*\bpage-hero\b[^"]*"[^>]*>.*?</header>',
             article,
