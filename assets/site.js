@@ -32,6 +32,8 @@ const articleCategories = {
   "stage-gate-governance-strategic-pmo": ["management-pmo"],
   "data-governance-decision-rights": ["data-ai", "governance"],
   "cybersecurity-incident-retainer-executive-readiness": ["cybersecurity"],
+  "strategy-execution-decision-cadence": ["management-pmo"],
+  "strategy-execution-decision-cadence": ["management-pmo"],
   "digital-product-operating-model": ["digital-excellence"]
 };
 
