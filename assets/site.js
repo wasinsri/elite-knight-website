@@ -20,7 +20,7 @@ const insightSectionKicker = document.querySelector('section[aria-labelledby="ar
 const articleCategories = {
   "ai-transformation-use-case": ["data-ai"], "data-governance-ai": ["data-ai", "governance"],
   "generative-ai-enterprise-safety-checklist": ["data-ai", "governance"], "pdpa-generative-ai-enterprise": ["data-ai", "governance"],
-  "ai-risk-assessment-use-case": ["data-ai", "governance"], "ai-governance-thailand-getting-started": ["data-ai", "governance"], "iso-iec-42001-ai-management-system": ["data-ai", "governance"],
+  "ai-risk-assessment-use-case": ["data-ai", "governance"], "ai-governance-thailand-getting-started": ["data-ai", "governance"], "ai-model-governance-monitoring": ["data-ai", "governance"], "iso-iec-42001-ai-management-system": ["data-ai", "governance"],
   "third-party-cyber-risk-90-day-plan": ["cybersecurity"], "iso-27001-gap-assessment": ["cybersecurity", "governance"], "cyber-resilience-executive-metrics": ["cybersecurity"],
   "digital-trust-enterprise-services": ["cybersecurity", "digital-excellence"], "digital-strategy-to-portfolio": ["digital-excellence", "management-pmo"],
   "operating-model-strategy-execution": ["management-pmo"], "strategic-pmo-vs-traditional-pmo": ["management-pmo"]
