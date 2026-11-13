@@ -223,6 +223,13 @@ if (cookieBanner && cookieAccept) {
     if (choice === "accepted") window.dispatchEvent(new Event("ek:cookie-consent"));
   };
   cookieAccept.addEventListener("click", () => closeBanner("accepted"));
+  document.querySelectorAll("[data-cookie-reset]").forEach((button) => {
+    button.addEventListener("click", () => {
+      localStorage.removeItem("ekCookieConsent");
+      cookieBanner.hidden = false;
+      cookieAccept.focus();
+    });
+  });
   if (cookieDecline) cookieDecline.addEventListener("click", () => closeBanner("declined"));
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !cookieBanner.hidden) {
@@ -277,9 +284,10 @@ if (document.body.classList.contains("ek-article")) {
 }
 
 /* Contact form.
-   No delivery endpoint is wired yet: set data-endpoint="<url>" on the <form>
-   once the provider is chosen and the POST below starts running. Until then the
-   form validates fully and tells the visitor to use phone or email. */
+   With data-endpoint="<url>" on the <form> the fields are POSTed to that form
+   provider (add data-access-key="<key>" if the provider needs one, e.g. Web3Forms).
+   Without an endpoint the form still delivers: it opens the visitor's email app
+   with the validated answers addressed to info@ek.co.th, and says so up front. */
 const contactForm = document.querySelector("[data-contact-form]");
 
 if (contactForm) {
@@ -294,9 +302,13 @@ if (contactForm) {
     consent: say("กรุณายืนยันความยินยอมก่อนส่งข้อมูล", "Please confirm your consent before sending."),
     short: say("กรุณาอธิบายเพิ่มอีกเล็กน้อย (อย่างน้อย 10 ตัวอักษร)", "Please add a little more detail (at least 10 characters)."),
     summary: say("ยังกรอกข้อมูลไม่ครบ กรุณาตรวจสอบช่องที่แจ้งไว้ด้านบน", "Some details are missing. Please check the fields flagged above."),
-    pending: say(
-      "ระบบส่งฟอร์มยังไม่เปิดใช้งาน ระหว่างนี้กรุณาติดต่อเราที่ 063-664-1555 หรือ info@ek.co.th ข้อมูลที่กรอกไว้ยังอยู่ในหน้านี้",
-      "Form delivery is not connected yet. In the meantime please reach us on 063-664-1555 or info@ek.co.th. Your answers are still on this page."
+    mailNote: say(
+      "เมื่อกดส่ง ระบบจะเปิดโปรแกรมอีเมลของคุณพร้อมข้อความที่กรอกไว้ กรุณากดส่งอีเมลนั้นเพื่อให้ข้อความถึงทีมงาน",
+      "Sending opens your email app with this message filled in. Send that email to reach our team."
+    ),
+    mailOpened: say(
+      "เปิดโปรแกรมอีเมลพร้อมข้อความของคุณแล้ว กรุณากดส่งอีเมลเพื่อให้ข้อความถึงเรา หากโปรแกรมอีเมลไม่เปิด กรุณาส่งถึง info@ek.co.th หรือโทร 063-664-1555 ข้อมูลที่กรอกไว้ยังอยู่ในหน้านี้",
+      "Your email app should now be open with your message. Send that email to reach us. If nothing opened, write to info@ek.co.th or call 063-664-1555. Your answers are still on this page."
     )
   };
 
@@ -327,6 +339,54 @@ if (contactForm) {
     });
   });
 
+  const fieldValue = (name) => {
+    const field = contactForm.elements[name];
+    if (!field) return "";
+    if (field.tagName === "SELECT") return field.value ? field.options[field.selectedIndex].textContent.trim() : "";
+    return String(field.value || "").trim();
+  };
+
+  const formPayload = () => {
+    const data = new FormData(contactForm);
+    if (contactForm.dataset.accessKey) data.append("access_key", contactForm.dataset.accessKey);
+    data.set("topic", fieldValue("topic"));
+    return data;
+  };
+
+  /* mailto: links are percent-encoded (a Thai character takes nine characters), and
+     some mail apps cut very long links, so the body uses short labels and a very
+     long message is shortened and flagged instead of being lost silently. */
+  const buildMailto = () => {
+    const subject = say("[เว็บไซต์] ", "[Website] ") + fieldValue("topic") + " - " + (fieldValue("company") || fieldValue("name"));
+    const lines = (message) => [
+      "Name: " + fieldValue("name"),
+      "Email: " + fieldValue("email"),
+      "Phone: " + (fieldValue("phone") || "-"),
+      "Organization: " + (fieldValue("company") || "-"),
+      "Topic: " + fieldValue("topic"),
+      "Consent to be contacted: yes",
+      "",
+      message,
+      "",
+      "-- www.ek.co.th contact form"
+    ].join("\r\n");
+    const link = (message) => "mailto:info@ek.co.th?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines(message));
+    const full = fieldValue("message");
+    let message = full;
+    const cutNote = say(" ... (ข้อความยาวเกิน กรุณาวางฉบับเต็มต่อท้าย)", " ... (shortened; please paste the full text)");
+    while (link(message + cutNote).length > 6000 && message.length > 40) message = message.slice(0, Math.floor(message.length * 0.9));
+    if (message !== full) message += cutNote;
+    return link(message);
+  };
+
+  if (!contactForm.dataset.endpoint) {
+    const note = document.createElement("p");
+    note.className = "ek-hint";
+    note.textContent = messages.mailNote;
+    const submit = contactForm.querySelector('button[type="submit"]');
+    if (submit) submit.insertAdjacentElement("beforebegin", note);
+  }
+
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
     let firstInvalid = null;
@@ -345,9 +405,10 @@ if (contactForm) {
 
     const endpoint = contactForm.dataset.endpoint;
     if (!endpoint) {
+      window.location.href = buildMailto();
       status.dataset.state = "pending";
-      status.textContent = messages.pending;
-      ekTrack("contact_form_submit_blocked", { reason: "no_endpoint", page_path: location.pathname });
+      status.textContent = messages.mailOpened;
+      ekTrack("contact_form_email_opened", { page_path: location.pathname });
       return;
     }
 
@@ -356,7 +417,7 @@ if (contactForm) {
     fetch(endpoint, {
       method: "POST",
       headers: { Accept: "application/json" },
-      body: new FormData(contactForm)
+      body: formPayload()
     })
       .then((response) => {
         if (!response.ok) throw new Error(String(response.status));

@@ -3,3 +3,6 @@
 
 # Original client logo files (normalized copies live in assets/img/clients/)
 _client-logo-sources/
+
+# Local working outputs (previews, reports) - not part of the website
+Claude outputs/

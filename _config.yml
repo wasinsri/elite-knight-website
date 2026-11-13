@@ -1,0 +1,8 @@
+# GitHub Pages (Jekyll) settings for www.ek.co.th.
+# The site is plain static HTML; this file only keeps internal working files
+# out of the published site. Everything else is copied through unchanged.
+exclude:
+  - AGENTS.md
+  - tools
+  - "Claude outputs"
+  - assets/favicon-master.png

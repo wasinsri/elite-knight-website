@@ -148,7 +148,11 @@ def check_paths() -> None:
             target = attr.split("?")[0].split("#")[0]
             if not target:
                 continue
-            resolved = os.path.normpath(os.path.join(base, target))
+            if target.startswith("/"):
+                # root-relative (used by 404.html, which is served for any missing path)
+                resolved = os.path.normpath(os.path.join(ROOT, target.lstrip("/")))
+            else:
+                resolved = os.path.normpath(os.path.join(base, target))
             if not os.path.exists(resolved):
                 err(page, f"broken relative path: {attr}")
 
