@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="en" data-language-routing="true"><head>
+    <meta charset="utf-8" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Model Governance and Monitoring | Elite Knight</title>
+    <meta name="description" content="How to govern AI model changes and monitor performance after launch, so control, risk, and business value stay aligned in Thai organizations.">
+    <link rel="canonical" href="https://www.ek.co.th/en/articles/ai-governance-assurance-metrics.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Model Governance and Monitoring | Elite Knight">
+    <meta property="og:description" content="How to govern AI model changes and monitor performance after launch, so control, risk, and business value stay aligned in Thai organizations.">
+    <meta property="og:url" content="https://www.ek.co.th/en/articles/ai-governance-assurance-metrics.html">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Line chart on a screen showing ongoing performance monitoring">
+    <meta property="article:published_time" content="2026-11-11">
+    <meta property="article:modified_time" content="2026-11-13">
+    <meta property="article:section" content="AI Governance">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Model Governance and Monitoring | Elite Knight">
+    <meta name="twitter:description" content="How to govern AI model changes and monitor performance after launch, so control, risk, and business value stay aligned in Thai organizations.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
+    <meta name="twitter:image:alt" content="Line chart on a screen showing ongoing performance monitoring">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon-192.png?v=20260922-ux-3">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=20260922-ux-3">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=20260922-ux-3">
+    <script>
+      let analyticsLoaded = false;
+      function loadAnalytics() {
+        if (analyticsLoaded) return;
+        analyticsLoaded = true;
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        const analytics = document.createElement("script");
+        analytics.async = true;
+        analytics.src = "https://www.googletagmanager.com/gtag/js?id=G-N7QHVHER9F";
+        analytics.addEventListener("load", function () {
+          gtag("js", new Date());
+          gtag("config", "G-N7QHVHER9F");
+        });
+        document.head.appendChild(analytics);
+      }
+      if (localStorage.getItem("ekCookieConsent") === "accepted") {
+        window.addEventListener("load", loadAnalytics, { once: true });
+      }
+      window.addEventListener("ek:cookie-consent", loadAnalytics, { once: true });
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../../assets/site.css?v=20261113-site-fixes-1">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.ek.co.th/#organization",
+      "name": "Elite Knight Co., Ltd.",
+      "alternateName": "บริษัท เอลีท ไนท์ จำกัด",
+      "url": "https://www.ek.co.th/",
+      "logo": "https://www.ek.co.th/assets/logo.jpg",
+      "telephone": "+66-63-664-1555",
+      "email": "info@ek.co.th",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1/128 Imm Amphon Village, Soi Thawi Watthana 20, Thawi Watthana Road",
+        "addressLocality": "Thawi Watthana",
+        "addressRegion": "Bangkok",
+        "postalCode": "10170",
+        "addressCountry": "TH"
+      },
+      "areaServed": [
+        "Thailand",
+        "Bangkok"
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "AI Governance",
+        "AI Risk Management",
+        "Data Governance",
+        "ISO/IEC 42001",
+        "NIST AI Risk Management Framework",
+        "Digital Transformation"
+      ],
+      "slogan": "Engineering the Future with Data and AI",
+      "sameAs": [
+        "https://www.linkedin.com/company/elite-knight/",
+        "https://www.facebook.com/ek.co.th"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.ek.co.th/en/articles/ai-governance-assurance-metrics.html#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.ek.co.th/en/articles/ai-governance-assurance-metrics.html"
+      },
+      "headline": "AI Governance Metrics: Executive Measures for Accountable AI",
+      "description": "How to govern AI model changes and monitor performance after launch, so control, risk, and business value stay aligned in Thai organizations.",
+      "image": "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1200&h=630&q=80",
+      "datePublished": "2026-11-11",
+      "dateModified": "2026-11-13",
+      "author": {
+        "@type": "Person",
+        "@id": "https://www.ek.co.th/about.html#wasin-srisawat",
+        "name": "Wasin Srisawat",
+        "jobTitle": "Consultant",
+        "worksFor": {
+          "@id": "https://www.ek.co.th/#organization"
+        }
+      },
+      "publisher": {
+        "@id": "https://www.ek.co.th/#organization"
+      },
+      "articleSection": "AI Governance",
+      "inLanguage": "en",
+      "wordCount": 1394,
+      "timeRequired": "PT8M",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "AI model governance"
+        },
+        {
+          "@type": "Thing",
+          "name": "AI model monitoring"
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "Thing",
+          "name": "ISO/IEC 42001"
+        },
+        {
+          "@type": "Thing",
+          "name": "NIST AI Risk Management Framework",
+          "sameAs": "https://www.nist.gov/itl/ai-risk-management-framework"
+        },
+        {
+          "@type": "Legislation",
+          "name": "Personal Data Protection Act B.E. 2562 (2019)",
+          "alternateName": "พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562",
+          "legislationJurisdiction": "TH",
+          "sameAs": "https://www.pdpc.or.th/"
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".ek-takeaways"
+        ]
+      },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is AI model governance different from AI governance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI governance sets policy, roles, and use-case screening for the whole organization. AI model governance looks after each model through its working life: the serving version, changes, and results after launch. The two must work as one continuous process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we need change control if the model comes from an external provider?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, because the organization remains accountable for results to customers and regulators. Require advance notice of version changes in the contract, pin a version where possible, and retest with your own test set whenever the version changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should a model be reviewed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Match frequency to risk. Review high-risk models monthly or when a warning threshold is reached, and low-risk models quarterly or twice a year. Review immediately after a major change or an incident."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do we need MLOps tooling before we start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. An organization can start with a model inventory, a standard test set, and a change log in tools it already has. Invest in automated testing and monitoring tools once the number of models and the pace of change grow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should a model be stopped or rolled back?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When a measure reaches the agreed stop threshold, when an incident affects customers or legal obligations, or when abnormal results cannot be explained. The model owner should be able to stop it immediately, then report to the AI governance working group to decide next steps."
+          }
+        }
+      ],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.ek.co.th/en/articles/ai-governance-assurance-metrics.html#howto",
+      "name": "A 90-day plan to start AI model governance",
+      "totalTime": "P90D",
+      "inLanguage": "en",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Phase 1",
+          "text": "Days 1-30: build an inventory of models in use and record the business owner, risk level, and baseline measures."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Phase 2",
+          "text": "Days 31-60: define change classes, approval paths, a standard test set, and thresholds, then pilot with two or three models."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Phase 3",
+          "text": "Days 61-90: start monthly reviews, rehearse a rollback, and add provider terms on model version changes."
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.ek.co.th/en/articles/ai-governance-assurance-metrics.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.ek.co.th/en/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Insights",
+          "item": "https://www.ek.co.th/en/insights.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Data & AI",
+          "item": "https://www.ek.co.th/en/data-ai-insights.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "AI Governance Metrics: Executive Measures for Accountable AI",
+          "item": "https://www.ek.co.th/en/articles/ai-governance-assurance-metrics.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <link rel="alternate" hreflang="th" href="https://www.ek.co.th/articles/ai-governance-assurance-metrics.html">
+    <link rel="alternate" hreflang="en" href="https://www.ek.co.th/en/articles/ai-governance-assurance-metrics.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.ek.co.th/articles/ai-governance-assurance-metrics.html">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="th_TH">
+  </head>
+  <body class="ek-site ek-article">
+    <a class="skip-link" href="#main-content" data-th="ข้ามไปยังเนื้อหาหลัก" data-en="Skip to main content">Skip to main content</a>
+    <header class="glass-nav ek-nav sticky top-0 z-50">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation" data-aria-th="เมนูหลัก" data-aria-en="Main navigation">
+        <a href="../index.html" class="flex items-center gap-3" aria-label="Elite Knight home"><img class="brand-mark" src="../../assets/logo-192.jpg" alt="Elite Knight Co., Ltd. logo" width="44" height="44" decoding="async"><span><span class="block text-sm font-black uppercase tracking-[0.18em] text-slate-900">Elite Knight</span><span class="block text-xs text-slate-600">Data · AI · Governance</span></span></a>
+        <button class="rounded border border-slate-300 px-3 py-2 text-sm font-bold text-slate-700 md:hidden" type="button" data-mobile-menu-button="" aria-expanded="false" aria-controls="mobile-menu" data-aria-th="เปิดเมนูหลัก" data-aria-en="Open main menu" data-th="เมนู" data-en="Menu" aria-label="Open main menu">Menu</button>
+        <div class="hidden items-center gap-7 md:flex"><a class="nav-link text-sm font-semibold" href="../index.html" data-th="หน้าแรก" data-en="Home">Home</a><a class="nav-link text-sm font-semibold" href="../about.html" data-th="เกี่ยวกับเรา" data-en="About">About</a><a class="nav-link text-sm font-semibold" href="../services.html" data-th="บริการ" data-en="Services">Services</a><a class="nav-link active text-sm font-semibold" href="../insights.html" data-th="คลังความรู้" data-en="Insights" aria-current="page">Insights</a><a class="nav-link text-sm font-semibold" href="../contact.html" data-th="ติดต่อเรา" data-en="Contact">Contact</a><div class="flex rounded border border-slate-300 bg-white p-1 text-xs font-bold" aria-label="Language selector" data-aria-th="เลือกภาษา" data-aria-en="Language selector"><a class="rounded px-3 py-1.5 lang-inactive" data-lang-button="th" aria-label="อ่านหน้านี้เป็นภาษาไทย" href="../../articles/ai-governance-assurance-metrics.html" hreflang="th" lang="th">TH</a><a class="rounded px-3 py-1.5 lang-active" data-lang-button="en" aria-label="Read this page in English" href="ai-governance-assurance-metrics.html" hreflang="en" lang="en" aria-current="page">EN</a></div></div>
+      </nav>
+      <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-5 py-4 md:hidden" data-mobile-menu=""><div class="grid gap-3"><a class="nav-link font-semibold" href="../index.html" data-th="หน้าแรก" data-en="Home">Home</a><a class="nav-link font-semibold" href="../about.html" data-th="เกี่ยวกับเรา" data-en="About">About</a><a class="nav-link font-semibold" href="../services.html" data-th="บริการ" data-en="Services">Services</a><a class="nav-link active font-semibold" href="../insights.html" data-th="คลังความรู้" data-en="Insights" aria-current="page">Insights</a><a class="nav-link font-semibold" href="../contact.html" data-th="ติดต่อเรา" data-en="Contact">Contact</a><a class="mobile-menu-cta" data-mobile-cta href="../contact.html" data-th="ปรึกษาโจทย์ธุรกิจ" data-en="Discuss your challenge">Discuss your challenge</a><a class="mobile-menu-tel" href="tel:+66636641555" data-th="โทร 063-664-1555" data-en="Call 063-664-1555">Call 063-664-1555</a><div class="mt-2 flex w-fit rounded border border-slate-300 bg-white p-1 text-xs font-bold" aria-label="Language selector" data-aria-th="เลือกภาษา" data-aria-en="Language selector"><a class="rounded px-3 py-1.5 lang-inactive" data-lang-button="th" aria-label="อ่านหน้านี้เป็นภาษาไทย" href="../../articles/ai-governance-assurance-metrics.html" hreflang="th" lang="th">TH</a><a class="rounded px-3 py-1.5 lang-active" data-lang-button="en" aria-label="Read this page in English" href="ai-governance-assurance-metrics.html" hreflang="en" lang="en" aria-current="page">EN</a></div></div></div>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <article>
+        <header class="page-hero py-24 text-white"><div class="mx-auto max-w-4xl px-5 lg:px-8"><nav class="ek-breadcrumb" aria-label="Breadcrumb" data-aria-th="เส้นทางนำทาง" data-aria-en="Breadcrumb"><ol><li><a href="../index.html" data-th="หน้าแรก" data-en="Home">Home</a></li><li><a href="../insights.html" data-th="คลังความรู้" data-en="Insights">Insights</a></li><li><a href="../data-ai-insights.html" data-th="Data & AI" data-en="Data &amp; AI">Data &amp; AI</a></li><li><span aria-current="page" data-th="AI Governance Metrics: วัดผลการกำกับ AI ให้ผู้บริหารตัดสินใจได้" data-en="AI Governance Metrics: Executive Measures for Accountable AI">AI Governance Metrics: Executive Measures for Accountable AI</span></li></ol></nav><p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-teal-100">AI Governance</p><h1 class="text-4xl font-black tracking-tight md:text-6xl" data-th="AI Governance Metrics: วัดผลการกำกับ AI ให้ผู้บริหารตัดสินใจได้" data-en="AI Governance Metrics: Executive Measures for Accountable AI">AI Governance Metrics: Executive Measures for Accountable AI</h1><p class="mt-6 text-lg leading-8 text-slate-100" data-th="แนวทางสำหรับผู้บริหารในการกำกับการเปลี่ยนแปลงของโมเดล AI และติดตามผลหลังเปิดใช้ เพื่อให้คุณค่า ความเสี่ยง และความรับผิดชอบเดินไปด้วยกัน" data-en="A practical guide for leaders to govern AI model changes and monitor performance after launch, so value, risk, and accountability stay aligned.">A practical guide for leaders to govern AI model changes and monitor performance after launch, so value, risk, and accountability stay aligned.</p><p class="mt-5 text-sm font-bold text-teal-100" data-th="เผยแพร่ 11 พฤศจิกายน 2569 (ค.ศ. 2026) · 8 นาทีในการอ่าน" data-en="Published 11 November 2026 · 8 min read">Published 11 November 2026 · 8 min read</p></div></header>
+        <div class="mx-auto max-w-4xl px-5 py-16 lg:px-8">
+          <div class="mb-10 flex flex-wrap gap-3" aria-label="Share this article"><a class="share-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.ek.co.th%2Fen%2Farticles%2Fai-governance-assurance-metrics.html" target="_blank" rel="noopener">LinkedIn</a><a class="share-button" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ek.co.th%2Fen%2Farticles%2Fai-governance-assurance-metrics.html" target="_blank" rel="noopener">Facebook</a><a class="share-button" href="https://x.com/intent/post?text=AI%20Model%20Governance%3A%20How%20to%20Govern%20Change%20and%20Ongoing%20Monitoring&amp;url=https%3A%2F%2Fwww.ek.co.th%2Fen%2Farticles%2Fai-governance-assurance-metrics.html" target="_blank" rel="noopener">X</a></div>
+          <div class="article-prose space-y-6">
+            <p data-th="โมเดล AI ไม่ได้เสร็จสมบูรณ์ในวันที่เปิดใช้งาน ข้อมูลที่ไหลเข้าเปลี่ยนไปตามพฤติกรรมลูกค้า ผู้ให้บริการอัปเดตโมเดลเบื้องหลัง ทีมงานปรับคำสั่ง (prompt) หรือเพิ่มแหล่งข้อมูลใหม่ การเปลี่ยนแปลงแต่ละครั้งอาจทำให้ผลลัพธ์ต่างจากที่เคยทดสอบและอนุมัติไว้ โดยไม่มีใครสังเกตเห็นจนเกิดปัญหากับลูกค้าหรือการตัดสินใจทางธุรกิจ" data-en="An AI model is not finished on the day it goes live. Incoming data shifts with customer behavior, providers update the underlying model, and teams adjust prompts or add new data sources. Each change can move results away from what was tested and approved, often unnoticed until customers or business decisions are affected.">An AI model is not finished on the day it goes live. Incoming data shifts with customer behavior, providers update the underlying model, and teams adjust prompts or add new data sources. Each change can move results away from what was tested and approved, often unnoticed until customers or business decisions are affected.</p>
+            <p data-th="AI Model Governance คือการกำกับดูแลโมเดลแต่ละตัวตลอดอายุการใช้งาน บทความนี้อธิบายว่าองค์กรควรควบคุมการเปลี่ยนแปลงใด ติดตามตัวชี้วัดอะไร และใครควรเป็นผู้ตัดสินใจ เพื่อให้ AI ยังสร้างคุณค่าและตรวจสอบได้หลังเปิดใช้" data-en="AI model governance is the oversight of each model throughout its working life. This article explains which changes to control, which measures to monitor, and who should decide, so AI keeps creating value and remains auditable after launch.">AI model governance is the oversight of each model throughout its working life. This article explains which changes to control, which measures to monitor, and who should decide, so AI keeps creating value and remains auditable after launch.</p><aside class="ek-takeaways" aria-label="Key takeaways"><p data-th="สรุปสาระสำคัญ" data-en="Key takeaways">Key takeaways</p><ul class=""><li data-th="การอนุมัติก่อนเปิดใช้ไม่พอ ต้องกำกับดูแลโมเดลตลอดอายุการใช้งาน" data-en="Approval before launch is not enough; a model needs oversight throughout its working life.">Approval before launch is not enough; a model needs oversight throughout its working life.</li><li data-th="จัดระดับการเปลี่ยนแปลงตามผลกระทบ เพื่อให้เรื่องเล็กผ่านได้เร็วและเรื่องใหญ่ได้รับการทบทวน" data-en="Classify changes by impact so small ones move quickly and major ones are reviewed.">Classify changes by impact so small ones move quickly and major ones are reviewed.</li><li data-th="ตัวชี้วัดทุกตัวต้องมีเกณฑ์และผู้ตัดสินใจ ไม่เช่นนั้นแดชบอร์ดจะเป็นเพียงรายงาน" data-en="Every measure needs a threshold and a decision owner; otherwise a dashboard is only a report.">Every measure needs a threshold and a decision owner; otherwise a dashboard is only a report.</li></ul></aside><nav class="ek-toc" aria-label="Table of contents"><p data-th="ในบทความนี้" data-en="In this article">In this article</p><ol><li><a href="#what-is-ai-model-governance" data-th="AI Model Governance คืออะไร?" data-en="What is AI model governance?">What is AI model governance?</a></li><li><a href="#why-approval-before-launch-is-not-enough" data-th="ทำไมการอนุมัติก่อนเปิดใช้จึงไม่พอ?" data-en="Why is approval before launch not enough?">Why is approval before launch not enough?</a></li><li><a href="#which-changes-need-control" data-th="การเปลี่ยนแปลงใดบ้างที่ต้องควบคุม?" data-en="Which changes need to be controlled?">Which changes need to be controlled?</a></li><li><a href="#how-to-classify-changes" data-th="ควรจัดระดับการเปลี่ยนแปลงอย่างไร?" data-en="How should changes be classified?">How should changes be classified?</a></li><li><a href="#what-to-monitor-after-launch" data-th="ควรติดตามอะไรหลังเปิดใช้?" data-en="What should be monitored after launch?">What should be monitored after launch?</a></li><li><a href="#who-is-accountable-and-decides" data-th="ใครควรรับผิดชอบและตัดสินใจ?" data-en="Who should be accountable and decide?">Who should be accountable and decide?</a></li><li><a href="#how-to-start-in-90-days" data-th="เริ่มต้นใน 90 วันได้อย่างไร?" data-en="How can an organization start in 90 days?">How can an organization start in 90 days?</a></li><li><a href="#common-mistakes" data-th="ข้อผิดพลาดที่พบบ่อยคืออะไร?" data-en="What are the common mistakes?">What are the common mistakes?</a></li><li><a href="#conclusion" data-th="บทสรุป" data-en="Conclusion">Conclusion</a></li></ol></nav>
+
+            <h2 id="what-is-ai-model-governance" data-th="AI Model Governance คืออะไร?" data-en="What is AI model governance?">What is AI model governance?</h2>
+            <p data-th="AI Model Governance คือชุดของบทบาท กระบวนการ และหลักฐานที่ทำให้องค์กรรู้ว่าโมเดล AI ตัวใดใช้งานอยู่ ใครเป็นเจ้าของ เวอร์ชันใดให้บริการ ผลลัพธ์ยังอยู่ในเกณฑ์ที่ยอมรับหรือไม่ และการเปลี่ยนแปลงแต่ละครั้งผ่านการทบทวนที่เหมาะสมกับผลกระทบ ครอบคลุมทั้งโมเดลที่พัฒนาเอง โมเดลจากผู้ให้บริการ และระบบ Generative AI ที่เชื่อมกับข้อมูลขององค์กร" data-en="AI model governance is the set of roles, processes, and evidence that lets an organization know which AI models are in use, who owns them, which version is serving, whether results remain within accepted limits, and whether each change received a review proportionate to its impact. It covers models built in-house, models supplied by vendors, and generative AI systems connected to enterprise data.">AI model governance is the set of roles, processes, and evidence that lets an organization know which AI models are in use, who owns them, which version is serving, whether results remain within accepted limits, and whether each change received a review proportionate to its impact. It covers models built in-house, models supplied by vendors, and generative AI systems connected to enterprise data.</p>
+            <p data-th="งานนี้ต่อยอดจาก AI Governance ระดับองค์กร ซึ่งกำหนดนโยบาย บทบาท และการคัดกรอง use case ก่อนเริ่มใช้ ส่วน AI Model Governance เป็นระดับปฏิบัติการที่ดูแลสิ่งที่เกิดขึ้นหลังจากนั้น ถ้าไม่มีส่วนนี้ การอนุมัติในวันแรกจะค่อย ๆ หมดความหมายเมื่อโมเดลและบริบทเปลี่ยนไป" data-en="It builds on enterprise AI governance, which sets policy, roles, and use-case screening before adoption. Model governance is the operational layer that manages what happens afterwards. Without it, day-one approval gradually loses meaning as the model and its context change.">It builds on enterprise AI governance, which sets policy, roles, and use-case screening before adoption. Model governance is the operational layer that manages what happens afterwards. Without it, day-one approval gradually loses meaning as the model and its context change.</p>
+
+            <h2 id="why-approval-before-launch-is-not-enough" data-th="ทำไมการอนุมัติก่อนเปิดใช้จึงไม่พอ?" data-en="Why is approval before launch not enough?">Why is approval before launch not enough?</h2>
+            <p data-th="การทดสอบก่อนเปิดใช้ยืนยันได้เพียงว่าโมเดลทำงานดีกับข้อมูลและเงื่อนไข ณ เวลานั้น หลังเปิดใช้มีแรงผลักอย่างน้อยสี่ด้านที่ทำให้ผลลัพธ์เคลื่อนไป" data-en="Pre-launch testing only confirms that a model performed well with the data and conditions of that moment. After launch, at least four forces move results over time.">Pre-launch testing only confirms that a model performed well with the data and conditions of that moment. After launch, at least four forces move results over time.</p>
+            <ul class="list-disc space-y-2 pl-6"><li data-th="ข้อมูลจริงเปลี่ยน (data drift): ลูกค้า สินค้า หรือช่องทางใหม่ทำให้ข้อมูลนำเข้าต่างจากข้อมูลที่ใช้ฝึกและทดสอบ" data-en="Real data changes (data drift): new customers, products, or channels make inputs differ from the data used for training and testing.">Real data changes (data drift): new customers, products, or channels make inputs differ from the data used for training and testing.</li><li data-th="ความสัมพันธ์เปลี่ยน (concept drift): สิ่งที่เคยบ่งชี้ผลลัพธ์ได้ดีอาจใช้ไม่ได้เมื่อสภาพตลาด กฎเกณฑ์ หรือพฤติกรรมเปลี่ยน" data-en="Relationships change (concept drift): signals that once predicted outcomes well may stop working when markets, rules, or behavior shift.">Relationships change (concept drift): signals that once predicted outcomes well may stop working when markets, rules, or behavior shift.</li><li data-th="ผู้ให้บริการเปลี่ยนรุ่นโมเดล: โมเดลภาษาที่เรียกใช้ผ่านบริการภายนอกอาจถูกปรับหรือยกเลิกรุ่นเดิมตามรอบของผู้ให้บริการ" data-en="Providers change model versions: a language model consumed as a service may be updated or retired on the provider&#x27;s schedule.">Providers change model versions: a language model consumed as a service may be updated or retired on the provider&#x27;s schedule.</li><li data-th="ทีมงานปรับแต่งเอง: การแก้ prompt เพิ่มแหล่งความรู้ หรือเปลี่ยนเกณฑ์ตัดสิน แม้เล็กน้อยก็อาจเปลี่ยนพฤติกรรมของระบบ" data-en="Teams make their own adjustments: editing prompts, adding knowledge sources, or changing decision thresholds can alter system behavior even when the edit looks small.">Teams make their own adjustments: editing prompts, adding knowledge sources, or changing decision thresholds can alter system behavior even when the edit looks small.</li></ul>
+            <p data-th="ความเสี่ยงจึงไม่ได้อยู่ที่การเปลี่ยนแปลง เพราะการปรับปรุงเป็นเรื่องจำเป็น แต่อยู่ที่การเปลี่ยนแปลงที่ไม่มีใครรู้ ไม่มีการทดสอบซ้ำ และไม่มีเจ้าของรับผิดชอบผล" data-en="The risk is not change itself, because improvement is necessary. The risk is change that nobody knows about, nobody retests, and nobody owns.">The risk is not change itself, because improvement is necessary. The risk is change that nobody knows about, nobody retests, and nobody owns.</p>
+
+            <h2 id="which-changes-need-control" data-th="การเปลี่ยนแปลงใดบ้างที่ต้องควบคุม?" data-en="Which changes need to be controlled?">Which changes need to be controlled?</h2>
+            <p data-th="จุดเริ่มต้นคือทะเบียนโมเดล (model inventory) ที่บันทึกเจ้าของฝั่งธุรกิจ วัตถุประสงค์ เวอร์ชันที่ให้บริการ ข้อมูลที่ใช้ ผลทดสอบล่าสุด และข้อจำกัดที่ทราบ เมื่อมีทะเบียนแล้ว องค์กรควรกำหนดให้การเปลี่ยนแปลงห้าประเภทต่อไปนี้ต้องถูกบันทึกและทบทวนก่อนขึ้นใช้งานจริง" data-en="The starting point is a model inventory that records the business owner, purpose, serving version, data used, latest test results, and known limitations. With the inventory in place, the organization should require the following five types of change to be recorded and reviewed before release.">The starting point is a model inventory that records the business owner, purpose, serving version, data used, latest test results, and known limitations. With the inventory in place, the organization should require the following five types of change to be recorded and reviewed before release.</p>
+            <ul class="list-disc space-y-2 pl-6"><li data-th="ตัวโมเดลหรือเวอร์ชัน รวมถึงการเปลี่ยนผู้ให้บริการ" data-en="The model or its version, including a change of provider.">The model or its version, including a change of provider.</li><li data-th="ข้อมูลฝึก ข้อมูลอ้างอิง และแหล่งความรู้ที่ระบบดึงมาใช้ตอบ" data-en="Training data, reference data, and the knowledge sources the system retrieves to answer.">Training data, reference data, and the knowledge sources the system retrieves to answer.</li><li data-th="prompt คำสั่งระบบ และเกณฑ์ตัดสิน (threshold)" data-en="Prompts, system instructions, and decision thresholds.">Prompts, system instructions, and decision thresholds.</li><li data-th="ขอบเขตการใช้งาน เช่น กลุ่มผู้ใช้ใหม่ ภาษาใหม่ หรือการตัดสินใจประเภทใหม่" data-en="Scope of use, such as a new user group, a new language, or a new type of decision.">Scope of use, such as a new user group, a new language, or a new type of decision.</li><li data-th="ระบบที่เชื่อมต่อและสิ่งที่ AI ทำแทนคนได้ เช่น ส่งข้อความถึงลูกค้าหรือแก้ไขข้อมูลเอง" data-en="Connected systems and the actions AI may take on its own, such as messaging customers or updating records.">Connected systems and the actions AI may take on its own, such as messaging customers or updating records.</li></ul>
+
+            <h2 id="how-to-classify-changes" data-th="ควรจัดระดับการเปลี่ยนแปลงอย่างไร?" data-en="How should changes be classified?">How should changes be classified?</h2>
+            <p data-th="ถ้าทุกการเปลี่ยนแปลงต้องผ่านคณะกรรมการ งานจะช้าและทีมจะหาทางเลี่ยง ถ้าไม่มีการทบทวนเลย ความเสี่ยงจะสะสมโดยไม่มีใครเห็น ทางออกคือจัดระดับตามผลกระทบต่อผู้ใช้และการตัดสินใจ แล้วกำหนดเส้นทางอนุมัติให้ต่างกัน" data-en="If every change goes to a committee, work slows and teams look for workarounds. If nothing is reviewed, risk accumulates unseen. The answer is to classify changes by their impact on users and decisions, then give each class a different approval path.">If every change goes to a committee, work slows and teams look for workarounds. If nothing is reviewed, risk accumulates unseen. The answer is to classify changes by their impact on users and decisions, then give each class a different approval path.</p>
+            <ul class="list-disc space-y-2 pl-6"><li data-th="ระดับเล็กน้อย: ไม่เปลี่ยนพฤติกรรมที่ผู้ใช้เห็น เช่น ปรับโครงสร้างพื้นฐานหรือแก้ข้อความแสดงผล เจ้าของโมเดลอนุมัติและบันทึกได้เอง" data-en="Minor: no change in behavior visible to users, such as infrastructure work or display text. The model owner approves and records it.">Minor: no change in behavior visible to users, such as infrastructure work or display text. The model owner approves and records it.</li><li data-th="ระดับปานกลาง: ปรับ prompt หลัก เพิ่มแหล่งข้อมูล หรือฝึกซ้ำด้วยข้อมูลใหม่ ต้องทดสอบเทียบกับชุดทดสอบมาตรฐานและให้ผู้ทบทวนอิสระรับรอง" data-en="Moderate: revising a core prompt, adding a data source, or retraining on new data. It must be tested against a standard test set and confirmed by an independent reviewer.">Moderate: revising a core prompt, adding a data source, or retraining on new data. It must be tested against a standard test set and confirmed by an independent reviewer.</li><li data-th="ระดับสำคัญ: เปลี่ยนรุ่นโมเดล เปลี่ยนวัตถุประสงค์ ขยายไปยังกลุ่มผู้ได้รับผลกระทบใหม่ หรือเพิ่มการตัดสินใจอัตโนมัติ ต้องประเมินความเสี่ยงใหม่และอนุมัติโดยคณะทำงาน AI Governance" data-en="Major: a new model version, a new purpose, a wider group of affected people, or more automated decision-making. It needs a fresh risk assessment and approval by the AI governance working group.">Major: a new model version, a new purpose, a wider group of affected people, or more automated decision-making. It needs a fresh risk assessment and approval by the AI governance working group.</li></ul>
+            <p data-th="ทุกระดับควรมีแผนถอยกลับ (rollback) ที่ทดลองแล้วว่าใช้ได้จริง และมีบันทึกว่าใครอนุมัติ ทดสอบด้วยอะไร และผลเป็นอย่างไร เพื่อให้ตรวจสอบย้อนหลังได้เมื่อมีคำถามจากผู้บริหาร ผู้ตรวจสอบ หรือลูกค้า" data-en="Every class should have a rollback plan that has been proven to work, and a record of who approved the change, what it was tested with, and what the results were, so the decision can be traced when executives, auditors, or customers ask.">Every class should have a rollback plan that has been proven to work, and a record of who approved the change, what it was tested with, and what the results were, so the decision can be traced when executives, auditors, or customers ask.</p>
+
+            <h2 id="what-to-monitor-after-launch" data-th="ควรติดตามอะไรหลังเปิดใช้?" data-en="What should be monitored after launch?">What should be monitored after launch?</h2>
+            <p data-th="การติดตามที่ดีไม่ได้วัดเฉพาะความแม่นยำทางเทคนิค แต่ต้องตอบได้ว่าโมเดลยังช่วยธุรกิจ ยังเป็นธรรม และยังปลอดภัยอยู่หรือไม่ ชุดตัวชี้วัดขั้นต่ำควรครอบคลุมห้ามิติ" data-en="Good monitoring does not stop at technical accuracy. It must show whether the model still helps the business, remains fair, and stays safe. A minimum set of measures should cover five dimensions.">Good monitoring does not stop at technical accuracy. It must show whether the model still helps the business, remains fair, and stays safe. A minimum set of measures should cover five dimensions.</p>
+            <ul class="list-disc space-y-2 pl-6"><li data-th="ผลลัพธ์ทางธุรกิจ เช่น เวลาที่ประหยัดได้ อัตราการแก้ปัญหาสำเร็จ หรือความพึงพอใจของผู้ใช้" data-en="Business outcomes, such as time saved, successful resolution rate, or user satisfaction.">Business outcomes, such as time saved, successful resolution rate, or user satisfaction.</li><li data-th="คุณภาพของผลลัพธ์ เช่น ความถูกต้องจากการสุ่มตรวจโดยผู้เชี่ยวชาญ และสัดส่วนคำตอบที่ไม่มีแหล่งอ้างอิงรองรับ" data-en="Output quality, such as accuracy from expert spot checks and the share of answers not supported by a source.">Output quality, such as accuracy from expert spot checks and the share of answers not supported by a source.</li><li data-th="ความเป็นธรรม โดยเปรียบเทียบผลลัพธ์ระหว่างกลุ่มผู้ใช้หรือกลุ่มลูกค้าที่เกี่ยวข้อง" data-en="Fairness, by comparing results across relevant user or customer groups.">Fairness, by comparing results across relevant user or customer groups.</li><li data-th="การเปลี่ยนของข้อมูลนำเข้าเมื่อเทียบกับช่วงที่ทดสอบ" data-en="Shifts in input data compared with the period that was tested.">Shifts in input data compared with the period that was tested.</li><li data-th="เหตุการณ์ ข้อร้องเรียน และจำนวนครั้งที่คนต้องแก้ไขผลลัพธ์ของ AI" data-en="Incidents, complaints, and how often people have to correct AI output.">Incidents, complaints, and how often people have to correct AI output.</li></ul>
+            <p data-th="ตัวชี้วัดแต่ละตัวต้องมีค่าตั้งต้น เกณฑ์เตือน เกณฑ์หยุดใช้ และชื่อผู้รับผิดชอบ หากไม่มีสิ่งเหล่านี้ แดชบอร์ดจะเป็นเพียงรายงานที่ไม่มีใครต้องลงมือทำอะไร สำหรับโมเดลที่ใช้ข้อมูลส่วนบุคคล ควรตรวจด้วยว่าการใช้ข้อมูลยังอยู่ในวัตถุประสงค์ที่แจ้งไว้ตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล" data-en="Each measure needs a baseline, a warning threshold, a stop threshold, and a named owner. Without these, a dashboard is only a report that obliges no one to act. For models that use personal data, also confirm that the use still fits the purpose stated under Thailand&#x27;s Personal Data Protection Act.">Each measure needs a baseline, a warning threshold, a stop threshold, and a named owner. Without these, a dashboard is only a report that obliges no one to act. For models that use personal data, also confirm that the use still fits the purpose stated under Thailand&#x27;s Personal Data Protection Act.</p>
+
+            <h2 id="who-is-accountable-and-decides" data-th="ใครควรรับผิดชอบและตัดสินใจ?" data-en="Who should be accountable and decide?">Who should be accountable and decide?</h2>
+            <p data-th="ความรับผิดชอบควรอยู่กับฝั่งธุรกิจที่ได้ประโยชน์จากโมเดล ไม่ใช่ทีมเทคนิคฝ่ายเดียว โครงสร้างที่ใช้ได้จริงมักมีสี่บทบาท ได้แก่ เจ้าของโมเดลฝั่งธุรกิจซึ่งรับผิดชอบผลลัพธ์และอนุมัติการเปลี่ยนแปลงระดับเล็กน้อย ทีมพัฒนาและดูแลระบบซึ่งทดสอบและบันทึกการเปลี่ยนแปลง ผู้ทบทวนอิสระจากฝ่ายความเสี่ยง ข้อมูล หรือกำกับดูแล ซึ่งตรวจหลักฐานของการเปลี่ยนแปลงระดับปานกลางขึ้นไป และคณะทำงาน AI Governance ซึ่งตัดสินใจเรื่องสำคัญและรับรายงานตามรอบ" data-en="Accountability belongs with the business unit that benefits from the model, not with the technical team alone. A workable structure usually has four roles: a business model owner who answers for results and approves minor changes; a development and operations team that tests and records changes; an independent reviewer from risk, data, or compliance who checks the evidence for moderate and major changes; and an AI governance working group that decides major matters and receives periodic reports.">Accountability belongs with the business unit that benefits from the model, not with the technical team alone. A workable structure usually has four roles: a business model owner who answers for results and approves minor changes; a development and operations team that tests and records changes; an independent reviewer from risk, data, or compliance who checks the evidence for moderate and major changes; and an AI governance working group that decides major matters and receives periodic reports.</p>
+            <p data-th="ที่สำคัญคือต้องกำหนดล่วงหน้าว่าใครมีสิทธิ์สั่งหยุดใช้โมเดลทันทีเมื่อเกิดเหตุ โดยไม่ต้องรอการประชุม แล้วจึงรายงานคณะทำงานภายหลัง" data-en="Above all, decide in advance who may stop a model immediately when an incident occurs, without waiting for a meeting, and report to the working group afterwards.">Above all, decide in advance who may stop a model immediately when an incident occurs, without waiting for a meeting, and report to the working group afterwards.</p>
+
+            <h2 id="how-to-start-in-90-days" data-th="เริ่มต้นใน 90 วันได้อย่างไร?" data-en="How can an organization start in 90 days?">How can an organization start in 90 days?</h2>
+            <h3 id="days-1-30-know-your-models-and-owners" data-th="วันที่ 1-30: รู้ว่ามีโมเดลอะไรและใครเป็นเจ้าของ" data-en="Days 1-30: know which models exist and who owns them">Days 1-30: know which models exist and who owns them</h3>
+            <ul class="list-disc space-y-2 pl-6"><li data-th="จัดทำทะเบียนโมเดลที่ใช้งานจริง รวมถึงบริการ AI จากผู้ให้บริการภายนอก" data-en="Build an inventory of models in real use, including AI services from external providers.">Build an inventory of models in real use, including AI services from external providers.</li><li data-th="ระบุเจ้าของฝั่งธุรกิจและระดับความเสี่ยงของแต่ละโมเดล" data-en="Name a business owner and a risk level for each model.">Name a business owner and a risk level for each model.</li><li data-th="บันทึกค่าตั้งต้นของตัวชี้วัดหลักจากผลการใช้งานปัจจุบัน" data-en="Record baseline values for the main measures from current usage.">Record baseline values for the main measures from current usage.</li></ul>
+            <h3 id="days-31-60-set-the-rules-and-pilot" data-th="วันที่ 31-60: กำหนดกติกาและทดลองใช้" data-en="Days 31-60: set the rules and pilot them">Days 31-60: set the rules and pilot them</h3>
+            <ul class="list-disc space-y-2 pl-6"><li data-th="กำหนดระดับการเปลี่ยนแปลง เส้นทางอนุมัติ และแบบบันทึกการเปลี่ยนแปลง" data-en="Define change classes, approval paths, and a change record template.">Define change classes, approval paths, and a change record template.</li><li data-th="สร้างชุดทดสอบมาตรฐานจากคำถามหรือกรณีจริงของธุรกิจ" data-en="Create a standard test set from real business questions or cases.">Create a standard test set from real business questions or cases.</li><li data-th="ตั้งเกณฑ์เตือนและเกณฑ์หยุดใช้ แล้วทดลองกับโมเดลสองถึงสามตัวที่มีระดับความเสี่ยงต่างกัน" data-en="Set warning and stop thresholds, then pilot with two or three models at different risk levels.">Set warning and stop thresholds, then pilot with two or three models at different risk levels.</li></ul>
+            <h3 id="days-61-90-make-it-routine" data-th="วันที่ 61-90: ทำให้เป็นงานประจำ" data-en="Days 61-90: make it routine">Days 61-90: make it routine</h3>
+            <ul class="list-disc space-y-2 pl-6"><li data-th="เริ่มรอบทบทวนรายเดือนและรายงานสรุปต่อผู้บริหาร" data-en="Start a monthly review cycle and a summary report to executives.">Start a monthly review cycle and a summary report to executives.</li><li data-th="ซ้อมการถอยกลับและการหยุดใช้โมเดลอย่างน้อยหนึ่งครั้ง" data-en="Rehearse a rollback and a model shutdown at least once.">Rehearse a rollback and a model shutdown at least once.</li><li data-th="เพิ่มข้อกำหนดในสัญญาให้ผู้ให้บริการแจ้งล่วงหน้าก่อนเปลี่ยนรุ่นโมเดล" data-en="Add contract terms requiring providers to give notice before changing model versions.">Add contract terms requiring providers to give notice before changing model versions.</li></ul>
+            <p data-th="กรอบมาตรฐานช่วยให้งานนี้มีหลักยึด ISO/IEC 42001 กำหนดให้องค์กรติดตาม วัดผล และทบทวนระบบบริหารจัดการ AI อย่างต่อเนื่อง ส่วน NIST AI Risk Management Framework จัดงานวัดผลและจัดการความเสี่ยงไว้ในหน้าที่ Measure และ Manage องค์กรไม่จำเป็นต้องขอการรับรองทันที แต่ใช้เป็นรายการตรวจสอบว่ากระบวนการครบถ้วนหรือไม่" data-en="Recognized frameworks give this work an anchor. ISO/IEC 42001 requires organizations to monitor, measure, and review their AI management system on an ongoing basis, while the NIST AI Risk Management Framework places measurement and risk treatment under its Measure and Manage functions. Certification is not needed at the start; use them as a checklist for whether the process is complete.">Recognized frameworks give this work an anchor. ISO/IEC 42001 requires organizations to monitor, measure, and review their AI management system on an ongoing basis, while the NIST AI Risk Management Framework places measurement and risk treatment under its Measure and Manage functions. Certification is not needed at the start; use them as a checklist for whether the process is complete.</p>
+
+            <h2 id="common-mistakes" data-th="ข้อผิดพลาดที่พบบ่อยคืออะไร?" data-en="What are the common mistakes?">What are the common mistakes?</h2>
+            <ul class="list-disc space-y-2 pl-6"><li data-th="ถือว่าการอนุมัติครั้งแรกครอบคลุมทุกเวอร์ชันหลังจากนั้น" data-en="Treating the first approval as covering every later version.">Treating the first approval as covering every later version.</li><li data-th="ติดตามเฉพาะตัวเลขทางเทคนิค โดยไม่เชื่อมกับผลลัพธ์ทางธุรกิจและผลกระทบต่อผู้ใช้" data-en="Tracking only technical figures without linking them to business outcomes and user impact.">Tracking only technical figures without linking them to business outcomes and user impact.</li><li data-th="มีแดชบอร์ดแต่ไม่มีเกณฑ์และผู้ตัดสินใจ" data-en="Having a dashboard but no thresholds and no decision owner.">Having a dashboard but no thresholds and no decision owner.</li><li data-th="ไม่รู้ว่าผู้ให้บริการเปลี่ยนรุ่นโมเดลเมื่อใด เพราะไม่ได้ระบุไว้ในสัญญา" data-en="Not knowing when a provider changes model versions because the contract is silent.">Not knowing when a provider changes model versions because the contract is silent.</li><li data-th="ไม่เคยซ้อมถอยกลับ จึงพบว่าทำไม่ได้ในวันที่จำเป็นต้องใช้" data-en="Never rehearsing a rollback, then finding it does not work on the day it is needed.">Never rehearsing a rollback, then finding it does not work on the day it is needed.</li></ul>
+
+            <h2 id="conclusion" data-th="บทสรุป" data-en="Conclusion">Conclusion</h2>
+            <p data-th="AI Model Governance ทำให้องค์กรตอบได้ตลอดเวลาว่าโมเดลใดใช้งานอยู่ เปลี่ยนอะไรไปบ้าง และผลลัพธ์ยังอยู่ในเกณฑ์ที่ยอมรับหรือไม่ การกำกับตามระดับผลกระทบช่วยให้ทีมปรับปรุงโมเดลได้เร็วในเรื่องเล็ก และได้รับการทบทวนอย่างรอบคอบในเรื่องใหญ่" data-en="AI model governance lets an organization answer at any time which models are in use, what has changed, and whether results remain within accepted limits. Governing by impact lets teams improve models quickly on small matters while major ones receive careful review.">AI model governance lets an organization answer at any time which models are in use, what has changed, and whether results remain within accepted limits. Governing by impact lets teams improve models quickly on small matters while major ones receive careful review.</p>
+            <p data-th="จุดเริ่มที่ได้ผลคือทะเบียนโมเดลที่มีเจ้าของ ตัวชี้วัดที่มีเกณฑ์ และสิทธิ์หยุดใช้ที่ชัดเจน เมื่อสามสิ่งนี้พร้อม องค์กรจะขยายการใช้ AI ได้ด้วยความมั่นใจมากขึ้น" data-en="A practical start is an owned model inventory, measures with thresholds, and a clear right to stop. With those three in place, the organization can expand its use of AI with greater confidence.">A practical start is an owned model inventory, measures with thresholds, and a clear right to stop. With those three in place, the organization can expand its use of AI with greater confidence.</p>
+
+            <section class="article-cta mt-12 rounded bg-slate-950 p-8 text-white" aria-labelledby="article-cta-heading"><h2 id="article-cta-heading" class="text-2xl font-black text-white" style="color:#fff;margin-top:0">Govern AI models so they keep creating value and stay auditable</h2><a href="../data-ai-consulting.html" class="mt-6 inline-flex rounded bg-teal-400 px-5 py-3 text-sm font-bold text-slate-950 hover:bg-teal-300">Explore Data &amp; AI Consulting</a> <a class="mt-6 inline-flex rounded border border-white/60 px-5 py-3 text-sm font-bold text-white" href="../contact.html" data-th="ติดต่อเรา" data-en="Contact us">Contact us</a></section><section class="mt-12 border-t border-slate-200 pt-10" aria-labelledby="article-faq-heading"><h2 id="article-faq-heading" data-th="คำถามที่พบบ่อย" data-en="Frequently asked questions">Frequently asked questions</h2><div class="mt-6 grid gap-4"><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="AI Model Governance ต่างจาก AI Governance อย่างไร" data-en="How is AI model governance different from AI governance?">How is AI model governance different from AI governance?</summary><p class="mt-3 leading-7 text-slate-700" data-th="AI Governance กำหนดนโยบาย บทบาท และการคัดกรอง use case ของทั้งองค์กร ส่วน AI Model Governance ดูแลโมเดลแต่ละตัวตลอดอายุการใช้งาน ตั้งแต่เวอร์ชันที่ให้บริการ การเปลี่ยนแปลง ไปจนถึงผลลัพธ์หลังเปิดใช้ ทั้งสองส่วนต้องทำงานต่อเนื่องกัน" data-en="AI governance sets policy, roles, and use-case screening for the whole organization. AI model governance looks after each model through its working life: the serving version, changes, and results after launch. The two must work as one continuous process.">AI governance sets policy, roles, and use-case screening for the whole organization. AI model governance looks after each model through its working life: the serving version, changes, and results after launch. The two must work as one continuous process.</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="ถ้าใช้โมเดลจากผู้ให้บริการภายนอก ต้องกำกับการเปลี่ยนแปลงด้วยหรือไม่" data-en="Do we need change control if the model comes from an external provider?">Do we need change control if the model comes from an external provider?</summary><p class="mt-3 leading-7 text-slate-700" data-th="ต้องกำกับ เพราะองค์กรยังเป็นผู้รับผิดชอบผลลัพธ์ต่อลูกค้าและหน่วยงานกำกับ ควรระบุในสัญญาให้ผู้ให้บริการแจ้งล่วงหน้าก่อนเปลี่ยนรุ่น เลือกตรึงเวอร์ชันเมื่อทำได้ และทดสอบซ้ำด้วยชุดทดสอบขององค์กรเองทุกครั้งที่รุ่นเปลี่ยน" data-en="Yes, because the organization remains accountable for results to customers and regulators. Require advance notice of version changes in the contract, pin a version where possible, and retest with your own test set whenever the version changes.">Yes, because the organization remains accountable for results to customers and regulators. Require advance notice of version changes in the contract, pin a version where possible, and retest with your own test set whenever the version changes.</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="ควรทบทวนโมเดลบ่อยแค่ไหน" data-en="How often should a model be reviewed?">How often should a model be reviewed?</summary><p class="mt-3 leading-7 text-slate-700" data-th="ให้ความถี่ตามระดับความเสี่ยง โมเดลความเสี่ยงสูงควรทบทวนรายเดือนหรือเมื่อเกณฑ์เตือนทำงาน โมเดลความเสี่ยงต่ำอาจทบทวนรายไตรมาสหรือทุกครึ่งปี และควรทบทวนทันทีเมื่อมีการเปลี่ยนแปลงระดับสำคัญหรือเกิดเหตุการณ์" data-en="Match frequency to risk. Review high-risk models monthly or when a warning threshold is reached, and low-risk models quarterly or twice a year. Review immediately after a major change or an incident.">Match frequency to risk. Review high-risk models monthly or when a warning threshold is reached, and low-risk models quarterly or twice a year. Review immediately after a major change or an incident.</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="ต้องมีเครื่องมือ MLOps ก่อนเริ่มหรือไม่" data-en="Do we need MLOps tooling before we start?">Do we need MLOps tooling before we start?</summary><p class="mt-3 leading-7 text-slate-700" data-th="ไม่จำเป็น องค์กรเริ่มได้ด้วยทะเบียนโมเดล ชุดทดสอบมาตรฐาน และบันทึกการเปลี่ยนแปลงในเครื่องมือที่มีอยู่ เมื่อจำนวนโมเดลและความถี่ของการเปลี่ยนแปลงเพิ่มขึ้น จึงค่อยลงทุนในเครื่องมือที่ช่วยทดสอบและติดตามอัตโนมัติ" data-en="No. An organization can start with a model inventory, a standard test set, and a change log in tools it already has. Invest in automated testing and monitoring tools once the number of models and the pace of change grow.">No. An organization can start with a model inventory, a standard test set, and a change log in tools it already has. Invest in automated testing and monitoring tools once the number of models and the pace of change grow.</p></details><details class="rounded border border-slate-200 bg-white p-5"><summary class="cursor-pointer font-extrabold text-slate-950" data-th="เมื่อไรควรหยุดใช้หรือถอยกลับโมเดล" data-en="When should a model be stopped or rolled back?">When should a model be stopped or rolled back?</summary><p class="mt-3 leading-7 text-slate-700" data-th="เมื่อตัวชี้วัดถึงเกณฑ์หยุดใช้ที่ตกลงไว้ เกิดเหตุที่กระทบลูกค้าหรือข้อกฎหมาย หรืออธิบายสาเหตุของผลลัพธ์ที่ผิดปกติไม่ได้ เจ้าของโมเดลควรมีสิทธิ์สั่งหยุดได้ทันที แล้วรายงานคณะทำงาน AI Governance เพื่อพิจารณาขั้นต่อไป" data-en="When a measure reaches the agreed stop threshold, when an incident affects customers or legal obligations, or when abnormal results cannot be explained. The model owner should be able to stop it immediately, then report to the AI governance working group to decide next steps.">When a measure reaches the agreed stop threshold, when an incident affects customers or legal obligations, or when abnormal results cannot be explained. The model owner should be able to stop it immediately, then report to the AI governance working group to decide next steps.</p></details></div><nav class="ek-related" aria-label="Related articles"><p data-th="บทความที่เกี่ยวข้อง" data-en="Related articles">Related articles</p><ul><li><a href="ai-governance-thailand-getting-started.html" data-th="AI Governance คืออะไร และองค์กรไทยควรเริ่มต้นอย่างไร" data-en="What Is AI Governance and How Should Thai Organizations Get Started?">What Is AI Governance and How Should Thai Organizations Get Started?</a></li><li><a href="ai-risk-assessment-use-case.html" data-th="AI Risk Assessment คืออะไร: ประเมิน Use Case ก่อนใช้ AI จริง" data-en="What Is an AI Risk Assessment? Evaluate Use Cases Before Deployment">What Is an AI Risk Assessment? Evaluate Use Cases Before Deployment</a></li><li><a href="ai-vendor-due-diligence-thailand.html" data-th="ประเมินผู้ให้บริการ AI ก่อนซื้อ: คู่มือ Due Diligence สำหรับองค์กรไทย" data-en="AI Vendor Due Diligence: A Practical Guide for Thai Enterprises">AI Vendor Due Diligence: A Practical Guide for Thai Enterprises</a></li></ul></nav></section>
+
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer class="bg-slate-950 py-12 text-slate-300"><div class="mx-auto grid max-w-7xl gap-8 px-5 md:grid-cols-3 lg:px-8"><div><div class="flex items-center gap-3"><img class="footer-mark" src="../../assets/logo-badge.png" alt="Elite Knight Co., Ltd. logo" width="44" height="37" loading="lazy" decoding="async"><p class="text-lg font-black text-white" data-th="บริษัท เอลีท ไนท์ จำกัด" data-en="Elite Knight Co., Ltd.">Elite Knight Co., Ltd.</p></div><p class="mt-3 text-sm leading-6">Engineering the Future with Data and AI</p><div class="mt-2 flex gap-3"><a class="social-icon" href="https://www.linkedin.com/company/elite-knight/" target="_blank" rel="noopener" aria-label="Elite Knight on LinkedIn">in</a><a class="social-icon" href="https://www.facebook.com/ek.co.th" target="_blank" rel="noopener" aria-label="Elite Knight on Facebook">f</a></div></div><div class="grid gap-2 text-sm"><a href="../index.html" data-th="หน้าแรก" data-en="Home">Home</a><a href="../about.html" data-th="เกี่ยวกับเรา" data-en="About">About</a><a href="../services.html" data-th="บริการ" data-en="Services">Services</a><a href="../insights.html" data-th="คลังความรู้" data-en="Insights">Insights</a><a href="../contact.html" data-th="ติดต่อเรา" data-en="Contact">Contact</a><a href="../cookie-policy.html" data-th="นโยบายการใช้งานคุกกี้" data-en="Cookie Policy">Cookie Policy</a><a href="../privacy-policy.html" data-th="นโยบายความเป็นส่วนตัว" data-en="Privacy Policy">Privacy Policy</a></div><div class="text-sm leading-7"><p data-th="เลขที่ 1/128 หมู่บ้านอิ่มอัมพร ซอยทวีวัฒนา 20 ถนนทวีวัฒนา แขวงศาลาธรรมสพน์ เขตทวีวัฒนา กรุงเทพมหานคร 10170" data-en="1/128 Imm Amphon Village, Soi Thawi Watthana 20, Thawi Watthana Road, Sala Thammasop, Thawi Watthana, Bangkok 10170">1/128 Imm Amphon Village, Soi Thawi Watthana 20, Thawi Watthana Road, Sala Thammasop, Thawi Watthana, Bangkok 10170</p><p data-th="เปิดบริการ: จันทร์ - ศุกร์ 9.00 - 17.30 น." data-en="Office hours: Monday - Friday, 9:00 AM - 5:30 PM">Office hours: Monday - Friday, 9:00 AM - 5:30 PM</p><p><a href="tel:+66636641555">Mobile: 063-664-1555</a></p><p><a href="mailto:info@ek.co.th">Email: info@ek.co.th</a></p></div></div></footer>
+    <section class="cookie-banner" data-cookie-banner="" role="region" aria-label="Cookie notice" hidden=""><div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between"><p class="text-sm leading-6" data-th="เว็บไซต์นี้ใช้คุกกี้ที่จำเป็นและคุกกี้เพื่อปรับปรุงประสบการณ์การใช้งาน คุณสามารถอ่านรายละเอียดเพิ่มเติมได้ในนโยบายการใช้งานคุกกี้" data-en="This website uses necessary cookies and cookies that improve your experience. You can learn more in our Cookie Policy.">This website uses necessary cookies and cookies that improve your experience. You can learn more in our Cookie Policy.</p><div class="flex shrink-0 gap-3"><a class="rounded border border-slate-500 px-4 py-2 text-sm font-bold text-white" href="../cookie-policy.html" data-th="ดูนโยบาย" data-en="View Policy">View Policy</a><button class="rounded border border-slate-500 px-4 py-2 text-sm font-bold text-white" type="button" data-cookie-decline data-th="ปฏิเสธ" data-en="Decline">Decline</button><button class="rounded bg-teal-500 px-4 py-2 text-sm font-bold text-slate-950" type="button" data-cookie-accept="" data-th="ยอมรับ" data-en="Accept">Accept</button></div></div></section>
+    <script src="../../assets/site.js?v=20261113-site-fixes-1" defer></script>
+
+
+</body></html>
