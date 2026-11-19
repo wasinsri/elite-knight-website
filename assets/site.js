@@ -18,6 +18,7 @@ const insightResults = document.querySelector("[data-insight-results]");
 const insightSectionKicker = document.querySelector('section[aria-labelledby="article-list"] .section-kicker');
 
 const articleCategories = {
+  "cyber-recovery-business-acceptance": ["cybersecurity"],
   "ai-transformation-use-case": ["data-ai"], "data-governance-ai": ["data-ai", "governance"],
   "generative-ai-enterprise-safety-checklist": ["data-ai", "governance"], "pdpa-generative-ai-enterprise": ["data-ai", "governance"],
   "ai-risk-assessment-use-case": ["data-ai", "governance"], "ai-governance-thailand-getting-started": ["data-ai", "governance"], "ai-model-governance-monitoring": ["data-ai", "governance"], "ai-governance-assurance-metrics": ["data-ai", "governance"], "iso-iec-42001-ai-management-system": ["data-ai", "governance"],
