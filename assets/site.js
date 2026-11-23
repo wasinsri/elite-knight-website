@@ -18,6 +18,7 @@ const insightResults = document.querySelector("[data-insight-results]");
 const insightSectionKicker = document.querySelector('section[aria-labelledby="article-list"] .section-kicker');
 
 const articleCategories = {
+  "digital-transformation-adoption-measurement": ["digital-excellence"],
   "cyber-recovery-business-acceptance": ["cybersecurity"],
   "ai-transformation-use-case": ["data-ai"], "data-governance-ai": ["data-ai", "governance"],
   "generative-ai-enterprise-safety-checklist": ["data-ai", "governance"], "pdpa-generative-ai-enterprise": ["data-ai", "governance"],
