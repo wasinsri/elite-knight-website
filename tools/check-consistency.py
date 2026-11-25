@@ -534,6 +534,22 @@ def check_article_page(page: str, language: str) -> None:
     if source is None:
         return
 
+    # Presence of wrappers alone does not ensure the template components render.
+    for css_class, list_tag in (("ek-toc", "ol"), ("ek-related", "ul")):
+        panel = re.search(r'<nav\b[^>]*class="' + css_class + r'"[^>]*>(.*?)</nav>', source, re.S)
+        if not panel or not re.search(r'<' + list_tag + r'\b', panel.group(1)) or '<li' not in panel.group(1):
+            err(page, f'{css_class} must use the template {list_tag}/li structure')
+    if 'class="ek-breadcrumb"' not in source:
+        err(page, 'article hero must include the template breadcrumb')
+    for detail in re.findall(r'<details\b.*?</details>', source, re.S):
+        if not re.search(r'<details\b[^>]*class="[^"]*\bp-5\b', detail) or not re.search(r'<summary\b[^>]*class="[^"]*cursor-pointer', detail):
+            err(page, 'FAQ items must retain the template card and summary styling')
+    cta = re.search(r'<section\b[^>]*class="[^"]*article-cta[^\"]*"[^>]*>(.*?)</section>', source, re.S)
+    if cta:
+        links = re.findall(r'<a\b([^>]*)>', cta.group(1))
+        if len(links) != 2 or any('inline-flex' not in attrs for attrs in links):
+            err(page, 'article CTA must contain two styled template buttons')
+
     visible_questions = [strip_tags(value) for value in visible_tag_values(source, "summary", language)]
     schema_questions = faq_page_questions(source)
     if len(visible_questions) != 5:

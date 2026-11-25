@@ -28,6 +28,8 @@ Elite Knight Co., Ltd. (`wasinsri/elite-knight-website`) is a static, bilingual 
 
 ## Articles and Insights
 
+- Preserve component internals when writing articles: hero breadcrumb and metadata spacing; `ek-toc` heading with `ol/li`; `ek-related` heading with `ul/li`; FAQ cards with padded details, styled summaries, and an enclosing spaced grid; CTA heading and two styled buttons. Do not substitute bare anchors/details for template components. The `--article` check validates component structure as well as length and FAQ parity; it must pass before every new article publish.
+
 - Reading buttons always use “อ่านบทความ” in Thai and “Read article” in English, including `data-th`/`data-en`. Keep reading and sharing actions in the shared `.article-card-actions` row with centered alignment, 48px button heights, and zero margin/padding on its nested share group. Do not add card-specific action spacing.
 
 - Every article card, including the featured article and category overview cards in both languages, must include exactly one visible, styled reading button linking to the same local-language article as its title. Use `inline-flex` on the reading link so `initializeArticleCardActions()` applies the standard teal button and shared action row beside LinkedIn/Facebook/X. Use localized `data-th`/`data-en` labels. A plain text link does not meet this requirement. Run `python3 tools/check-consistency.py` before publishing; its reading-button check is a release requirement.
