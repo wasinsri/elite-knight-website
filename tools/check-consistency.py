@@ -560,13 +560,39 @@ def check_article_pair() -> None:
     check_article_page(english_page, "en")
 
 
+def check_card_reading_buttons() -> None:
+    """Reject cards whose reading link cannot use the shared button styling."""
+    for page, source in SOURCES.items():
+        for number, card in enumerate(re.findall(r'<article\b[^>]*class="[^"]*\barticle-card\b[^"]*"[^>]*>(.*?)</article>', source, re.S), 1):
+            links = []
+            for attrs, label in re.findall(r'<a\b([^>]*)>(.*?)</a>', card, re.S):
+                values = dict(re.findall(r'([\w-]+)="([^"]*)"', attrs))
+                links.append((values, strip_tags(label)))
+            titles = [a for a, _ in links if 'article-title-link' in a.get('class', '').split()]
+            if not titles:
+                err(page, f'article card {number}: missing article title link')
+                continue
+            target = titles[0].get('href')
+            buttons = [(a, text) for a, text in links if a.get('href') == target and 'article-title-link' not in a.get('class', '').split() and 'share-button' not in a.get('class', '').split()]
+            if len(buttons) != 1:
+                err(page, f'article card {number}: expected exactly one reading button for {target}')
+                continue
+            attrs, label = buttons[0]
+            classes = attrs.get('class', '').split()
+            if not label or 'hidden' in attrs or 'hidden' in classes or not ({'inline-flex', 'bg-teal-700'} & set(classes)):
+                err(page, f'article card {number}: reading link needs visible standard button styling for {target}')
+            expected_prefix = 'articles/'
+            if not target or not target.startswith(expected_prefix):
+                err(page, f'article card {number}: reading button must link to the local-language article')
+
+
 def main() -> int:
     for check in (
         check_cache_version, check_shell, check_consent_gate, check_no_cdn,
         check_classes, check_jsonld, check_paths, check_images,
         check_metadata, check_language_pairs, check_article_layout,
         check_article_metadata,
-        check_article_pair,
+        check_article_pair, check_card_reading_buttons,
     ):
         check()
 
