@@ -578,6 +578,9 @@ def check_card_reading_buttons() -> None:
                 err(page, f'article card {number}: expected exactly one reading button for {target}')
                 continue
             attrs, label = buttons[0]
+            expected_label = 'Readarticle' if page.startswith('en/') else 'อ่านบทความ'
+            if re.sub(r'\s+', '', label) != expected_label:
+                err(page, f'article card {number}: reading label must be อ่านบทความ / Read article')
             classes = attrs.get('class', '').split()
             if not label or 'hidden' in attrs or 'hidden' in classes or not ({'inline-flex', 'bg-teal-700'} & set(classes)):
                 err(page, f'article card {number}: reading link needs visible standard button styling for {target}')

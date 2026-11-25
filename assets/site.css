@@ -950,6 +950,7 @@ body.ek-site *::after { box-sizing: border-box; }
 .article-card-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: .5rem;
   margin-top: auto;
   padding-top: 1.25rem;
@@ -965,6 +966,10 @@ body.ek-site *::after { box-sizing: border-box; }
   font-weight: 700;
   justify-content: center;
   min-height: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  line-height: 1.5;
+  white-space: nowrap;
   padding: .75rem 1rem;
   order: 2;
 }
@@ -977,6 +982,9 @@ body.ek-site *::after { box-sizing: border-box; }
 .article-card-actions > div {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
   gap: .5rem;
   order: 1;
 }
@@ -990,6 +998,10 @@ body.ek-site *::after { box-sizing: border-box; }
   background: #ffffff;
   color: var(--ek-ink);
   min-height: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  line-height: 1.5;
+  white-space: nowrap;
   padding: .75rem .75rem;
 }
 

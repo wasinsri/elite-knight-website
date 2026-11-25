@@ -28,6 +28,8 @@ Elite Knight Co., Ltd. (`wasinsri/elite-knight-website`) is a static, bilingual 
 
 ## Articles and Insights
 
+- Reading buttons always use “อ่านบทความ” in Thai and “Read article” in English, including `data-th`/`data-en`. Keep reading and sharing actions in the shared `.article-card-actions` row with centered alignment, 48px button heights, and zero margin/padding on its nested share group. Do not add card-specific action spacing.
+
 - Every article card, including the featured article and category overview cards in both languages, must include exactly one visible, styled reading button linking to the same local-language article as its title. Use `inline-flex` on the reading link so `initializeArticleCardActions()` applies the standard teal button and shared action row beside LinkedIn/Facebook/X. Use localized `data-th`/`data-en` labels. A plain text link does not meet this requirement. Run `python3 tools/check-consistency.py` before publishing; its reading-button check is a release requirement.
 
 - Every new article needs a Thai/English pair, approximately 4,000–6,500 visible editorial characters per language, and one visible FAQ with exactly five substantive question-and-answer items. Count headings and visible FAQ answers, excluding markup, metadata, navigation, footer, cookie banner, share labels, and whitespace. Do not publish outside this range without user approval. Keep complete `data-th`/`data-en` text and align both FAQ questions and answers with FAQPage JSON-LD.
