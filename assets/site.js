@@ -18,6 +18,7 @@ const insightResults = document.querySelector("[data-insight-results]");
 const insightSectionKicker = document.querySelector('section[aria-labelledby="article-list"] .section-kicker');
 
 const articleCategories = {
+  "data-quality-issue-management": ["data-ai", "governance"],
   "strategic-pmo-portfolio-capacity": ["management-pmo"],
   "digital-transformation-adoption-measurement": ["digital-excellence"],
   "cyber-recovery-business-acceptance": ["cybersecurity"],
