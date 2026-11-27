@@ -226,6 +226,7 @@ class ArticleStructureParser(HTMLParser):
         self.direct_content_divs = 0
         self.cta_outside_prose = False
         self.faq_outside_prose = False
+        self.prose_children: list[tuple[str, dict[str, str | None]]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = dict(attrs)
@@ -233,6 +234,8 @@ class ArticleStructureParser(HTMLParser):
         if tag == "article":
             self.article_depth = len(self.stack)
         elif self.article_depth is not None:
+            if self.stack and "article-prose" in self.stack[-1][1]:
+                self.prose_children.append((tag, values))
             if tag == "div" and len(self.stack) == self.article_depth + 1:
                 self.direct_content_divs += 1
             inside_prose = any("article-prose" in ancestor_classes for _, ancestor_classes in self.stack)
@@ -275,6 +278,17 @@ def check_article_layout() -> None:
             err(page, "article CTA must remain inside article-prose")
         if structure_parser.faq_outside_prose:
             err(page, "article FAQ must remain inside article-prose")
+        children = structure_parser.prose_children
+        related_positions = [
+            i for i, (_, attrs) in enumerate(children)
+            if "ek-related" in (attrs.get("class") or "").split()
+        ]
+        if len(related_positions) != 1 or related_positions[0] == 0:
+            err(page, "related articles must be a separate section immediately after the FAQ inside article-prose")
+        else:
+            previous_tag, previous_attrs = children[related_positions[0] - 1]
+            if previous_tag != "section" or "article-faq-heading" not in (previous_attrs.get("aria-labelledby") or "").split():
+                err(page, "related articles must immediately follow the complete FAQ section")
 
         article_match = re.search(r"<article\b[^>]*>(.*?)</article>", src, re.S | re.I)
         if not article_match:
@@ -282,6 +296,14 @@ def check_article_layout() -> None:
             continue
 
         article = article_match.group(1)
+        related_labels = {"บทความที่เกี่ยวข้อง", "อ่านเพิ่มเติม", "related articles", "related reading", "further reading", "read more"}
+        captions = [
+            html.unescape(re.sub(r"<[^>]+>", "", match.group(2))).strip().casefold()
+            for match in re.finditer(r'<(h[2-6]|p)\b[^>]*>(.*?)</\1>', article, re.S | re.I)
+        ]
+        expected_label = "related articles" if page.startswith("en/") else "บทความที่เกี่ยวข้อง"
+        if [caption for caption in captions if caption in related_labels] != [expected_label]:
+            err(page, "use exactly one localized Related articles title; remove duplicate Read more / Related reading sections")
         if article.count("max-w-4xl") != 2:
             err(page, "article must use max-w-4xl only for the hero and outer content wrapper")
         hero_match = re.search(
